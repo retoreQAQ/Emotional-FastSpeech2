@@ -10,6 +10,8 @@ from scipy.interpolate import interp1d
 from sklearn.preprocessing import StandardScaler
 from tqdm import tqdm
 
+import sys
+sys.path.append('/home/you/workspace/son/FastSpeech2')
 import audio as Audio
 
 
@@ -64,30 +66,66 @@ class Preprocessor:
 
         # Compute pitch, energy, duration, and mel-spectrogram
         speakers = {}
+        
+        # 使用tqdm显示说话人进度
         for i, speaker in enumerate(tqdm(os.listdir(self.in_dir))):
             speakers[speaker] = i
             for wav_name in os.listdir(os.path.join(self.in_dir, speaker)):
                 if ".wav" not in wav_name:
                     continue
-
                 basename = wav_name.split(".")[0]
                 tg_path = os.path.join(
                     self.out_dir, "TextGrid", speaker, "{}.TextGrid".format(basename)
                 )
                 if os.path.exists(tg_path):
+                    # 检查是否所有特征文件都已存在
+                    mel_file = os.path.join(self.out_dir, "mel", f"{speaker}-mel-{basename}.npy")
+                    pitch_file = os.path.join(self.out_dir, "pitch", f"{speaker}-pitch-{basename}.npy")
+                    energy_file = os.path.join(self.out_dir, "energy", f"{speaker}-energy-{basename}.npy")
+                    duration_file = os.path.join(self.out_dir, "duration", f"{speaker}-duration-{basename}.npy")
+                    
+                    # 如果所有文件都存在，则跳过处理
+                    if all(os.path.exists(f) for f in [mel_file, pitch_file, energy_file, duration_file]):
+                        # 读取已有的pitch和energy数据用于统计
+                        try:
+                            pitch_data = np.load(pitch_file)
+                            energy_data = np.load(energy_file)
+                            mel_data = np.load(mel_file)
+                            
+                            if len(pitch_data) > 0:
+                                pitch_scaler.partial_fit(pitch_data.reshape((-1, 1)))
+                            if len(energy_data) > 0:
+                                energy_scaler.partial_fit(energy_data.reshape((-1, 1)))
+                            
+                            # 添加到输出列表
+                            with open(os.path.join(self.in_dir, speaker, "{}.lab".format(basename)), "r") as f:
+                                raw_text = f.readline().strip("\n")
+                            
+                            tg_path = os.path.join(self.out_dir, "TextGrid", speaker, "{}.TextGrid".format(basename))
+                            textgrid = tgt.io.read_textgrid(tg_path)
+                            phone, _, _, _ = self.get_alignment(textgrid.get_tier_by_name("phones"))
+                            text = "{" + " ".join(phone) + "}"
+                            
+                            out.append("|".join([basename, speaker, text, raw_text]))
+                            n_frames += mel_data.shape[0]
+                            continue
+                        except Exception as e:
+                            print(f"Error reading existing files for {speaker}-{basename}, reprocessing...")
+                            
+                    # 如果文件不存在或读取出错，则重新处理
                     ret = self.process_utterance(speaker, basename)
                     if ret is None:
                         continue
                     else:
                         info, pitch, energy, n = ret
-                    out.append(info)
+                        out.append(info)
 
-                if len(pitch) > 0:
-                    pitch_scaler.partial_fit(pitch.reshape((-1, 1)))
-                if len(energy) > 0:
-                    energy_scaler.partial_fit(energy.reshape((-1, 1)))
+                    if len(pitch) > 0:
+                        pitch_scaler.partial_fit(pitch.reshape((-1, 1)))
+                    if len(energy) > 0:
+                        energy_scaler.partial_fit(energy.reshape((-1, 1)))
 
-                n_frames += n
+                    n_frames += n
 
         print("Computing statistic quantities ...")
         # Perform normalization if necessary
@@ -312,3 +350,9 @@ class Preprocessor:
             min_value = min(min_value, min(values))
 
         return min_value, max_value
+
+import yaml
+if __name__ == "__main__":
+    config = yaml.load(open('/home/you/workspace/son/FastSpeech2/config/MSP/preprocess.yaml', "r"), Loader=yaml.FullLoader)
+    preprocessor = Preprocessor(config)
+    preprocessor.build_from_path()

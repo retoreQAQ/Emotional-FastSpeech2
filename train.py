@@ -196,3 +196,12 @@ if __name__ == "__main__":
     configs = (preprocess_config, model_config, train_config)
 
     main(args, configs)
+    
+    # preprocess_config = yaml.load(
+    #     open('/home/you/workspace/son/FastSpeech2/config/MSP/preprocess.yaml', "r"), Loader=yaml.FullLoader
+    # )
+    # model_config = yaml.load(open('/home/you/workspace/son/FastSpeech2/config/MSP/model.yaml', "r"), Loader=yaml.FullLoader)
+    # train_config = yaml.load(open('/home/you/workspace/son/FastSpeech2/config/MSP/train.yaml', "r"), Loader=yaml.FullLoader)
+    # configs = (preprocess_config, model_config, train_config)
+    # args = None
+    # main(args, configs)

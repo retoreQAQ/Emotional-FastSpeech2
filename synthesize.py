@@ -1,4 +1,5 @@
 import re
+import os
 import argparse
 from string import punctuation
 
@@ -87,6 +88,8 @@ def preprocess_mandarin(text, preprocess_config):
 def synthesize(model, step, configs, vocoder, batchs, control_values):
     preprocess_config, model_config, train_config = configs
     pitch_control, energy_control, duration_control = control_values
+    result_path = train_config["path"]["result_path"] + "/{}".format(step)
+    os.makedirs(result_path, exist_ok=True)
 
     for batch in batchs:
         batch = to_device(batch, device)
@@ -104,7 +107,7 @@ def synthesize(model, step, configs, vocoder, batchs, control_values):
                 vocoder,
                 model_config,
                 preprocess_config,
-                train_config["path"]["result_path"],
+                result_path,
             )
 
 
