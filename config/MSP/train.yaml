@@ -1,7 +1,7 @@
 path:
-  ckpt_path: "./output/ckpt/MSP_single"
-  log_path: "./output/log/MSP_single"
-  result_path: "./output/result/MSP_single"
+  ckpt_path: "./output/ckpt/MSP"
+  log_path: "./output/log/MSP"
+  result_path: "./output/result/MSP"
 optimizer:
   batch_size: 16
   betas: [0.9, 0.98]
@@ -13,7 +13,7 @@ optimizer:
   anneal_steps: [300000, 400000, 500000]
   anneal_rate: 0.3
 step:
-  total_step: 300000
+  total_step: 900000
   log_step: 100
   synth_step: 1000
   val_step: 1000
