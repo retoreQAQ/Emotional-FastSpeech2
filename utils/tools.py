@@ -16,7 +16,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
 def to_device(data, device):
-    if len(data) == 12:
+    if len(data) == 15:
         (
             ids,
             raw_texts,
@@ -30,6 +30,9 @@ def to_device(data, device):
             pitches,
             energies,
             durations,
+            emotions,
+            arousals,
+            valences,
         ) = data
 
         speakers = torch.from_numpy(speakers).long().to(device)
@@ -40,6 +43,9 @@ def to_device(data, device):
         pitches = torch.from_numpy(pitches).float().to(device)
         energies = torch.from_numpy(energies).to(device)
         durations = torch.from_numpy(durations).long().to(device)
+        emotions = torch.from_numpy(emotions).long().to(device)
+        arousals = torch.from_numpy(arousals).long().to(device)
+        valences = torch.from_numpy(valences).long().to(device)
 
         return (
             ids,
@@ -54,16 +60,22 @@ def to_device(data, device):
             pitches,
             energies,
             durations,
+            emotions,
+            arousals,
+            valences,
         )
 
-    if len(data) == 6:
-        (ids, raw_texts, speakers, texts, src_lens, max_src_len) = data
+    if len(data) == 9:
+        (ids, raw_texts, speakers, texts, src_lens, max_src_len, emotions, arousals, valences) = data
 
         speakers = torch.from_numpy(speakers).long().to(device)
+        emotions = torch.from_numpy(emotions).long().to(device)
+        arousals = torch.from_numpy(arousals).long().to(device)
+        valences = torch.from_numpy(valences).long().to(device)
         texts = torch.from_numpy(texts).long().to(device)
         src_lens = torch.from_numpy(src_lens).to(device)
 
-        return (ids, raw_texts, speakers, texts, src_lens, max_src_len)
+        return (ids, raw_texts, speakers, texts, src_lens, max_src_len, emotions, arousals, valences)
 
 
 def log(
@@ -107,7 +119,6 @@ def expand(values, durations):
 
 
 def synth_one_sample(targets, predictions, vocoder, model_config, preprocess_config):
-
     basename = targets[0][0]
     src_len = predictions[8][0].item()
     mel_len = predictions[9][0].item()
@@ -144,13 +155,13 @@ def synth_one_sample(targets, predictions, vocoder, model_config, preprocess_con
         from .model import vocoder_infer
 
         wav_reconstruction = vocoder_infer(
-            mel_target.unsqueeze(0),
+            mel_target.unsqueeze(0).cuda(),
             vocoder,
             model_config,
             preprocess_config,
         )[0]
         wav_prediction = vocoder_infer(
-            mel_prediction.unsqueeze(0),
+            mel_prediction.unsqueeze(0).cuda(),
             vocoder,
             model_config,
             preprocess_config,
@@ -162,7 +173,6 @@ def synth_one_sample(targets, predictions, vocoder, model_config, preprocess_con
 
 
 def synth_samples(targets, predictions, vocoder, model_config, preprocess_config, path):
-
     basenames = targets[0]
     for i in range(len(predictions[0])):
         basename = basenames[i]
@@ -188,9 +198,7 @@ def synth_samples(targets, predictions, vocoder, model_config, preprocess_config
             stats = stats["pitch"] + stats["energy"][:2]
 
         fig = plot_mel(
-            [
-                (mel_prediction.cpu().numpy(), pitch, energy),
-            ],
+            [(mel_prediction.cpu().numpy(), pitch, energy)],
             stats,
             ["Synthetized Spectrogram"],
         )

@@ -112,36 +112,33 @@ class Dataset(Dataset):
     def reprocess(self, data, idxs):
         ids = [data[idx]["id"] for idx in idxs]
         speakers = [data[idx]["speaker"] for idx in idxs]
-        emotions = [data[idx]["emotion"] for idx in idxs]
-        arousals = [data[idx]["arousal"] for idx in idxs]
-        valences = [data[idx]["valence"] for idx in idxs]
         texts = [data[idx]["text"] for idx in idxs]
         raw_texts = [data[idx]["raw_text"] for idx in idxs]
         mels = [data[idx]["mel"] for idx in idxs]
         pitches = [data[idx]["pitch"] for idx in idxs]
         energies = [data[idx]["energy"] for idx in idxs]
         durations = [data[idx]["duration"] for idx in idxs]
+        emotions = [data[idx]["emotion"] for idx in idxs]
+        arousals = [data[idx]["arousal"] for idx in idxs]
+        valences = [data[idx]["valence"] for idx in idxs]
 
         text_lens = np.array([text.shape[0] for text in texts])
         mel_lens = np.array([mel.shape[0] for mel in mels])
 
         speakers = np.array(speakers)
-        emotions = np.array(emotions)
-        arousals = np.array(arousals)
-        valences = np.array(valences)
         texts = pad_1D(texts)
         mels = pad_2D(mels)
         pitches = pad_1D(pitches)
         energies = pad_1D(energies)
         durations = pad_1D(durations)
+        emotions = np.array(emotions)
+        arousals = np.array(arousals)
+        valences = np.array(valences)
 
         return (
             ids,
             raw_texts,
             speakers,
-            emotions,
-            arousals,
-            valences,
             texts,
             text_lens,
             max(text_lens),
@@ -151,6 +148,9 @@ class Dataset(Dataset):
             pitches,
             energies,
             durations,
+            emotions,
+            arousals,
+            valences,
         )
 
     def collate_fn(self, data):
@@ -235,9 +235,9 @@ class TextDataset(Dataset):
         speakers = np.array([d[1] for d in data])
         texts = [d[2] for d in data]
         raw_texts = [d[3] for d in data]
-        emotions = [d[4] for d in data]
-        arousals = [d[5] for d in data]
-        valences = [d[6] for d in data]
+        emotions = np.array([d[4] for d in data])
+        arousals = np.array([d[5] for d in data])
+        valences = np.array([d[6] for d in data])
         text_lens = np.array([text.shape[0] for text in texts])
 
         texts = pad_1D(texts)

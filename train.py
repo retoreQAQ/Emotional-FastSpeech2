@@ -1,6 +1,8 @@
 import argparse
 import os
 
+from distutils.version import LooseVersion
+
 import torch
 import yaml
 import torch.nn as nn
@@ -79,7 +81,21 @@ def main(args, configs):
                 batch = to_device(batch, device)
 
                 # Forward
-                output = model(*(batch[2:]))
+                output = model(
+                    batch[2],  # speakers
+                    batch[12],  # emotions
+                    batch[13],  # arousals
+                    batch[14],  # valences
+                    batch[3],  # texts
+                    batch[4],  # text_lens
+                    batch[5],  # max_src_len
+                    batch[6],  # mels
+                    batch[7],  # mel_lens
+                    batch[8],  # max_mel_len
+                    batch[9],  # p_targets
+                    batch[10],  # e_targets
+                    batch[11],  # d_targets
+                )
 
                 # Cal Loss
                 losses = Loss(batch, output)

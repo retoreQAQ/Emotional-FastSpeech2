@@ -40,7 +40,21 @@ def evaluate(model, step, configs, logger=None, vocoder=None):
             batch = to_device(batch, device)
             with torch.no_grad():
                 # Forward
-                output = model(*(batch[2:]))
+                output = model(
+                    batch[2],  # speakers
+                    batch[12],  # emotions
+                    batch[13],  # arousals
+                    batch[14],  # valences
+                    batch[3],  # texts
+                    batch[4],  # text_lens
+                    batch[5],  # max_src_len
+                    batch[6],  # mels
+                    batch[7],  # mel_lens
+                    batch[8],  # max_mel_len
+                    batch[9],  # p_targets
+                    batch[10],  # e_targets
+                    batch[11],  # d_targets
+                )
 
                 # Cal Loss
                 losses = Loss(batch, output)
