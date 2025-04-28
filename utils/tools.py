@@ -66,7 +66,7 @@ def to_device(data, device):
         )
 
     if len(data) == 9:
-        (ids, raw_texts, speakers, texts, src_lens, max_src_len, emotions, arousals, valences) = data
+        (ids, raw_texts, speakers, emotions, arousals, valences, texts, src_lens, max_src_len) = data
 
         speakers = torch.from_numpy(speakers).long().to(device)
         emotions = torch.from_numpy(emotions).long().to(device)
@@ -75,7 +75,7 @@ def to_device(data, device):
         texts = torch.from_numpy(texts).long().to(device)
         src_lens = torch.from_numpy(src_lens).to(device)
 
-        return (ids, raw_texts, speakers, texts, src_lens, max_src_len, emotions, arousals, valences)
+        return (ids, raw_texts, speakers, emotions, arousals, valences, texts, src_lens, max_src_len)
 
 
 def log(

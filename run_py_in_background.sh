@@ -7,7 +7,7 @@ CONDA_ENV_NAME=fs2
 PYTHON_SCRIPT_PATH=/home/you/workspace/son/FastSpeech2/train.py
 
 # 训练参数
-ARGS="-p config/LibriTTS/preprocess.yaml -m config/LibriTTS/model.yaml -t config/LibriTTS/train.yaml --restore_step 100000"
+ARGS="-p config/MSP/preprocess.yaml -m config/MSP/model.yaml -t config/MSP/train.yaml"
 
 # 指定日志目录
 LOG_DIR="/home/you/workspace/son/FastSpeech2/run_in_background_log"

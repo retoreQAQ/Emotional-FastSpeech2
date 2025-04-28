@@ -96,7 +96,7 @@ def synthesize(model, step, configs, vocoder, batchs, control_values):
         with torch.no_grad():
             # Forward
             output = model(
-                *(batch[2:]),
+                *batch[2:],
                 p_control=pitch_control,
                 e_control=energy_control,
                 d_control=duration_control
@@ -114,6 +114,13 @@ def synthesize(model, step, configs, vocoder, batchs, control_values):
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
+    # parser.add_argument(
+    #     "dataset",
+    #     type=str,
+    #     choices=["MSP", "LJSpeech", "LibriTTS"],
+    #     required=True,
+    #     help="dataset name",
+    # )
     parser.add_argument("--restore_step", type=int, required=True)
     parser.add_argument(
         "--mode",
@@ -141,17 +148,43 @@ if __name__ == "__main__":
         help="speaker ID for multi-speaker synthesis, for single-sentence mode only",
     )
     parser.add_argument(
+        "--emotion_id",
+        type=int,
+        default=5,  # N: Neutral
+        help="emotion ID (0:A-Angry, 1:C-Contempt, 2:D-Disgust, 3:F-Fear, 4:H-Happy, 5:N-Neutral, 6:O-Other, 7:S-Sad, 8:U-Surprise, 9:X-Unknown)",
+    )
+    parser.add_argument(
+        "--arousal",
+        type=int,
+        default=6,
+        help="arousal level (0-12, from low to high)",
+    )
+    parser.add_argument(
+        "--valence",
+        type=int,
+        default=6,
+        help="valence level (0-12, from negative to positive)",
+    )
+    parser.add_argument(
         "-p",
         "--preprocess_config",
         type=str,
-        required=True,
+        default="./config/MSP/preprocess.yaml",
         help="path to preprocess.yaml",
     )
     parser.add_argument(
-        "-m", "--model_config", type=str, required=True, help="path to model.yaml"
+        "-m", 
+        "--model_config", 
+        type=str,
+        default="./config/MSP/model.yaml",
+        help="path to model.yaml"
     )
     parser.add_argument(
-        "-t", "--train_config", type=str, required=True, help="path to train.yaml"
+        "-t", 
+        "--train_config", 
+        type=str,
+        default="./config/MSP/train.yaml",
+        help="path to train.yaml"
     )
     parser.add_argument(
         "--pitch_control",
@@ -205,12 +238,15 @@ if __name__ == "__main__":
     if args.mode == "single":
         ids = raw_texts = [args.text[:100]]
         speakers = np.array([args.speaker_id])
+        emotions = np.array([args.emotion_id])
+        arousals = np.array([args.arousal])
+        valences = np.array([args.valence])
         if preprocess_config["preprocessing"]["text"]["language"] == "en":
             texts = np.array([preprocess_english(args.text, preprocess_config)])
         elif preprocess_config["preprocessing"]["text"]["language"] == "zh":
             texts = np.array([preprocess_mandarin(args.text, preprocess_config)])
         text_lens = np.array([len(texts[0])])
-        batchs = [(ids, raw_texts, speakers, texts, text_lens, max(text_lens))]
+        batchs = [(ids, raw_texts, speakers, emotions, arousals, valences, texts, text_lens, max(text_lens))]
 
     control_values = args.pitch_control, args.energy_control, args.duration_control
 
