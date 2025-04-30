@@ -4,10 +4,10 @@
 CONDA_ENV_NAME=fs2
 
 # 选取用于运行的py脚本
-PYTHON_SCRIPT_PATH=/home/you/workspace/son/FastSpeech2/train.py
+PYTHON_SCRIPT_PATH=/home/you/workspace/son/FastSpeech2/finetune.py
 
 # 训练参数
-ARGS="-p config/MSP/preprocess.yaml -m config/MSP/model.yaml -t config/MSP/train.yaml"
+ARGS="-p config/MSP/preprocess.yaml -m config/MSP/model.yaml -t config/MSP/train_finetune.yaml --restore_step 900000"
 
 # 指定日志目录
 LOG_DIR="/home/you/workspace/son/FastSpeech2/run_in_background_log"
@@ -47,7 +47,7 @@ fi
 
 # 执行Python脚本（修正错别字 `eecho` -> `echo`）
 echo "Executing Python script: $PYTHON_SCRIPT_PATH with arguments: $ARGS" | tee -a "$LOG_FILE"
-nohup python3 "$PYTHON_SCRIPT_PATH" $ARGS >> "$LOG_FILE" 2>&1 &
+DISABLE_TQDM=true nohup python3 "$PYTHON_SCRIPT_PATH" $ARGS >> "$LOG_FILE" 2>&1 &
 
 echo "Script started in background. Check $LOG_FILE for output." | tee -a "$LOG_FILE"
 

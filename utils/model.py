@@ -34,6 +34,70 @@ def get_model(args, configs, device, train=False):
     model.requires_grad_ = False
     return model
 
+def get_model_finetune(args, configs, device, train=False):
+    (preprocess_config, model_config, train_config) = configs
+
+    model = FastSpeech2(preprocess_config, model_config).to(device)
+
+    if args and args.restore_step:
+        ckpt_path = os.path.join(
+            train_config["path"]["ckpt_path"],
+            "{}.pth.tar".format(args.restore_step),
+        )
+        print(f"🔄 正在加载检查点: {ckpt_path}")
+        try:
+            ckpt = torch.load(ckpt_path, map_location=device)
+        except Exception as e:
+            print(f"❌ 加载检查点失败: {e}")
+            return None
+
+        # 宽松加载参数
+        ckpt_model_state = ckpt["model"]
+        current_model_state = model.state_dict()
+
+        matched_state = {}
+        for k, v in ckpt_model_state.items():
+            if k not in current_model_state:
+                print(f"⚠️ 跳过参数 {k}: 在当前模型中不存在")
+                continue
+
+            if k == "speaker_emb.weight":
+                pretrained, current = v.shape[0], current_model_state[k].shape[0]
+                if pretrained <= current:
+                    print(f"🔧 合并speaker_emb: 预训练={pretrained}, 当前={current}")
+                    new_weight = current_model_state[k].clone()
+                    new_weight[:pretrained] = v  # 用旧的前部分参数替换
+                    matched_state[k] = new_weight
+                else:
+                    print(f"⚠️ 无法加载speaker_emb: 预训练={pretrained}, 当前={current}")
+                    continue
+            elif v.shape == current_model_state[k].shape:
+                matched_state[k] = v
+
+        skipped = [k for k in current_model_state if k not in matched_state]
+        print(f"✅ Loaded parameters: {list(matched_state.keys())}")
+        print(f"⚠️ Skipped parameters (missing or shape mismatch): {skipped}")
+
+        model.load_state_dict(matched_state, strict=False)
+        print(f"✅ 成功加载 {len(matched_state)} 个参数")
+
+    if train:
+        scheduled_optim = ScheduledOptim(
+            model, train_config, model_config,
+            args.restore_step if args else 0
+        )
+        if args and args.restore_step and "optimizer" in ckpt:
+            try:
+                scheduled_optim.load_state_dict(ckpt["optimizer"])
+                print("✅ 优化器状态加载成功")
+            except Exception as e:
+                print(f"⚠️ 优化器状态加载失败,将重新初始化: {e}")
+        model.train()
+        return model, scheduled_optim
+
+    model.eval()
+    model.requires_grad_ = False
+    return model
 
 def get_param_num(model):
     num_param = sum(param.numel() for param in model.parameters())

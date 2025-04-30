@@ -21,6 +21,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
 def main(args, configs):
+    disable_tqdm = os.environ.get("DISABLE_TQDM", "false").lower() == "true"
     print("Prepare training ...")
 
     preprocess_config, model_config, train_config = configs
@@ -70,12 +71,12 @@ def main(args, configs):
     synth_step = train_config["step"]["synth_step"]
     val_step = train_config["step"]["val_step"]
 
-    outer_bar = tqdm(total=total_step, desc="Training", position=0)
+    outer_bar = tqdm(total=total_step, desc="Training", position=0, disable=disable_tqdm)
     outer_bar.n = args.restore_step
     outer_bar.update()
 
     while True:
-        inner_bar = tqdm(total=len(loader), desc="Epoch {}".format(epoch), position=1)
+        inner_bar = tqdm(total=len(loader), desc="Epoch {}".format(epoch), position=1, disable=disable_tqdm)
         for batchs in loader:
             for batch in batchs:
                 batch = to_device(batch, device)

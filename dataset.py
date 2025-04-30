@@ -37,6 +37,7 @@ class Dataset(Dataset):
     def __getitem__(self, idx):
         basename = self.basename[idx]
         speaker = self.speaker[idx]
+        speaker_without_prefix = speaker.split("_")[1]
         speaker_id = self.speaker_map[speaker]
         raw_text = self.raw_text[idx]
         emotion = self.emotion[idx]
@@ -49,25 +50,25 @@ class Dataset(Dataset):
         mel_path = os.path.join(
             self.preprocessed_path,
             "mel",
-            "{}-mel-{}.npy".format(speaker, basename),
+            "{}-mel-{}.npy".format(speaker_without_prefix, basename),
         )
         mel = np.load(mel_path)
         pitch_path = os.path.join(
             self.preprocessed_path,
             "pitch",
-            "{}-pitch-{}.npy".format(speaker, basename),
+            "{}-pitch-{}.npy".format(speaker_without_prefix, basename),
         )
         pitch = np.load(pitch_path)
         energy_path = os.path.join(
             self.preprocessed_path,
             "energy",
-            "{}-energy-{}.npy".format(speaker, basename),
+            "{}-energy-{}.npy".format(speaker_without_prefix, basename),
         )
         energy = np.load(energy_path)
         duration_path = os.path.join(
             self.preprocessed_path,
             "duration",
-            "{}-duration-{}.npy".format(speaker, basename),
+            "{}-duration-{}.npy".format(speaker_without_prefix, basename),
         )
         duration = np.load(duration_path)
 
@@ -86,7 +87,6 @@ class Dataset(Dataset):
         }
 
         return sample
-
     def process_meta(self, filename):
         with open(
             os.path.join(self.preprocessed_path, filename), "r", encoding="utf-8"
