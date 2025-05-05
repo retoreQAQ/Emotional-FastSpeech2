@@ -1,7 +1,7 @@
 path:
-  ckpt_path: "./output/ckpt/MSP_finetune"
-  log_path: "./output/log/MSP_finetune"
-  result_path: "./output/result/MSP_finetune"
+  ckpt_path: "./output/ckpt/MSP_finetune_keepall_clean"
+  log_path: "./output/log/MSP_finetune_keepall_clean"
+  result_path: "./output/result/MSP_finetune_keepall_clean"
 optimizer:
   batch_size: 16
   betas: [0.9, 0.98]
@@ -18,3 +18,10 @@ step:
   synth_step: 1000
   val_step: 1000
   save_step: 50000
+freeze:
+  encoder: False
+  decoder: False
+  variance: False
+  speaker: False
+  emotion: False
+  postnet: False

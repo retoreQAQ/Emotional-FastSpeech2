@@ -39,16 +39,13 @@ def get_model_finetune(args, configs, device, train=False):
 
     model = FastSpeech2(preprocess_config, model_config).to(device)
 
-    if args and args.restore_step:
-        ckpt_path = os.path.join(
-            train_config["path"]["ckpt_path"],
-            "{}.pth.tar".format(args.restore_step),
-        )
-        print(f"🔄 正在加载检查点: {ckpt_path}")
+    if args and args.restore_path:
+        ckpt_path = args.restore_path
+        print(f"正在加载检查点: {ckpt_path}")
         try:
             ckpt = torch.load(ckpt_path, map_location=device)
         except Exception as e:
-            print(f"❌ 加载检查点失败: {e}")
+            print(f"加载检查点失败: {e}")
             return None
 
         # 宽松加载参数
@@ -56,30 +53,39 @@ def get_model_finetune(args, configs, device, train=False):
         current_model_state = model.state_dict()
 
         matched_state = {}
+        skipped = []
         for k, v in ckpt_model_state.items():
             if k not in current_model_state:
-                print(f"⚠️ 跳过参数 {k}: 在当前模型中不存在")
+                print(f"跳过参数 {k}: 在当前模型中不存在")
+                skipped.append(k)
                 continue
 
             if k == "speaker_emb.weight":
                 pretrained, current = v.shape[0], current_model_state[k].shape[0]
                 if pretrained <= current:
-                    print(f"🔧 合并speaker_emb: 预训练={pretrained}, 当前={current}")
+                    print(f"合并speaker_emb: 预训练={pretrained}, 当前={current}")
                     new_weight = current_model_state[k].clone()
                     new_weight[:pretrained] = v  # 用旧的前部分参数替换
                     matched_state[k] = new_weight
                 else:
-                    print(f"⚠️ 无法加载speaker_emb: 预训练={pretrained}, 当前={current}")
+                    print(f"无法加载speaker_emb: 预训练={pretrained}, 当前={current}")
+                    skipped.append(k)
                     continue
+            elif k == "emotion_emb.weight" or k == "arousal_emb.weight" or k == "valence_emb.weight":
+                # 对于情感相关参数，如果形状不匹配，使用当前模型的参数
+                print(f"使用当前模型的情感参数: {k}")
+                matched_state[k] = current_model_state[k]
             elif v.shape == current_model_state[k].shape:
                 matched_state[k] = v
+            else:
+                print(f"参数形状不匹配: {k}, 预训练={v.shape}, 当前={current_model_state[k].shape}")
+                skipped.append(k)
 
-        skipped = [k for k in current_model_state if k not in matched_state]
-        print(f"✅ Loaded parameters: {list(matched_state.keys())}")
-        print(f"⚠️ Skipped parameters (missing or shape mismatch): {skipped}")
+        print(f"成功加载 {len(matched_state)} 个参数")
+        print(f"加载的参数: {list(matched_state.keys())}")
+        print(f"跳过的参数: {skipped}")
 
         model.load_state_dict(matched_state, strict=False)
-        print(f"✅ 成功加载 {len(matched_state)} 个参数")
 
     if train:
         scheduled_optim = ScheduledOptim(
@@ -89,15 +95,123 @@ def get_model_finetune(args, configs, device, train=False):
         if args and args.restore_step and "optimizer" in ckpt:
             try:
                 scheduled_optim.load_state_dict(ckpt["optimizer"])
-                print("✅ 优化器状态加载成功")
+                print("优化器状态加载成功")
             except Exception as e:
-                print(f"⚠️ 优化器状态加载失败,将重新初始化: {e}")
+                print(f"优化器状态加载失败,将重新初始化: {e}")
         model.train()
         return model, scheduled_optim
 
     model.eval()
     model.requires_grad_ = False
     return model
+
+def freeze_modules(model, freeze_encoder=True, freeze_decoder=True, freeze_variance=True, 
+                  freeze_speaker=True, freeze_emotion=True, freeze_postnet=True):
+    """冻结选定的模块
+    
+    Args:
+        model: FastSpeech2 模型
+        freeze_encoder: 是否冻结编码器参数
+        freeze_decoder: 是否冻结解码器参数
+        freeze_variance: 是否冻结方差适配器参数
+        freeze_speaker: 是否冻结说话人嵌入参数
+        freeze_emotion: 是否冻结情感相关参数
+        freeze_postnet: 是否冻结后处理网络参数
+    """
+    # 统计参数数量
+    total_params = sum(p.numel() for p in model.parameters())
+    trainable_params = 0
+    
+    # if train_all:
+    #     # 全解冻模式,所有参数都可训练
+    #     for p in model.parameters():
+    #         p.requires_grad = True
+    #     trainable_params = total_params
+    #     print("\n🔓 全解冻模式: 所有参数都可训练")
+    #     print(f"   - 总参数数量: {total_params}")
+    #     print(f"   - 可训练参数: {trainable_params}")
+    #     return
+        
+    # 默认冻结所有参数
+    for p in model.parameters():
+        p.requires_grad = False
+    
+    # 根据配置解冻特定模块
+    if not freeze_encoder:
+        for p in model.encoder.parameters():
+            p.requires_grad = True
+        trainable_params += sum(p.numel() for p in model.encoder.parameters())
+        print("编码器解冻: 编码器参数可训练")
+    else:
+        print("编码器冻结: 编码器参数不可训练")
+        
+    if not freeze_decoder:
+        for p in model.decoder.parameters():
+            p.requires_grad = True
+        trainable_params += sum(p.numel() for p in model.decoder.parameters())
+        print("解码器解冻: 解码器参数可训练")
+    else:
+        print("解码器冻结: 解码器参数不可训练")
+        
+    # 方差适配器
+    if not freeze_variance:
+        for p in model.variance_adaptor.parameters():
+            p.requires_grad = True
+        trainable_params += sum(p.numel() for p in model.variance_adaptor.parameters())
+        print("方差适配器解冻: 方差适配器参数可训练")
+    else:
+        print("方差适配器冻结: 方差适配器参数不可训练")
+    
+    # 说话人嵌入
+    if not freeze_speaker and model.speaker_emb is not None:
+        for p in model.speaker_emb.parameters():
+            p.requires_grad = True
+        trainable_params += sum(p.numel() for p in model.speaker_emb.parameters())
+        print("说话人嵌入解冻: 说话人嵌入参数可训练")
+    else:
+        print("说话人嵌入冻结: 说话人嵌入参数不可训练")
+        
+    # 情感相关参数
+    if not freeze_emotion:
+        if model.emotion_emb is not None:
+            for p in model.emotion_emb.parameters():
+                p.requires_grad = True
+            trainable_params += sum(p.numel() for p in model.emotion_emb.parameters())
+            print("情感嵌入解冻: 情感嵌入参数可训练")
+            
+        if model.arousal_emb is not None:
+            for p in model.arousal_emb.parameters():
+                p.requires_grad = True
+            trainable_params += sum(p.numel() for p in model.arousal_emb.parameters())
+            print("唤醒度嵌入解冻: 唤醒度嵌入参数可训练")
+            
+        if model.valence_emb is not None:
+            for p in model.valence_emb.parameters():
+                p.requires_grad = True
+            trainable_params += sum(p.numel() for p in model.valence_emb.parameters())
+            print("效价嵌入解冻: 效价嵌入参数可训练")
+    else:
+        print("情感相关参数冻结: 情感、唤醒度、效价嵌入参数不可训练")
+    
+    # 后处理网络
+    if not freeze_postnet:
+        for p in model.mel_linear.parameters():
+            p.requires_grad = True
+        for p in model.postnet.parameters():
+            p.requires_grad = True
+        trainable_params += sum(p.numel() for p in model.mel_linear.parameters())
+        trainable_params += sum(p.numel() for p in model.postnet.parameters())
+        print("后处理网络解冻: 梅尔线性层和后处理网络参数可训练")
+    else:
+        print("后处理网络冻结: 梅尔线性层和后处理网络参数不可训练")
+    
+    # 打印参数统计
+    print(f"\n参数统计:")
+    print(f"   - 总参数数量: {total_params}")
+    print(f"   - 可训练参数: {trainable_params}")
+    print(f"   - 冻结参数: {total_params - trainable_params}")
+    print(f"   - 可训练比例: {trainable_params/total_params*100:.2f}%")
+
 
 def get_param_num(model):
     num_param = sum(param.numel() for param in model.parameters())

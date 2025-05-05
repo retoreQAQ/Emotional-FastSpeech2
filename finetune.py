@@ -11,25 +11,11 @@ from distutils.version import LooseVersion
 from torch.utils.tensorboard import SummaryWriter
 from tqdm import tqdm
 
-from utils.model import get_model_finetune, get_vocoder, get_param_num
+from utils.model import get_model_finetune, get_vocoder, get_param_num, freeze_modules
 from utils.tools import to_device, log, synth_one_sample
 from model import FastSpeech2Loss
 from dataset import Dataset
 from evaluate import evaluate
-
-def freeze_modules(model, freeze_encoder=True, freeze_decoder=True):
-    """Freeze selected modules in the model"""
-    if freeze_encoder:
-        for p in model.encoder.parameters():
-            p.requires_grad = False
-    if freeze_decoder:
-        for p in model.decoder.parameters():
-            p.requires_grad = False
-    # Optional: freeze PostNet
-    for p in model.mel_linear.parameters():
-        p.requires_grad = False
-    for p in model.postnet.parameters():
-        p.requires_grad = False
 
 def main(args, configs):
     
@@ -45,8 +31,14 @@ def main(args, configs):
     loader = DataLoader(dataset, batch_size=batch_size * group_size, shuffle=True, collate_fn=dataset.collate_fn)
 
     # Load model and freeze
+    freeze_encoder = train_config["freeze"]["encoder"]
+    freeze_decoder = train_config["freeze"]["decoder"]
+    freeze_variance = train_config["freeze"]["variance"]
+    freeze_speaker = train_config["freeze"]["speaker"]
+    freeze_emotion = train_config["freeze"]["emotion"]
+    freeze_postnet = train_config["freeze"]["postnet"]
     model, optimizer = get_model_finetune(args, configs, device, train=True)
-    freeze_modules(model)  # only freeze encoder/decoder
+    freeze_modules(model, freeze_encoder=freeze_encoder, freeze_decoder=freeze_decoder, freeze_variance=freeze_variance, freeze_speaker=freeze_speaker, freeze_emotion=freeze_emotion, freeze_postnet=freeze_postnet)
     model = nn.DataParallel(model)
     Loss = FastSpeech2Loss(preprocess_config, model_config).to(device)
 
@@ -143,6 +135,7 @@ if __name__ == "__main__":
     parser.add_argument("-p", "--preprocess_config", type=str, required=True)
     parser.add_argument("-m", "--model_config", type=str, required=True)
     parser.add_argument("-t", "--train_config", type=str, required=True)
+    parser.add_argument("--restore_path", type=str, required=True)
     args = parser.parse_args()
 
     preprocess_config = yaml.load(open(args.preprocess_config, "r"), Loader=yaml.FullLoader)

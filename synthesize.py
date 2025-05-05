@@ -121,7 +121,7 @@ if __name__ == "__main__":
     #     required=True,
     #     help="dataset name",
     # )
-    parser.add_argument("--restore_step", type=int, required=True)
+    parser.add_argument("--restore_step", type=str, required=True)
     parser.add_argument(
         "--mode",
         type=str,
@@ -250,4 +250,5 @@ if __name__ == "__main__":
 
     control_values = args.pitch_control, args.energy_control, args.duration_control
 
+    restore_step = int(args.restore_step.split("_")[1])
     synthesize(model, args.restore_step, configs, vocoder, batchs, control_values)
