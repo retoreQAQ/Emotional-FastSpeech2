@@ -174,6 +174,22 @@ def synth_one_sample(targets, predictions, vocoder, model_config, preprocess_con
 
 def synth_samples(targets, predictions, vocoder, model_config, preprocess_config, path):
     basenames = targets[0]
+    emotions = targets[3]
+    arousals = targets[4]
+    valences = targets[5]
+    # 加载情感映射文件
+    with open(
+        os.path.join(preprocess_config["path"]["preprocessed_path"], "emotions.json")
+    ) as f:
+        mapping = json.load(f)
+        
+    # 通过字典推导式反转映射关系
+    emotion_inv = {v:k for k,v in mapping["emotion_dict"].items()}
+    arousal_inv = {v:k for k,v in mapping["arousal_dict"].items()}
+    valence_inv = {v:k for k,v in mapping["valence_dict"].items()}
+    for i in range(len(basenames)):
+        basenames[i] = f"{emotion_inv[emotions[i].item()]}_{valence_inv[valences[i].item()]}_{arousal_inv[arousals[i].item()]}_{basenames[i]}"
+    
     for i in range(len(predictions[0])):
         basename = basenames[i]
         src_len = predictions[8][i].item()

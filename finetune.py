@@ -116,6 +116,8 @@ def main(args, configs):
 
                 if step % save_step == 0:
                     ckpt_path = os.path.join(train_config["path"]["ckpt_path"], f"finetune_{step}.pth.tar")
+                    # 确保目录存在
+                    os.makedirs(os.path.dirname(ckpt_path), exist_ok=True)
                     torch.save({
                         "model": model.module.state_dict(),
                         "optimizer": optimizer._optimizer.state_dict(),

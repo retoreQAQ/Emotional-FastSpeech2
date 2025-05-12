@@ -103,11 +103,11 @@ class FastSpeech2(nn.Module):
                 -1, max_src_len, -1
             )
 
-        if self.emotion_emb is not None:
-            emb = torch.cat((self.emotion_emb(emotions), self.arousal_emb(arousals), self.valence_emb(valences)), dim=-1) 
-            output = output + self.emotion_linear(emb).unsqueeze(1).expand(
-                -1, max_src_len, -1
-            )
+        # if self.emotion_emb is not None:
+        #     emb = torch.cat((self.emotion_emb(emotions), self.arousal_emb(arousals), self.valence_emb(valences)), dim=-1) 
+        #     output = output + self.emotion_linear(emb).unsqueeze(1).expand(
+        #         -1, max_src_len, -1
+        #     )
 
         (
             output,
@@ -129,6 +129,12 @@ class FastSpeech2(nn.Module):
             e_control,
             d_control,
         )
+
+        if self.emotion_emb is not None:
+            emb = torch.cat((self.emotion_emb(emotions), self.arousal_emb(arousals), self.valence_emb(valences)), dim=-1) 
+            output = output + self.emotion_linear(emb).unsqueeze(1).expand(
+                -1, mel_lens, -1
+            )
 
         output, mel_masks = self.decoder(output, mel_masks)
         output = self.mel_linear(output)
