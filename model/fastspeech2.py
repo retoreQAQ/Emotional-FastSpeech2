@@ -131,9 +131,11 @@ class FastSpeech2(nn.Module):
         )
 
         if self.emotion_emb is not None:
+            if max_mel_len is None:
+                max_mel_len = max(mel_lens)
             emb = torch.cat((self.emotion_emb(emotions), self.arousal_emb(arousals), self.valence_emb(valences)), dim=-1) 
             output = output + self.emotion_linear(emb).unsqueeze(1).expand(
-                -1, mel_lens, -1
+                -1, max_mel_len, -1
             )
 
         output, mel_masks = self.decoder(output, mel_masks)

@@ -83,6 +83,18 @@ class VarianceAdaptor(nn.Module):
             embedding = self.pitch_embedding(torch.bucketize(target, self.pitch_bins))
         else:
             prediction = prediction * control
+
+            # reference_pitch = torch.from_numpy(np.load("/home/you/workspace/son/FastSpeech2/preprocessed_data/MSP_clean/pitch/1-pitch-MSP-PODCAST_0023_0044.npy")).to(x.device)
+            # # 调整reference_pitch的形状以匹配prediction [1,70]
+            # reference_pitch = reference_pitch.unsqueeze(0)  # [1, T]
+            # # 如果长度不一致,则截断或补零
+            # if reference_pitch.shape[1] > prediction.shape[1]:
+            #     reference_pitch = reference_pitch[:, :prediction.shape[1]]
+            # elif reference_pitch.shape[1] < prediction.shape[1]:
+            #     pad_len = prediction.shape[1] - reference_pitch.shape[1]
+            #     reference_pitch = torch.nn.functional.pad(reference_pitch, (0, pad_len), "constant", 0)
+            # prediction = reference_pitch
+
             embedding = self.pitch_embedding(
                 torch.bucketize(prediction, self.pitch_bins)
             )

@@ -1,3 +1,4 @@
+import json
 import re
 import os
 import argparse
@@ -148,22 +149,22 @@ if __name__ == "__main__":
         help="speaker ID for multi-speaker synthesis, for single-sentence mode only",
     )
     parser.add_argument(
-        "--emotion_id",
-        type=int,
-        default=5,  # N: Neutral
-        help="emotion ID (0:A-Angry, 1:C-Contempt, 2:D-Disgust, 3:F-Fear, 4:H-Happy, 5:N-Neutral, 6:O-Other, 7:S-Sad, 8:U-Surprise, 9:X-Unknown)",
+        "--emotion",
+        type=str,
+        default='N',  # N: Neutral
+        help="emotion(0:A-Angry, 1:C-Contempt, 2:D-Disgust, 3:F-Fear, 4:H-Happy, 5:N-Neutral, 6:O-Other, 7:S-Sad, 8:U-Surprise, 9:X-Unknown)",
     )
     parser.add_argument(
         "--arousal",
-        type=int,
-        default=6,
-        help="arousal level (0-12, from low to high)",
+        type=str,
+        default='4',
+        help="arousal level (1-7, from low to high)",
     )
     parser.add_argument(
         "--valence",
-        type=int,
-        default=6,
-        help="valence level (0-12, from negative to positive)",
+        type=str,
+        default='4',
+        help="valence level (1-7, from negative to positive)",
     )
     parser.add_argument(
         "-p",
@@ -238,9 +239,15 @@ if __name__ == "__main__":
     if args.mode == "single":
         ids = raw_texts = [args.text[:100]]
         speakers = np.array([args.speaker_id])
-        emotions = np.array([args.emotion_id])
-        arousals = np.array([args.arousal])
-        valences = np.array([args.valence])
+
+        # 加载情感映射文件
+        with open(
+            os.path.join(preprocess_config["path"]["preprocessed_path"], "emotions.json")
+        ) as f:
+            mapping = json.load(f)
+        emotions = np.array([mapping["emotion_dict"][args.emotion]])
+        arousals = np.array([mapping["arousal_dict"][args.arousal]])
+        valences = np.array([mapping["valence_dict"][args.valence]])
         if preprocess_config["preprocessing"]["text"]["language"] == "en":
             texts = np.array([preprocess_english(args.text, preprocess_config)])
         elif preprocess_config["preprocessing"]["text"]["language"] == "zh":
