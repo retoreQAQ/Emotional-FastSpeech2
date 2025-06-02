@@ -3,8 +3,8 @@ dataset: "MSP"
 path:
   corpus_path: "/home/you/workspace/database/MSP"
   lexicon_path: "lexicon/librispeech-lexicon.txt"
-  raw_path: "/home/you/workspace/son/FastSpeech2/raw_data/MSP_clean"
-  preprocessed_path: "/home/you/workspace/son/FastSpeech2/preprocessed_data/MSP_clean"
+  raw_path: "/home/you/workspace/son/FastSpeech2/raw_data/MSP_clean_new"
+  preprocessed_path: "/home/you/workspace/son/FastSpeech2/preprocessed_data/MSP_clean_new"
 
 preprocessing:
   val_size: 512

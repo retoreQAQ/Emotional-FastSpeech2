@@ -214,9 +214,7 @@ if __name__ == "__main__":
         assert args.source is None and args.text is not None
 
     # Read Config
-    preprocess_config = yaml.load(
-        open(args.preprocess_config, "r"), Loader=yaml.FullLoader
-    )
+    preprocess_config = yaml.load(open(args.preprocess_config, "r"), Loader=yaml.FullLoader)
     model_config = yaml.load(open(args.model_config, "r"), Loader=yaml.FullLoader)
     train_config = yaml.load(open(args.train_config, "r"), Loader=yaml.FullLoader)
     configs = (preprocess_config, model_config, train_config)
@@ -258,4 +256,4 @@ if __name__ == "__main__":
     control_values = args.pitch_control, args.energy_control, args.duration_control
 
     restore_step = int(args.restore_step.split("_")[1])
-    synthesize(model, args.restore_step, configs, vocoder, batchs, control_values)
+    synthesize(model, restore_step, configs, vocoder, batchs, control_values)

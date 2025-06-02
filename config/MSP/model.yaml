@@ -20,6 +20,10 @@ variance_embedding:
   energy_quantization: "linear" # support 'linear' or 'log', 'log' is allowed only if the energy values are not normalized during preprocessing
   n_bins: 256
 
+loss:
+  pitch_loss_weight: 2.0
+  emo_loss_weight: 1.0
+
 # gst:
 #   use_gst: False
 #   conv_filters: [32, 32, 64, 64, 128, 128]
@@ -30,6 +34,11 @@ variance_embedding:
 
 multi_speaker: True
 multi_emotion: True
+use_va: False=
+use_emo: True
+va_continuous: True
+n_emotion: 10
+use_emo_classifier: True
 
 max_seq_len: 1000
 

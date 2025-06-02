@@ -96,6 +96,9 @@ def main(args, configs):
                     msg = f"Step {step}/{total_step}, " + \
                           f"Total: {loss_values[0]:.4f}, Mel: {loss_values[1]:.4f}, PostNet: {loss_values[2]:.4f}, " + \
                           f"Pitch: {loss_values[3]:.4f}, Energy: {loss_values[4]:.4f}, Duration: {loss_values[5]:.4f}"
+                    # 检查是否包含 emo_loss（第 7 个）
+                    if model_config["use_emo_classifier"]:
+                        msg += f", Emo Loss: {loss_values[6]:.4f}"
                     print(msg)
                     with open(os.path.join(train_log_path, "log.txt"), "a") as f:
                         f.write(msg + "\n")

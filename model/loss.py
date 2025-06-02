@@ -15,6 +15,11 @@ class FastSpeech2Loss(nn.Module):
         ]
         self.mse_loss = nn.MSELoss()
         self.mae_loss = nn.L1Loss()
+        self.pitch_loss_weight = model_config["loss"]["pitch_loss_weight"]
+
+        self.use_emo_classifier = model_config.get("use_emo_classifier", False)
+        self.emo_cls_loss = nn.CrossEntropyLoss()
+        self.emo_loss_weight = model_config.get("emo_loss_weight", 0.0)
 
     def forward(self, inputs, predictions):
         (
@@ -24,7 +29,8 @@ class FastSpeech2Loss(nn.Module):
             pitch_targets,
             energy_targets,
             duration_targets,
-        ) = inputs[6:12]
+            emotion_targets,
+        ) = inputs[6:13]
         (
             mel_predictions,
             postnet_mel_predictions,
@@ -36,6 +42,7 @@ class FastSpeech2Loss(nn.Module):
             mel_masks,
             _,
             _,
+            emo_predictions,
         ) = predictions
         src_masks = ~src_masks
         mel_masks = ~mel_masks
@@ -71,6 +78,11 @@ class FastSpeech2Loss(nn.Module):
         )
         mel_targets = mel_targets.masked_select(mel_masks.unsqueeze(-1))
 
+        if self.use_emo_classifier:
+            emo_loss = torch.tensor(0.0).to(mel_targets.device)
+            if emo_predictions is not None:
+                emo_loss = self.emo_cls_loss(emo_predictions, emotion_targets)
+
         mel_loss = self.mae_loss(mel_predictions, mel_targets)
         postnet_mel_loss = self.mae_loss(postnet_mel_predictions, mel_targets)
 
@@ -79,7 +91,7 @@ class FastSpeech2Loss(nn.Module):
         duration_loss = self.mse_loss(log_duration_predictions, log_duration_targets)
 
         total_loss = (
-            mel_loss + postnet_mel_loss + duration_loss + pitch_loss + energy_loss
+            mel_loss + postnet_mel_loss + duration_loss + pitch_loss * self.pitch_loss_weight + energy_loss + emo_loss * self.emo_loss_weight
         )
 
         return (
@@ -89,4 +101,5 @@ class FastSpeech2Loss(nn.Module):
             pitch_loss,
             energy_loss,
             duration_loss,
+            emo_loss,
         )
