@@ -110,6 +110,8 @@ class FastSpeech2(nn.Module):
                     nn.Dropout(0.5),
                     nn.Linear(64, n_emotion),
                 )
+            else:
+                self.emo_classifier = None
 
     def forward(
         self,
@@ -138,17 +140,31 @@ class FastSpeech2(nn.Module):
         )
 
         output = self.encoder(texts, src_masks)
-
+        
+        # 原版
         if self.speaker_emb is not None:
             output = output + self.speaker_emb(speakers).unsqueeze(1).expand(
                 -1, max_src_len, -1
             )
 
+        # clean2
         # if self.emotion_emb is not None:
         #     emb = torch.cat((self.emotion_emb(emotions), self.arousal_emb(arousals), self.valence_emb(valences)), dim=-1) 
         #     output = output + self.emotion_linear(emb).unsqueeze(1).expand(
         #         -1, max_src_len, -1
         #     )
+
+        # MSP_finetune_keepall_clean_only_emotion_dbPitch_front_combine
+        if self.speaker_emb is not None and self.emotion_emb is not None:
+            if self.use_va and self.use_emo:
+                emb = torch.cat((self.emotion_emb(emotions), self.arousal_emb(arousals), self.valence_emb(valences)), dim=-1)
+            elif self.use_va:
+                emb = torch.cat((self.arousal_emb(arousals), self.valence_emb(valences)), dim=-1)
+            else:
+                emb = self.emotion_emb(emotions)
+
+            # output = output + (self.speaker_emb(speakers) + self.emotion_linear(emb)).unsqueeze(1).expand(-1, max_src_len, -1)
+            output = output + self.emotion_linear(emb).unsqueeze(1).expand(-1, max_src_len, -1)
 
         (
             output,
@@ -188,6 +204,8 @@ class FastSpeech2(nn.Module):
 
         if self.emo_classifier is not None:
             emo_pred = self.emo_classifier(output.transpose(1, 2))   # [B, n_emo]
+        else:
+            emo_pred = None
 
         output = self.mel_linear(output) # [B, T, mel_dim(80)]
         postnet_output = self.postnet(output) + output # [B, T, mel_dim(80)]

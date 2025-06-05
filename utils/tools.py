@@ -88,7 +88,8 @@ def log(
         logger.add_scalar("Loss/pitch_loss", losses[3], step)
         logger.add_scalar("Loss/energy_loss", losses[4], step)
         logger.add_scalar("Loss/duration_loss", losses[5], step)
-        logger.add_scalar("Loss/emotion_loss", losses[6], step)
+        if len(losses) == 7:
+            logger.add_scalar("Loss/emotion_loss", losses[6], step)
 
     if fig is not None:
         logger.add_figure(tag, fig)
@@ -340,5 +341,38 @@ def pad(input_ele, mel_max_length=None):
         out_list.append(one_batch_padded)
     out_padded = torch.stack(out_list)
     return out_padded
+
+import smtplib
+from email.mime.text import MIMEText
+from email.header import Header
+
+def send_email_gmail(subject, body, sender="sxl805437515@gmail.com", receiver="sxl805437515@gmail.com", app_password="imbp ekdp scyq edsw"):
+    msg = MIMEText(body, 'plain', 'utf-8')
+    msg['From'] = Header(sender)
+    msg['To'] = Header(receiver)
+    msg['Subject'] = Header(subject, 'utf-8')
+
+    # Gmail 使用 smtp.gmail.com 和 SSL 465 端口
+    server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
+    server.login(sender, app_password)
+    server.sendmail(sender, [receiver], msg.as_string())
+    server.quit()
+
+def send_error_email(func):
+    def wrapper(*args, **kwargs):
+        try:
+            return func(*args, **kwargs)
+        except Exception as e:
+            
+            # 发送错误邮件
+            send_email_gmail(
+                subject="代码执行错误提醒",
+                body=str(e)
+            )
+            
+            # 继续抛出异常
+            raise e
+            
+    return wrapper
 
 

@@ -78,11 +78,6 @@ class FastSpeech2Loss(nn.Module):
         )
         mel_targets = mel_targets.masked_select(mel_masks.unsqueeze(-1))
 
-        if self.use_emo_classifier:
-            emo_loss = torch.tensor(0.0).to(mel_targets.device)
-            if emo_predictions is not None:
-                emo_loss = self.emo_cls_loss(emo_predictions, emotion_targets)
-
         mel_loss = self.mae_loss(mel_predictions, mel_targets)
         postnet_mel_loss = self.mae_loss(postnet_mel_predictions, mel_targets)
 
@@ -90,16 +85,20 @@ class FastSpeech2Loss(nn.Module):
         energy_loss = self.mse_loss(energy_predictions, energy_targets)
         duration_loss = self.mse_loss(log_duration_predictions, log_duration_targets)
 
-        total_loss = (
-            mel_loss + postnet_mel_loss + duration_loss + pitch_loss * self.pitch_loss_weight + energy_loss + emo_loss * self.emo_loss_weight
-        )
+        if self.use_emo_classifier:
+            emo_loss = torch.tensor(0.0).to(mel_targets.device)
+            if emo_predictions is not None:
+                emo_loss = self.emo_cls_loss(emo_predictions, emotion_targets)
 
-        return (
-            total_loss,
-            mel_loss,
-            postnet_mel_loss,
-            pitch_loss,
-            energy_loss,
-            duration_loss,
-            emo_loss,
-        )
+            total_loss = (
+                mel_loss + postnet_mel_loss + duration_loss + pitch_loss * self.pitch_loss_weight + energy_loss + emo_loss * self.emo_loss_weight
+            )
+            return_losses = (total_loss, mel_loss, postnet_mel_loss, pitch_loss, energy_loss, duration_loss, emo_loss)
+        else:
+            emo_loss = None
+            total_loss = (
+                mel_loss + postnet_mel_loss + duration_loss + pitch_loss * self.pitch_loss_weight + energy_loss
+            )
+            return_losses = (total_loss, mel_loss, postnet_mel_loss, pitch_loss, energy_loss, duration_loss)
+
+        return return_losses

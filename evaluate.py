@@ -18,6 +18,8 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 def evaluate(model, step, configs, logger=None, vocoder=None):
     preprocess_config, model_config, train_config = configs
 
+    use_emo = model_config["use_emo_classifier"]
+
     # Get dataset
     dataset = Dataset(
         "val.txt", preprocess_config, train_config, sort=False, drop_last=False
@@ -34,7 +36,10 @@ def evaluate(model, step, configs, logger=None, vocoder=None):
     Loss = FastSpeech2Loss(preprocess_config, model_config).to(device)
 
     # Evaluation
-    loss_sums = [0 for _ in range(7)]
+    if use_emo:
+        loss_sums = [0 for _ in range(7)]
+    else:
+        loss_sums = [0 for _ in range(6)]
     for batchs in loader:
         for batch in batchs:
             batch = to_device(batch, device)
@@ -64,9 +69,14 @@ def evaluate(model, step, configs, logger=None, vocoder=None):
 
     loss_means = [loss_sum / len(dataset) for loss_sum in loss_sums]
 
-    message = "Validation Step {}, Total Loss: {:.4f}, Mel Loss: {:.4f}, Mel PostNet Loss: {:.4f}, Pitch Loss: {:.4f}, Energy Loss: {:.4f}, Duration Loss: {:.4f}, Emotion Loss: {:.4f}".format(
-        *([step] + [l for l in loss_means])
-    )
+    if use_emo:
+        message = "Validation Step {}, Total Loss: {:.4f}, Mel Loss: {:.4f}, Mel PostNet Loss: {:.4f}, Pitch Loss: {:.4f}, Energy Loss: {:.4f}, Duration Loss: {:.4f}, Emotion Loss: {:.4f}".format(
+            *([step] + [l for l in loss_means])
+        )
+    else:
+        message = "Validation Step {}, Total Loss: {:.4f}, Mel Loss: {:.4f}, Mel PostNet Loss: {:.4f}, Pitch Loss: {:.4f}, Energy Loss: {:.4f}, Duration Loss: {:.4f}".format(
+            *([step] + [l for l in loss_means])
+        )
 
     if logger is not None:
         fig, wav_reconstruction, wav_prediction, tag = synth_one_sample(

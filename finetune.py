@@ -4,6 +4,7 @@ import os
 import torch
 import yaml
 import torch.nn as nn
+import time
 from torch.utils.data import DataLoader
 
 from distutils.version import LooseVersion
@@ -12,11 +13,12 @@ from torch.utils.tensorboard import SummaryWriter
 from tqdm import tqdm
 
 from utils.model import get_model_finetune, get_vocoder, get_param_num, freeze_modules
-from utils.tools import to_device, log, synth_one_sample
+from utils.tools import to_device, log, synth_one_sample, send_email_gmail, send_error_email
 from model import FastSpeech2Loss
 from dataset import Dataset
 from evaluate import evaluate
 
+@send_error_email
 def main(args, configs):
     
     disable_tqdm = os.environ.get("DISABLE_TQDM", "false").lower() == "true"
@@ -68,6 +70,7 @@ def main(args, configs):
     outer_bar.update()
     epoch = 1
 
+    start_time = time.time()
     while step <= total_step:
         inner_bar = tqdm(total=len(loader), desc=f"Epoch {epoch}", position=1, disable=disable_tqdm)
         for batchs in loader:
@@ -128,11 +131,23 @@ def main(args, configs):
 
                 if step >= total_step:
                     print("Finetuning complete.")
+                    end_time = time.time()
+                    total_time = (end_time - start_time) / 3600
+                    print(f"Total training time: {total_time:.2f} hours")
+                    send_email_gmail(
+                        subject="FastSpeech2 训练完成",
+                        body="模型训练已经完成，请查收结果。",
+                        sender="sxl805437515@gmail.com",
+                        receiver="sxl805437515@gmail.com",  # 可发给自己或他人
+                        app_password="imbp ekdp scyq edsw"
+                    )
                     return
                 step += 1
                 outer_bar.update(1)
             inner_bar.update(1)
         epoch += 1
+
+    
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
