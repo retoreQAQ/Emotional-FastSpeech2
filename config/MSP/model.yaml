@@ -34,8 +34,8 @@ loss:
 
 multi_speaker: True
 multi_emotion: True
-use_va: True
-use_emo: False
+use_va: False
+use_emo: True
 va_continuous: True
 n_emotion: 10
 use_emo_classifier: False

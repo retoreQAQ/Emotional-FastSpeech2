@@ -91,6 +91,12 @@ class FastSpeech2(nn.Module):
                 nn.Linear(encoder_hidden, encoder_hidden),
                 nn.ReLU()
             )
+            self.joint_linear = nn.Sequential(
+                nn.Linear(encoder_hidden*2, encoder_hidden),
+                nn.ReLU(),
+                nn.Dropout(0.3),
+                nn.LayerNorm(encoder_hidden)
+            )
         
             self.use_emo_classifier = model_config.get("use_emo_classifier", False)
             if self.use_emo_classifier:
@@ -142,10 +148,10 @@ class FastSpeech2(nn.Module):
         output = self.encoder(texts, src_masks)
         
         # 原版
-        if self.speaker_emb is not None:
-            output = output + self.speaker_emb(speakers).unsqueeze(1).expand(
-                -1, max_src_len, -1
-            )
+        # if self.speaker_emb is not None:
+        #     output = output + self.speaker_emb(speakers).unsqueeze(1).expand(
+        #         -1, max_src_len, -1
+        #     )
 
         # clean2
         # if self.emotion_emb is not None:
@@ -155,16 +161,17 @@ class FastSpeech2(nn.Module):
         #     )
 
         # MSP_finetune_keepall_clean_only_emotion_dbPitch_front_combine
-        if self.speaker_emb is not None and self.emotion_emb is not None:
-            if self.use_va and self.use_emo:
-                emb = torch.cat((self.emotion_emb(emotions), self.arousal_emb(arousals), self.valence_emb(valences)), dim=-1)
-            elif self.use_va:
-                emb = torch.cat((self.arousal_emb(arousals), self.valence_emb(valences)), dim=-1)
-            else:
-                emb = self.emotion_emb(emotions)
+        # if self.speaker_emb is not None and self.emotion_emb is not None:
+        #     if self.use_va and self.use_emo:
+        #         emb = torch.cat((self.emotion_emb(emotions), self.arousal_emb(arousals), self.valence_emb(valences)), dim=-1)
+        #     elif self.use_va:
+        #         emb = torch.cat((self.arousal_emb(arousals), self.valence_emb(valences)), dim=-1)
+        #     else:
+        #         emb = self.emotion_emb(emotions)
 
-            # output = output + (self.speaker_emb(speakers) + self.emotion_linear(emb)).unsqueeze(1).expand(-1, max_src_len, -1)
-            output = output + self.emotion_linear(emb).unsqueeze(1).expand(-1, max_src_len, -1)
+        #     output = output + (self.speaker_emb(speakers) + self.emotion_linear(emb)).unsqueeze(1).expand(-1, max_src_len, -1)
+            # output = output + self.emotion_linear(emb).unsqueeze(1).expand(-1, max_src_len, -1)
+        output = output + self.joint_linear(torch.cat([self.speaker_emb(speakers), self.emotion_emb(emotions)], dim=-1)).unsqueeze(1).expand(-1, max_src_len, -1)
 
         (
             output,
@@ -187,18 +194,18 @@ class FastSpeech2(nn.Module):
             d_control,
         )
 
-        if self.emotion_emb is not None:
-            if max_mel_len is None:
-                max_mel_len = max(mel_lens)
-            if self.use_va and self.use_emo:
-                emb = torch.cat((self.emotion_emb(emotions), self.arousal_emb(arousals), self.valence_emb(valences)), dim=-1)
-            elif self.use_va:
-                emb = torch.cat((self.arousal_emb(arousals), self.valence_emb(valences)), dim=-1)
-            else:
-                emb = self.emotion_emb(emotions)
-            output = output + self.emotion_linear(emb).unsqueeze(1).expand(
-                -1, max_mel_len, -1
-            )
+        # if self.emotion_emb is not None:
+        #     if max_mel_len is None:
+        #         max_mel_len = max(mel_lens)
+        #     if self.use_va and self.use_emo:
+        #         emb = torch.cat((self.emotion_emb(emotions), self.arousal_emb(arousals), self.valence_emb(valences)), dim=-1)
+        #     elif self.use_va:
+        #         emb = torch.cat((self.arousal_emb(arousals), self.valence_emb(valences)), dim=-1)
+        #     else:
+        #         emb = self.emotion_emb(emotions)
+        #     output = output + self.emotion_linear(emb).unsqueeze(1).expand(
+        #         -1, max_mel_len, -1
+        #     )
 
         output, mel_masks = self.decoder(output, mel_masks) # [B, T, hidden(256)]
 

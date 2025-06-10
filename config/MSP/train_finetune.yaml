@@ -1,7 +1,7 @@
 path:
-  ckpt_path: "./output/ckpt/MSP_finetune_keepall_clean_only_va_dbPitch_front&behind"
-  log_path: "./output/log/MSP_finetune_keepall_clean_only_va_dbPitch_front&behind"
-  result_path: "./output/result/MSP_finetune_keepall_clean_only_va_dbPitch_front&behind"
+  ckpt_path: "./output/ckpt/MSP_finetune_keepall_clean_only_emo_dbPitch_front_newCombine"
+  log_path: "./output/log/MSP_finetune_keepall_clean_only_emo_dbPitch_front_newCombine"
+  result_path: "./output/result/MSP_finetune_keepall_clean_only_emo_dbPitch_front_newCombine"
 optimizer:
   batch_size: 16
   betas: [0.9, 0.98]
