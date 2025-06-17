@@ -61,16 +61,21 @@ def get_model_finetune(args, configs, device, train=False):
                 continue
 
             if k == "speaker_emb.weight":
-                pretrained, current = v.shape[0], current_model_state[k].shape[0]
-                if pretrained <= current:
-                    print(f"合并speaker_emb: 预训练={pretrained}, 当前={current}")
-                    new_weight = current_model_state[k].clone()
-                    new_weight[:pretrained] = v  # 用旧的前部分参数替换
-                    matched_state[k] = new_weight
-                else:
-                    print(f"无法加载speaker_emb: 预训练={pretrained}, 当前={current}")
+                if not model_config["use_libri_speaker"]:
+                    print(f"不加载旧的speaker_emb")
                     skipped.append(k)
                     continue
+                else:
+                    pretrained, current = v.shape[0], current_model_state[k].shape[0]
+                    if pretrained <= current:
+                        print(f"合并speaker_emb: 预训练={pretrained}, 当前={current}")
+                        new_weight = current_model_state[k].clone()
+                        new_weight[:pretrained] = v  # 用旧的前部分参数替换
+                        matched_state[k] = new_weight
+                    else:
+                        print(f"无法加载speaker_emb: 预训练={pretrained}, 当前={current}")
+                        skipped.append(k)
+                        continue
             elif k == "emotion_emb.weight" or k == "arousal_emb.weight" or k == "valence_emb.weight":
                 # 对于情感相关参数，如果形状不匹配，使用当前模型的参数
                 print(f"使用当前模型的情感参数: {k}")
