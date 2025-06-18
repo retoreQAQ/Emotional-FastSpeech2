@@ -209,9 +209,9 @@ if __name__ == "__main__":
 
     # Check source texts
     if args.mode == "batch":
-        assert args.source is not None and args.text is None
+        assert args.source is not None
     if args.mode == "single":
-        assert args.source is None and args.text is not None
+        assert args.text is not None
 
     # Read Config
     preprocess_config = yaml.load(open(args.preprocess_config, "r"), Loader=yaml.FullLoader)
@@ -251,7 +251,7 @@ if __name__ == "__main__":
         elif preprocess_config["preprocessing"]["text"]["language"] == "zh":
             texts = np.array([preprocess_mandarin(args.text, preprocess_config)])
         text_lens = np.array([len(texts[0])])
-        batchs = [(ids, raw_texts, speakers, emotions, arousals, valences, texts, text_lens, max(text_lens))]
+        batchs = [(ids, raw_texts, speakers, texts, text_lens, max(text_lens), emotions, arousals, valences)]
 
     control_values = args.pitch_control, args.energy_control, args.duration_control
 

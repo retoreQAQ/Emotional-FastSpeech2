@@ -204,11 +204,14 @@ class TextDataset(Dataset):
         speaker_id = self.speaker_map[speaker]
         raw_text = self.raw_text[idx]
         emotion = self.emotion[idx]
+        emotion_id = self.emotion_map[emotion]
         arousal = self.arousal[idx]
+        arousal_id = self.arousal_map[arousal]
         valence = self.valence[idx]
+        valence_id = self.valence_map[valence]
         phone = np.array(text_to_sequence(self.text[idx], self.cleaners))
 
-        return (basename, speaker_id, phone, raw_text, emotion, arousal, valence)
+        return (basename, speaker_id, phone, raw_text, emotion_id, arousal_id, valence_id)
 
     def process_meta(self, filename):
         with open(filename, "r", encoding="utf-8") as f:
