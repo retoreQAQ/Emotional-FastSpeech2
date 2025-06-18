@@ -1,0 +1,10 @@
+480|MSP_480_A|{AY1 AE1 M S OW1 HH AH1 NG G R IY0 DH AE1 T AY1 K UH1 D IY1 T AH0 HH AO1 R S}|I am so hungry that I could eat a horse|A|1.0|1.0
+480|MSP_480_C|{AY1 AE1 M S OW1 HH AH1 NG G R IY0 DH AE1 T AY1 K UH1 D IY1 T AH0 HH AO1 R S}|I am so hungry that I could eat a horse|C|1.0|1.0
+480|MSP_480_D|{AY1 AE1 M S OW1 HH AH1 NG G R IY0 DH AE1 T AY1 K UH1 D IY1 T AH0 HH AO1 R S}|I am so hungry that I could eat a horse|D|1.0|1.0
+480|MSP_480_F|{AY1 AE1 M S OW1 HH AH1 NG G R IY0 DH AE1 T AY1 K UH1 D IY1 T AH0 HH AO1 R S}|I am so hungry that I could eat a horse|F|1.0|1.0
+480|MSP_480_H|{AY1 AE1 M S OW1 HH AH1 NG G R IY0 DH AE1 T AY1 K UH1 D IY1 T AH0 HH AO1 R S}|I am so hungry that I could eat a horse|H|1.0|1.0
+480|MSP_480_N|{AY1 AE1 M S OW1 HH AH1 NG G R IY0 DH AE1 T AY1 K UH1 D IY1 T AH0 HH AO1 R S}|I am so hungry that I could eat a horse|N|1.0|1.0
+480|MSP_480_O|{AY1 AE1 M S OW1 HH AH1 NG G R IY0 DH AE1 T AY1 K UH1 D IY1 T AH0 HH AO1 R S}|I am so hungry that I could eat a horse|O|1.0|1.0
+480|MSP_480_S|{AY1 AE1 M S OW1 HH AH1 NG G R IY0 DH AE1 T AY1 K UH1 D IY1 T AH0 HH AO1 R S}|I am so hungry that I could eat a horse|S|1.0|1.0
+480|MSP_480_U|{AY1 AE1 M S OW1 HH AH1 NG G R IY0 DH AE1 T AY1 K UH1 D IY1 T AH0 HH AO1 R S}|I am so hungry that I could eat a horse|U|1.0|1.0
+480|MSP_480_X|{AY1 AE1 M S OW1 HH AH1 NG G R IY0 DH AE1 T AY1 K UH1 D IY1 T AH0 HH AO1 R S}|I am so hungry that I could eat a horse|X|1.0|1.0
