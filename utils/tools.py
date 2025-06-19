@@ -190,7 +190,7 @@ def synth_samples(targets, predictions, vocoder, model_config, preprocess_config
     arousal_inv = {v:k for k,v in mapping["arousal_dict"].items()}
     valence_inv = {v:k for k,v in mapping["valence_dict"].items()}
     for i in range(len(basenames)):
-        basenames[i] = f"{emotion_inv[emotions[i].item()]}_{valence_inv[valences[i].item()]}_{arousal_inv[arousals[i].item()]}_{basenames[i]}"
+        basenames[i] = f"{emotion_inv[emotions[i].item()]}_{valence_inv[valences[i].item()]}_{arousal_inv[arousals[i].item()]}_{basenames[i]}" if len(basenames[i].split("_")) == 1 else basenames[i]
     
     for i in range(len(predictions[0])):
         basename = basenames[i]
