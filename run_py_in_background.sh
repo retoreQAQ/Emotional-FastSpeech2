@@ -4,13 +4,14 @@
 CONDA_ENV_NAME=fs2
 
 # Python脚本路径
-PYTHON_SCRIPT_PATH=/home/you/workspace/son/FastSpeech2/finetune.py
+PYTHON_SCRIPT_PATH=finetune.py
 
 # 训练参数
-ARGS="-p config/MSP/preprocess.yaml -m config/MSP/model.yaml -t config/MSP/train_finetune.yaml --restore_step 900000 --restore_path /home/you/workspace/son/FastSpeech2/output/ckpt/LibriTTS/900000.pth.tar"
+# ARGS="-p config/CREMA-D/preprocess.yaml -m config/CREMA-D/model.yaml -t config/CREMA-D/train_finetune.yaml --restore_step 900000 --restore_path output/ckpt/LibriTTS/900000.pth.tar"
+ARGS="-p config/CREMA-D/preprocess.yaml -m config/CREMA-D/model.yaml -t config/CREMA-D/train_finetune.yaml --restore_step 1200000 --restore_path output/ckpt/CREMA-D_only_emo_dbPitch_front_newCombine/finetune_1200000.pth.tar"
 
 # 日志目录与文件
-LOG_DIR="/home/you/workspace/son/FastSpeech2/run_in_background_log"
+LOG_DIR="run_in_background_log"
 mkdir -p "$LOG_DIR"
 TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
 LOG_FILE="${LOG_DIR}/script_${TIMESTAMP}.log"

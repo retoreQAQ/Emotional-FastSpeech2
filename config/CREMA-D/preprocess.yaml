@@ -1,10 +1,10 @@
-dataset: "MSP"
+dataset: "CREMA-D"
 
 path:
-  corpus_path: "/home/you/workspace/database/CREMA-D"
+  corpus_path: "/home/kai/workspace/database/CREMA-D"
   lexicon_path: "lexicon/librispeech-lexicon.txt"
-  raw_path: "/home/you/workspace/son/FastSpeech2/raw_data/CREMA-D"
-  preprocessed_path: "/home/you/workspace/son/FastSpeech2/preprocessed_data/CREMA-D"
+  raw_path: "/home/kai/workspace/son/FastSpeech2/raw_data/CREMA-D"
+  preprocessed_path: "/home/kai/workspace/son/FastSpeech2/preprocessed_data/CREMA-D"
 
 preprocessing:
   val_size: 512

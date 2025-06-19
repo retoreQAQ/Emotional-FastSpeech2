@@ -129,14 +129,18 @@ def main(args, configs):
                         "optimizer": optimizer._optimizer.state_dict(),
                     }, ckpt_path)
 
-                if step >= total_step:
+                if step >= total_step or step == 1200000:
+                    if step == 1200000:
+                        body = "模型训练达到1200000步"
+                    else:
+                        body = "模型训练已经完成，请查收结果。"
                     print("Finetuning complete.")
                     end_time = time.time()
                     total_time = (end_time - start_time) / 3600
                     print(f"Total training time: {total_time:.2f} hours")
                     send_email_gmail(
                         subject="FastSpeech2 训练完成",
-                        body="模型训练已经完成，请查收结果。",
+                        body=body,
                         sender="sxl805437515@gmail.com",
                         receiver="sxl805437515@gmail.com",  # 可发给自己或他人
                         app_password="imbp ekdp scyq edsw"

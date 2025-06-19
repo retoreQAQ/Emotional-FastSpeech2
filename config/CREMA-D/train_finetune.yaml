@@ -1,7 +1,7 @@
 path:
-  ckpt_path: "./output/ckpt/MSP_finetune_keepall_clean_only_emo_dbPitch_front_newCombine_combine_speaker_emo"
-  log_path: "./output/log/MSP_finetune_keepall_clean_only_emo_dbPitch_front_newCombine_combine_speaker_emo"
-  result_path: "./output/result/MSP_finetune_keepall_clean_only_emo_dbPitch_front_newCombine_combine_speaker_emo"
+  ckpt_path: "./output/ckpt/CREMA-D_only_emo_dbPitch_front_newCombine"
+  log_path: "./output/log/CREMA-D_finetune_only_emo_dbPitch_front_newCombine"
+  result_path: "./output/result/CREMA-D_finetune_only_emo_dbPitch_front_newCombine"
 optimizer:
   batch_size: 16
   betas: [0.9, 0.98]
@@ -13,7 +13,7 @@ optimizer:
   anneal_steps: [300000, 400000, 500000]
   anneal_rate: 0.3
 step:
-  total_step: 1200000
+  total_step: 1800000
   log_step: 100
   synth_step: 1000
   val_step: 1000

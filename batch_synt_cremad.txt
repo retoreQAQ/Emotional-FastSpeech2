@@ -1,0 +1,12 @@
+1061_MTI_ANG|1061|{M EY1 B IY0 T AH0 M AA1 R OW2 IH1 T W IH1 L B IY1 K OW1 L D}|Maybe tomorrow it will be cold.|ANG|7.0|1.0
+1061_MTI_DIS|1061|{M EY1 B IY0 T AH0 M AA1 R OW2 IH1 T W IH1 L B IY1 K OW1 L D}|Maybe tomorrow it will be cold.|DIS|7.0|1.0
+1061_MTI_FEA|1061|{M EY1 B IY0 T AH0 M AA1 R OW2 IH1 T W IH1 L B IY1 K OW1 L D}|Maybe tomorrow it will be cold.|FEA|7.0|1.0
+1061_MTI_HAP|1061|{M EY1 B IY0 T AH0 M AA1 R OW2 IH1 T W IH1 L B IY1 K OW1 L D}|Maybe tomorrow it will be cold.|HAP|7.0|1.0
+1061_MTI_NEU|1061|{M EY1 B IY0 T AH0 M AA1 R OW2 IH1 T W IH1 L B IY1 K OW1 L D}|Maybe tomorrow it will be cold.|NEU|7.0|1.0
+1061_MTI_SAD|1061|{M EY1 B IY0 T AH0 M AA1 R OW2 IH1 T W IH1 L B IY1 K OW1 L D}|Maybe tomorrow it will be cold.|SAD|7.0|1.0
+1061_EAT_ANG|1061|{AY1 AE1 M S OW1 HH AH1 NG G R IY0 DH AE1 T AY1 K UH1 D IY1 T AH0 HH AO1 R S}|I am so hungry that I could eat a horse.|ANG|7.0|1.0
+1061_EAT_DIS|1061|{AY1 AE1 M S OW1 HH AH1 NG G R IY0 DH AE1 T AY1 K UH1 D IY1 T AH0 HH AO1 R S}|I am so hungry that I could eat a horse.|DIS|7.0|1.0
+1061_EAT_FEA|1061|{AY1 AE1 M S OW1 HH AH1 NG G R IY0 DH AE1 T AY1 K UH1 D IY1 T AH0 HH AO1 R S}|I am so hungry that I could eat a horse.|FEA|7.0|1.0
+1061_EAT_HAP|1061|{AY1 AE1 M S OW1 HH AH1 NG G R IY0 DH AE1 T AY1 K UH1 D IY1 T AH0 HH AO1 R S}|I am so hungry that I could eat a horse.|HAP|7.0|1.0
+1061_EAT_NEU|1061|{AY1 AE1 M S OW1 HH AH1 NG G R IY0 DH AE1 T AY1 K UH1 D IY1 T AH0 HH AO1 R S}|I am so hungry that I could eat a horse.|NEU|7.0|1.0
+1061_EAT_SAD|1061|{AY1 AE1 M S OW1 HH AH1 NG G R IY0 DH AE1 T AY1 K UH1 D IY1 T AH0 HH AO1 R S}|I am so hungry that I could eat a horse.|SAD|7.0|1.0

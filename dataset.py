@@ -37,7 +37,10 @@ class Dataset(Dataset):
     def __getitem__(self, idx):
         basename = self.basename[idx]
         speaker = self.speaker[idx]
-        speaker_without_prefix = speaker.split("_")[1]
+        if len(speaker.split("_")) > 1:
+            speaker_without_prefix = speaker.split("_")[1]
+        else:
+            speaker_without_prefix = speaker
         speaker_id = self.speaker_map[speaker]
         raw_text = self.raw_text[idx]
         emotion = self.emotion[idx]

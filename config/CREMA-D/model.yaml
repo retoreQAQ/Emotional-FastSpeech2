@@ -37,9 +37,9 @@ multi_emotion: True
 use_va: False
 use_emo: True
 va_continuous: True
-n_emotion: 10
+n_emotion: 6
 use_emo_classifier: False
-use_libri_speaker: False
+use_libri_speaker: True
 
 max_seq_len: 1000
 

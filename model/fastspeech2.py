@@ -148,10 +148,10 @@ class FastSpeech2(nn.Module):
         output = self.encoder(texts, src_masks)
         
         # 原版
-        if self.speaker_emb is not None:
-            output = output + self.speaker_emb(speakers).unsqueeze(1).expand(
-                -1, max_src_len, -1
-            )
+        # if self.speaker_emb is not None:
+        #     output = output + self.speaker_emb(speakers).unsqueeze(1).expand(
+        #         -1, max_src_len, -1
+        #     )
 
         # clean2
         # if self.emotion_emb is not None:
@@ -172,7 +172,7 @@ class FastSpeech2(nn.Module):
         #     output = output + (self.speaker_emb(speakers) + self.emotion_linear(emb)).unsqueeze(1).expand(-1, max_src_len, -1)
             # output = output + self.emotion_linear(emb).unsqueeze(1).expand(-1, max_src_len, -1)
         # new_combine
-        # output = output + self.joint_linear(torch.cat([self.speaker_emb(speakers), self.emotion_emb(emotions)], dim=-1)).unsqueeze(1).expand(-1, max_src_len, -1)
+        output = output + self.joint_linear(torch.cat([self.speaker_emb(speakers), self.emotion_emb(emotions)], dim=-1)).unsqueeze(1).expand(-1, max_src_len, -1)
 
         (
             output,

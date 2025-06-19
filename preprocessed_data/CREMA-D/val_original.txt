@@ -1,0 +1,512 @@
+1038_TIE_NEU_XX|1038|{DH AE1 T IH0 Z IH0 G Z AE1 K T L IY0 W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1053_TIE_NEU_XX|1053|{DH AE1 T IH0 Z IH0 G Z AE1 K T L IY0 W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1038_ITS_DIS_XX|1038|{AY1 TH IH1 NG K AY1 V S IY1 N DH IH1 S B IH0 F AO1 R}|I think I've seen this before.
+1067_IOM_HAP_XX|1067|{AY1 M AA1 N M AY1 W EY1 T AH0 DH AH0 M IY1 T IH0 NG}|I'm on my way to the meeting.
+1022_ITH_FEA_XX|1022|{AY1 TH IH1 NG K AY1 HH AE1 V AH0 D AA1 K T ER0 Z AH0 P OY1 N T M AH0 N T}|I think I have a doctor's appointment.
+1013_IOM_ANG_XX|1013|{AY1 M AA1 N M AY1 W EY1 T IH0 DH AH0 M IY1 T IH0 NG}|I'm on my way to the meeting.
+1049_TSI_HAP_XX|1049|{DH AH0 S ER1 F AH0 S IH1 Z S L IH1 K}|The surface is slick.
+1066_IWW_DIS_XX|1066|{AY1 W AH1 N D ER0 W AH1 T DH IH1 S IH0 Z AH0 B AW1 T}|I wonder what this is about.
+1090_IEO_HAP_MD|1090|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1064_ITH_ANG_XX|1064|{AY1 TH IH1 NG K AY1 HH AE1 V AH0 D AA1 K T ER0 Z AH0 P OY1 N T M AH0 N T}|I think I have a doctor's appointment.
+1074_IEO_ANG_HI|1074|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1030_ITS_ANG_XX|1030|{AY1 TH IH1 NG K AY1 V S IY1 N DH IH1 S B IY2 F AO1 R}|I think I've seen this before.
+1067_TSI_NEU_XX|1067|{DH AH0 S ER1 F AH0 S IH0 Z S L IH1 K}|The surface is slick.
+1081_TIE_HAP_XX|1081|{DH AE1 T IH1 Z IH0 G Z AE1 K T L IY0 W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1035_TSI_ANG_XX|1035|{DH AH0 S ER1 F AH0 S IH0 Z S L IH1 K}|The surface is slick.
+1001_IEO_DIS_MD|1001|{IH1 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1060_TSI_HAP_XX|1060|{DH AH0 S ER1 F AH0 S IH1 Z S L IH1 K}|The surface is slick.
+1028_WSI_HAP_XX|1028|{W IH1 L S T AA1 P IH0 N AH0 K AH1 P AH0 L AH0 V M IH1 N AH0 T S}|We'll stop in a couple of minutes.
+1058_TIE_HAP_XX|1058|{DH AE1 T IH1 Z IH0 G Z AE1 K T L IY0 W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1046_TSI_ANG_XX|1046|{DH AH0 S ER1 F AH0 S IH1 Z S L IH1 K}|The surface is slick.
+1004_TAI_SAD_XX|1004|{DH IY0 EH1 R P L EY2 N IH0 Z AA1 L M OW2 S T F UH1 L}|The airplane is almost full.
+1017_DFA_ANG_XX|1017|{D OW1 N T F ER0 G EH1 T AH0 JH AE1 K AH0 T}|Don't forget a jacket.
+1007_IEO_ANG_HI|1007|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1035_IOM_FEA_XX|1035|{AH0 M AA1 N M AY1 W EY1 T AH0 DH AH0 M IY1 T IH0 NG}|I'm on my way to the meeting.
+1083_IOM_FEA_XX|1083|{AH0 M AA1 N M AY1 W EY1 T AH0 DH AH0 M IY1 T IH0 NG}|I'm on my way to the meeting.
+1063_ITH_SAD_XX|1063|{AY1 TH IH1 NG K AY1 HH AE1 V AH0 D AA1 K T ER0 Z AH0 P OY1 N T M AH0 N T}|I think I have a doctor's appointment.
+1052_IEO_ANG_LO|1052|{IH1 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1017_IWL_FEA_XX|1017|{AY1 W UH1 D L AY1 K AH0 N UW1 AH0 L AA1 R M K L AA1 K}|I would like a new alarm clock.
+1076_IEO_FEA_LO|1076|{IH1 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1091_IEO_ANG_MD|1091|{IH1 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1074_IEO_FEA_LO|1074|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1049_IWW_NEU_XX|1049|{AY1 W AH1 N D ER0 W AH1 T DH IH1 S IH0 Z AH0 B AW1 T}|I wonder what this is about.
+1074_IWW_NEU_XX|1074|{AY1 W AH1 N D ER0 W AH1 T DH IH1 S IH0 Z AH0 B AW1 T}|I wonder what this is about.
+1062_MTI_HAP_XX|1062|{M EY1 B IY0 T AH0 M AA1 R OW2 IH0 T W AH0 L B IY0 K OW1 L D}|Maybe tomorrow it will be cold.
+1085_IOM_SAD_XX|1085|{AH0 M AA1 N M AY1 W EY1 T AH0 DH AH0 M IY1 T IH0 NG}|I'm on my way to the meeting.
+1069_TSI_DIS_XX|1069|{DH AH0 S ER1 F AH0 S IH0 Z S L IH1 K}|The surface is slick.
+1076_TIE_DIS_XX|1076|{DH AE1 T IH1 Z IH0 G Z AE1 K T L IY0 HH W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1056_ITS_FEA_XX|1056|{AY1 TH IH1 NG K AY1 V S IY1 N DH IH1 S B IY2 F AO1 R}|I think I've seen this before.
+1035_IWW_SAD_XX|1035|{AY1 W AH1 N D ER0 W AH1 T DH IH1 S IH0 Z AH0 B AW1 T}|I wonder what this is about.
+1025_TSI_ANG_XX|1025|{DH AH0 S ER1 F AH0 S IH1 Z S L IH1 K}|The surface is slick.
+1060_IWW_SAD_XX|1060|{AY1 W AH1 N D ER0 HH W AH1 T DH IH1 S IH0 Z AH0 B AW1 T}|I wonder what this is about.
+1079_ITH_FEA_XX|1079|{AY1 TH IH1 NG K AY1 HH AE1 V AH0 D AA1 K T ER0 Z AH0 P OY1 N T M AH0 N T}|I think I have a doctor's appointment.
+1033_TSI_SAD_XX|1033|{DH AH0 S ER1 F AH0 S IH0 Z S L IH1 K}|The surface is slick.
+1085_TAI_HAP_XX|1085|{DH AH0 EH1 R P L EY2 N IH1 Z AA1 L M OW2 S T F UH1 L}|The airplane is almost full.
+1051_IEO_HAP_HI|1051|{IH1 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1082_TSI_NEU_XX|1082|{DH AH0 S ER1 F AH0 S IH1 Z S L IH1 K}|The surface is slick.
+1006_DFA_NEU_XX|1006|{D OW1 N T F ER0 G EH1 T AH0 JH AE1 K AH0 T}|Don't forget a jacket.
+1059_ITS_DIS_XX|1059|{AY1 TH IH1 NG K AY1 V S IY1 N DH IH1 S B IH0 F AO1 R}|I think I've seen this before.
+1053_TIE_SAD_XX|1053|{DH AE1 T IH0 Z IH0 G Z AE1 K T L IY0 HH W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1060_DFA_NEU_XX|1060|{D OW1 N T F ER0 G EH1 T AH0 JH AE1 K AH0 T}|Don't forget a jacket.
+1073_WSI_HAP_XX|1073|{W IH1 L S T AA1 P IH0 N AH0 K AH1 P AH0 L AH0 V M IH1 N AH0 T S}|We'll stop in a couple of minutes.
+1037_ITH_SAD_XX|1037|{AY1 TH IH1 NG K AY1 HH AE1 V AH0 D AA1 K T ER0 Z AH0 P OY1 N T M AH0 N T}|I think I have a doctor's appointment.
+1056_TSI_FEA_XX|1056|{DH AH0 S ER1 F AH0 S IH1 Z S L IH1 K}|The surface is slick.
+1029_TIE_ANG_XX|1029|{DH AE1 T IH1 Z IH0 G Z AE1 K T L IY0 W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1062_IEO_DIS_LO|1062|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1021_IEO_HAP_MD|1021|{IH1 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1088_IOM_SAD_XX|1088|{AH0 M AA1 N M AY1 W EY1 T AH0 DH AH0 M IY1 T IH0 NG}|I'm on my way to the meeting.
+1091_ITS_ANG_XX|1091|{AY1 TH IH1 NG K AY1 V S IY1 N DH IH1 S B IH0 F AO1 R}|I think I've seen this before.
+1066_ITH_FEA_XX|1066|{AY1 TH IH1 NG K AY1 HH AE1 V AH0 D AA1 K T ER0 Z AH0 P OY1 N T M AH0 N T}|I think I have a doctor's appointment.
+1055_ITH_SAD_XX|1055|{AY1 TH IH1 NG K AY1 HH AE1 V AH0 D AA1 K T ER0 Z AH0 P OY1 N T M AH0 N T}|I think I have a doctor's appointment.
+1024_IEO_SAD_MD|1024|{IH1 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1027_DFA_FEA_XX|1027|{D OW1 N F ER0 G EH1 T AH0 JH AE1 K AH0 T}|Don't forget a jacket.
+1088_TIE_ANG_XX|1088|{DH AE1 T IH1 Z IH0 G Z AE1 K T L IY0 W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1063_ITS_NEU_XX|1063|{AY1 TH IH1 NG K AY1 V S IY1 N DH IH1 S B IH0 F AO1 R}|I think I've seen this before.
+1014_TIE_FEA_XX|1014|{DH AE1 T IH0 Z IH0 G Z AE1 K T L IY0 W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1024_WSI_ANG_XX|1024|{W IH1 L S T AA1 P IH0 N AH0 K AH1 P AH0 L AH0 V M IH1 N AH0 T S}|We'll stop in a couple of minutes.
+1065_IEO_HAP_MD|1065|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1074_WSI_HAP_XX|1074|{W IH1 L S T AA1 P IH0 N AH0 K AH1 P AH0 L AH0 V M IH1 N AH0 T S}|We'll stop in a couple of minutes.
+1007_MTI_HAP_XX|1007|{M EY1 B IY0 T AH0 M AA1 R OW2 IH0 T W AH0 L B IY0 K OW1 L D}|Maybe tomorrow it will be cold.
+1035_TAI_NEU_XX|1035|{DH IY0 EH1 R P L EY2 N IH1 Z AA1 L M OW2 S T F UH1 L}|The airplane is almost full.
+1082_TSI_SAD_XX|1082|{DH AH0 S ER1 F AH0 S IH1 Z S L IH1 K}|The surface is slick.
+1021_TAI_HAP_XX|1021|{DH IY0 EH1 R P L EY2 N IH0 Z AA1 L M OW2 S T F UH1 L}|The airplane is almost full.
+1049_WSI_FEA_XX|1049|{W IH1 L S T AA1 P IH0 N AH0 K AH1 P AH0 L AH0 V M IH1 N AH0 T S}|We'll stop in a couple of minutes.
+1005_TIE_ANG_XX|1005|{DH AE1 T IH1 Z IH0 G Z AE1 K T L IY0 W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1020_TSI_HAP_XX|1020|{DH AH0 S ER1 F AH0 S IH0 Z S L IH1 K}|The surface is slick.
+1088_DFA_DIS_XX|1088|{D OW1 N T F ER0 G EH1 T AH0 JH AE1 K AH0 T}|Don't forget a jacket.
+1029_DFA_HAP_XX|1029|{D OW1 N T F ER0 G EH1 T AH0 JH AE1 K AH0 T}|Don't forget a jacket.
+1084_WSI_NEU_XX|1084|{W IH1 L S T AA1 P IH0 N AH0 K AH1 P AH0 L AH0 V M IH1 N AH0 T S}|We'll stop in a couple of minutes.
+1051_IEO_DIS_HI|1051|{IH1 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1081_TAI_FEA_XX|1081|{DH IY0 EH1 R P L EY2 N IH0 Z AA1 L M OW2 S T F UH1 L}|The airplane is almost full.
+1032_WSI_ANG_XX|1032|{W IH1 L S T AA1 P IH0 N AH0 K AH1 P AH0 L AH0 V M IH1 N AH0 T S}|We'll stop in a couple of minutes.
+1055_TIE_ANG_XX|1055|{DH AE1 T IH1 Z IH0 G Z AE1 K T L IY0 W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1039_TAI_SAD_XX|1039|{DH AH0 EH1 R P L EY2 N IH0 Z AO1 L M OW2 S T F UH1 L}|The airplane is almost full.
+1014_IOM_ANG_XX|1014|{AY1 M AA1 N M AY1 W EY1 T AH0 DH AH0 M IY1 T IH0 NG}|I'm on my way to the meeting.
+1055_IEO_FEA_HI|1055|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1040_IEO_HAP_HI|1040|{IH1 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1077_ITH_HAP_XX|1077|{AY1 TH IH1 NG K AY1 HH AE1 V AH0 D AA1 K T ER0 Z AH0 P OY1 N T M AH0 N T}|I think I have a doctor's appointment.
+1061_IOM_FEA_XX|1061|{AH0 M AA1 N M AY1 W EY1 T AH0 DH AH0 M IY1 T IH0 NG}|I'm on my way to the meeting.
+1079_TAI_DIS_XX|1079|{DH IY0 EH1 R P L EY2 N IH1 Z AA1 L M OW2 S T F UH1 L}|The airplane is almost full.
+1069_MTI_HAP_XX|1069|{M EY1 B IY0 T AH0 M AA1 R OW2 IH0 T W IH1 L B IY0 K OW1 L D}|Maybe tomorrow it will be cold.
+1091_TSI_FEA_XX|1091|{DH AH0 S ER1 F AH0 S IH0 Z S L IH1 K}|The surface is slick.
+1047_MTI_HAP_XX|1047|{M EY1 B IY0 T AH0 M AA1 R OW2 IH0 T W AH0 L B IY0 K OW1 L D}|Maybe tomorrow it will be cold.
+1047_TSI_HAP_XX|1047|{DH AH0 S ER1 F AH0 S IH1 Z S L IH1 K}|The surface is slick.
+1057_WSI_HAP_XX|1057|{W IH1 L S T AA1 P IH0 N AH0 K AH1 P AH0 L AH0 V M IH1 N AH0 T S}|We'll stop in a couple of minutes.
+1001_IEO_ANG_LO|1001|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1035_TIE_SAD_XX|1035|{DH AE1 T IH0 Z IH0 G Z AE1 K T L IY0 W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1062_IWL_HAP_XX|1062|{AY1 W UH1 D L AY1 K AH0 N UW1 AH0 L AA1 R M K L AA1 K}|I would like a new alarm clock.
+1027_ITH_ANG_XX|1027|{AY1 TH IH1 NG K AY1 HH AE1 V AH0 D AA1 K T ER0 Z AH0 P OY1 N T M AH0 N T}|I think I have a doctor's appointment.
+1072_ITH_SAD_XX|1072|{AY1 TH IH1 NG K AY1 HH AE1 V AH0 D AA1 K T ER0 Z AH0 P OY1 N T M AH0 N T}|I think I have a doctor's appointment.
+1050_IEO_DIS_HI|1050|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1018_IWW_ANG_XX|1018|{AY1 W AH1 N D ER0 W AH1 T DH IH1 S IH0 Z AH0 B AW1 T}|I wonder what this is about.
+1091_IEO_HAP_HI|1091|{IH1 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1090_DFA_HAP_XX|1090|{D OW1 N T F ER0 G EH1 T AH0 JH AE1 K AH0 T}|Don't forget a jacket.
+1012_IWL_ANG_XX|1012|{AY1 W UH1 D L AY1 K AH0 N Y UW1 AH0 L AA1 R M K L AA1 K}|I would like a new alarm clock.
+1087_TAI_NEU_XX|1087|{DH IY0 EH1 R P L EY2 N IH0 Z AA1 L M OW2 S T F UH1 L}|The airplane is almost full.
+1070_TIE_NEU_XX|1070|{DH AE1 T IH1 Z IH0 G Z AE1 K T L IY0 W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1021_MTI_DIS_XX|1021|{M EY1 B IY0 T AH0 M AA1 R OW2 IH0 W AH0 L B IY0 K OW1 L D}|Maybe tomorrow it will be cold.
+1038_TSI_SAD_XX|1038|{DH AH0 S ER1 F AH0 S IH0 Z S L IH1 K}|The surface is slick.
+1037_ITH_DIS_XX|1037|{AY1 TH IH1 NG K AY1 HH AE1 V AH0 D AA1 K T ER0 Z AH0 P OY1 N T M AH0 N T}|I think I have a doctor's appointment.
+1074_IEO_HAP_HI|1074|{IH1 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1036_IWL_FEA_XX|1036|{AY1 W UH1 D L AY1 K AH0 N UW1 AH0 L AA1 R M K L AA1 K}|I would like a new alarm clock.
+1091_TSI_NEU_XX|1091|{DH AH0 S ER1 F AH0 S IH1 Z S L IH1 K}|The surface is slick.
+1051_TIE_HAP_XX|1051|{DH AE1 T IH1 Z IH0 G Z AE1 K T L IY0 W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1058_MTI_ANG_XX|1058|{M EY1 B IY0 T AH0 M AA1 R OW2 IH0 T W AH0 L B IY0 K OW1 L D}|Maybe tomorrow it will be cold.
+1032_IWW_SAD_XX|1032|{AY1 W AH1 N D ER0 W AH1 T DH IH1 S IH0 Z AH0 B AW1 T}|I wonder what this is about.
+1024_IWW_FEA_XX|1024|{AY1 W AH1 N D ER0 W AH1 T DH IH1 S IH0 Z AH0 B AW1 T}|I wonder what this is about.
+1031_ITS_SAD_XX|1031|{AY1 TH IH1 NG K AY1 V S IY1 N DH IH1 S B IY2 F AO1 R}|I think I've seen this before.
+1089_WSI_HAP_XX|1089|{W IH1 L S T AA1 P IH0 N AH0 K AH1 P AH0 L AH0 V M IH1 N AH0 T S}|We'll stop in a couple of minutes.
+1058_IWL_NEU_XX|1058|{AY1 W UH1 D L AY1 K AH0 N Y UW1 AH0 L AA1 R M K L AA1 K}|I would like a new alarm clock.
+1024_TIE_DIS_XX|1024|{DH AE1 T IH0 Z IH0 G Z AE1 K T L IY0 HH W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1020_DFA_DIS_XX|1020|{D OW1 N T F ER0 G EH1 T EY1 JH AE1 K AH0 T}|Don't forget a jacket.
+1036_IEO_DIS_LO|1036|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1041_TSI_ANG_XX|1041|{DH AH0 S ER1 F AH0 S IH1 Z S L IH1 K}|The surface is slick.
+1085_TIE_NEU_XX|1085|{DH AE1 T IH1 Z IH0 G Z AE1 K T L IY0 W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1043_ITH_FEA_XX|1043|{AY1 TH IH1 NG K AY1 HH AE1 V AH0 D AA1 K T ER0 Z AH0 P OY1 N T M AH0 N T}|I think I have a doctor's appointment.
+1024_DFA_FEA_XX|1024|{D OW1 N T F ER0 G EH1 T AH0 JH AE1 K AH0 T}|Don't forget a jacket.
+1071_WSI_FEA_XX|1071|{W IH1 L S T AA1 P IH0 N AH0 K AH1 P AH0 L AH0 V M IH1 N AH0 T S}|We'll stop in a couple of minutes.
+1071_TSI_ANG_XX|1071|{DH AH0 S ER1 F AH0 S IH1 Z S L IH1 K}|The surface is slick.
+1034_ITS_SAD_XX|1034|{AY1 TH IH1 NG K AY1 V S IY1 N DH IH1 S B IY2 F AO1 R}|I think I've seen this before.
+1018_ITH_HAP_XX|1018|{AY1 TH IH1 NG K AY1 HH AE1 V AH0 D AA1 K T ER0 Z AH0 P OY1 N T M AH0 N T}|I think I have a doctor's appointment.
+1060_TAI_ANG_XX|1060|{DH IY0 EH1 R P L EY2 N IH1 Z AO1 L M OW2 S T F UH1 L}|The airplane is almost full.
+1013_TIE_ANG_XX|1013|{DH AE1 T IH1 Z IH0 G Z AE1 K T L IY0 HH W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1015_DFA_DIS_XX|1015|{D OW1 N T F ER0 G EH1 T AH0 JH AE1 K IH0 T}|Don't forget a jacket.
+1078_IEO_DIS_LO|1078|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1055_TIE_NEU_XX|1055|{DH AE1 T IH1 Z IH0 G Z AE1 K T L IY0 W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1077_TAI_DIS_XX|1077|{DH IY0 EH1 R P L EY2 N IH0 Z AA1 L M OW2 S T F UH1 L}|The airplane is almost full.
+1048_TIE_FEA_XX|1048|{DH AE1 T IH0 Z IH0 G Z AE1 K T L IY0 W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1074_TSI_SAD_XX|1074|{DH AH0 S ER1 F AH0 S IH0 Z S L IH1 K}|The surface is slick.
+1081_ITH_DIS_XX|1081|{AY1 TH IH1 NG K AY1 HH AE1 V AH0 D AA1 K T ER0 Z AH0 P OY1 N T M AH0 N T}|I think I have a doctor's appointment.
+1016_IEO_NEU_XX|1016|{IH1 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1013_ITS_SAD_XX|1013|{AY1 TH IH1 NG K AY1 V S IY1 N DH IH1 S B IH0 F AO1 R}|I think I've seen this before.
+1067_TAI_DIS_XX|1067|{DH IY0 EH1 R P L EY2 N IH1 Z AO1 L M OW2 S T F UH1 L}|The airplane is almost full.
+1044_IWW_FEA_XX|1044|{AY1 W AH1 N D ER0 W AH1 T DH IH1 S IH0 Z AH0 B AW1 T}|I wonder what this is about.
+1043_ITH_HAP_XX|1043|{AY1 TH IH1 NG K AY1 HH AE1 V AH0 D AA1 K T ER0 Z AH0 P OY1 N T M AH0 N T}|I think I have a doctor's appointment.
+1018_IEO_HAP_HI|1018|{IH1 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1089_MTI_NEU_XX|1089|{M EY1 B IY0 T AH0 M AA1 R OW2 IH0 T W IH1 L B IY0 K OW1 L D}|Maybe tomorrow it will be cold.
+1074_IWL_FEA_XX|1074|{AY1 W UH1 D L AY1 K AH0 N Y UW1 AH0 L AA1 R M K L AA1 K}|I would like a new alarm clock.
+1046_IOM_NEU_XX|1046|{AY1 M AA1 N M AY1 W EY1 T AH0 DH AH0 M IY1 T IH0 NG}|I'm on my way to the meeting.
+1055_MTI_HAP_XX|1055|{M EY1 B IY0 T AH0 M AA1 R OW2 IH1 T W AH0 L B IY0 K OW1 L D}|Maybe tomorrow it will be cold.
+1033_DFA_FEA_XX|1033|{D OW1 N T F ER0 G EH1 T AH0 JH AE1 K IH0 T}|Don't forget a jacket.
+1026_DFA_ANG_XX|1026|{D OW1 N T F ER0 G EH1 T AH0 JH AE1 K AH0 T}|Don't forget a jacket.
+1076_MTI_FEA_XX|1076|{M EY1 B IY0 T AH0 M AA1 R OW2 IH0 T W AH0 L B IY0 K OW1 L D}|Maybe tomorrow it will be cold.
+1028_ITH_HAP_XX|1028|{AY1 TH IH1 NG K AY1 HH AE1 V AH0 D AA1 K T ER0 Z AH0 P OY1 N T M AH0 N T}|I think I have a doctor's appointment.
+1056_WSI_FEA_XX|1056|{W IH1 L S T AA1 P IH0 N AH0 K AH1 P AH0 L AH0 V M IH1 N AH0 T S}|We'll stop in a couple of minutes.
+1011_IOM_NEU_XX|1011|{AY1 M AA1 N M AY1 W EY1 T AH0 DH AH0 M IY1 T IH0 NG}|I'm on my way to the meeting.
+1022_MTI_HAP_XX|1022|{M EY1 B IY0 T AH0 M AA1 R OW2 IH0 T W AH0 L B IY0 K OW1 L D}|Maybe tomorrow it will be cold.
+1065_IEO_ANG_HI|1065|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1072_TSI_DIS_XX|1072|{DH AH0 S ER1 F AH0 S IH1 Z S L IH1 K}|The surface is slick.
+1043_WSI_FEA_XX|1043|{W IH1 L S T AA1 P IH0 N AH0 K AH1 P AH0 L AH0 V M IH1 N AH0 T S}|We'll stop in a couple of minutes.
+1016_TAI_FEA_XX|1016|{DH IY0 EH1 R P L EY2 N IH1 Z AO1 L M OW2 S T F UH1 L}|The airplane is almost full.
+1058_IEO_ANG_MD|1058|{IH1 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1043_IEO_HAP_LO|1043|{IH1 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1030_WSI_ANG_XX|1030|{W IH1 L S T AA1 P IH0 N AH0 K AH1 P AH0 L AH0 V M IH1 N AH0 T S}|We'll stop in a couple of minutes.
+1036_TIE_FEA_XX|1036|{DH AE1 T IH0 Z IH0 G Z AE1 K T L IY0 W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1071_TIE_HAP_XX|1071|{DH AE1 T IH1 Z IH0 G Z AE1 K T L IY0 W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1028_DFA_HAP_XX|1028|{D OW1 N T F ER0 G EH1 T AH0 JH AE1 K IH0 T}|Don't forget a jacket.
+1051_TIE_ANG_XX|1051|{DH AE1 T IH1 Z IH0 G Z AE1 K T L IY0 W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1029_IWW_DIS_XX|1029|{AY1 W AH1 N D ER0 W AH1 T DH IH1 S IH0 Z AH0 B AW1 T}|I wonder what this is about.
+1004_IEO_SAD_LO|1004|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1078_MTI_HAP_XX|1078|{M EY1 B IY0 T AH0 M AA1 R OW2 IH1 T W AH0 L B IY0 K OW1 L D}|Maybe tomorrow it will be cold.
+1073_IEO_SAD_LO|1073|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1072_TAI_HAP_XX|1072|{DH AH0 EH1 R P L EY2 N IH1 Z AA1 L M OW2 S T F UH1 L}|The airplane is almost full.
+1055_TSI_NEU_XX|1055|{DH AH0 S ER1 F AH0 S IH1 Z S L IH1 K}|The surface is slick.
+1012_DFA_HAP_XX|1012|{D OW1 N T F ER0 G EH1 T AH0 JH AE1 K AH0 T}|Don't forget a jacket.
+1042_ITS_FEA_XX|1042|{AY1 TH IH1 NG K AY1 V S IY1 N DH IH1 S B IH0 F AO1 R}|I think I've seen this before.
+1043_MTI_SAD_XX|1043|{M EY1 B IY0 T AH0 M AA1 R OW2 IH1 T W AH0 L B IY0 K OW1 L D}|Maybe tomorrow it will be cold.
+1031_IEO_DIS_MD|1031|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1008_ITH_ANG_XX|1008|{AY1 TH IH1 NG K AY1 HH AE1 V AH0 D AA1 K T ER0 Z AH0 P OY1 N T M AH0 N T}|I think I have a doctor's appointment.
+1068_TSI_ANG_XX|1068|{DH AH0 S ER1 F AH0 S IH1 Z S L IH1 K}|The surface is slick.
+1062_ITS_HAP_XX|1062|{AY1 TH IH1 NG K AY1 V S IY1 N DH IH1 S B IY2 F AO1 R}|I think I've seen this before.
+1042_WSI_HAP_XX|1042|{W IH1 L S T AA1 P IH0 N AH0 K AH1 P AH0 L AH0 V M IH1 N AH0 T S}|We'll stop in a couple of minutes.
+1012_ITH_SAD_XX|1012|{AY1 TH IH1 NG K AY1 HH AE1 V AH0 D AA1 K T ER0 Z AH0 P OY1 N T M AH0 N T}|I think I have a doctor's appointment.
+1083_ITS_ANG_XX|1083|{AY1 TH IH1 NG K AY1 V S IY1 N DH IH1 S B IH0 F AO1 R}|I think I've seen this before.
+1048_TSI_SAD_XX|1048|{DH AH0 S ER1 F AH0 S IH0 Z S L IH1 K}|The surface is slick.
+1015_IEO_FEA_MD|1015|{IH1 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1044_DFA_SAD_XX|1044|{D OW1 N T F ER0 G EH1 T AH0 JH AE1 K AH0 T}|Don't forget a jacket.
+1031_IEO_FEA_LO|1031|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1040_TAI_HAP_XX|1040|{DH IY0 EH1 R P L EY2 N IH0 Z AA1 L M OW2 S T F UH1 L}|The airplane is almost full.
+1082_IEO_SAD_MD|1082|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1061_TSI_DIS_XX|1061|{DH AH0 S ER1 F AH0 S IH0 Z S L IH1 K}|The surface is slick.
+1010_TSI_FEA_XX|1010|{DH AH0 S ER1 F AH0 S IH1 Z S L IH1 K}|The surface is slick.
+1028_TAI_SAD_XX|1028|{DH IY0 EH1 R P L EY2 N IH0 Z AA1 L M OW2 S T F UH1 L}|The airplane is almost full.
+1061_TSI_ANG_XX|1061|{DH AH0 S ER1 F AH0 S IH1 Z S L IH1 K}|The surface is slick.
+1015_ITH_HAP_XX|1015|{AY1 TH IH1 NG K AY1 HH AE1 V AH0 D AA1 K T ER0 Z AH0 P OY1 N T M AH0 N T}|I think I have a doctor's appointment.
+1029_TAI_FEA_XX|1029|{DH IY0 EH1 R P L EY2 N IH0 Z AA1 L M OW2 S T F UH1 L}|The airplane is almost full.
+1001_ITS_SAD_XX|1001|{AY1 TH IH1 NG K AY1 V S IY1 N DH IH1 S B IH0 F AO1 R}|I think I've seen this before.
+1048_IOM_ANG_XX|1048|{AY1 M AA1 N M AY1 W EY1 T AH0 DH AH0 M IY1 T IH0 NG}|I'm on my way to the meeting.
+1024_WSI_DIS_XX|1024|{W IH1 L S T AA1 P IH0 N AH0 K AH1 P AH0 L AH0 V M IH1 N AH0 T S}|We'll stop in a couple of minutes.
+1088_MTI_DIS_XX|1088|{M EY1 B IY0 T AH0 M AA1 R OW2 IH0 T W AH0 L B IY0 K OW1 L D}|Maybe tomorrow it will be cold.
+1016_ITS_ANG_XX|1016|{AY1 TH IH1 NG K AY1 V S IY1 N DH IH1 S B IY2 F AO1 R}|I think I've seen this before.
+1012_IEO_FEA_LO|1012|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1065_DFA_DIS_XX|1065|{D OW1 N T F ER0 G EH1 T AH0 JH AE1 K AH0 T}|Don't forget a jacket.
+1006_IEO_NEU_XX|1006|{IH1 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1074_IOM_DIS_XX|1074|{AY1 M AA1 N M AY1 W EY1 T IH0 DH AH0 M IY1 T IH0 NG}|I'm on my way to the meeting.
+1051_TSI_NEU_XX|1051|{DH AH0 S ER1 F AH0 S IH0 Z S L IH1 K}|The surface is slick.
+1005_TIE_SAD_XX|1005|{DH AE1 T IH1 Z IH0 G Z AE1 K T L IY0 HH W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1021_TSI_ANG_XX|1021|{DH AH0 S ER1 F AH0 S IH1 Z S L IH1 K}|The surface is slick.
+1028_MTI_NEU_XX|1028|{M EY1 B IY0 T AH0 M AA1 R OW2 IH1 T W AH0 L B IY0 K OW1 L D}|Maybe tomorrow it will be cold.
+1032_DFA_NEU_XX|1032|{D OW1 N T F ER0 G EH1 T AH0 JH AE1 K AH0 T}|Don't forget a jacket.
+1024_IOM_SAD_XX|1024|{AY1 M AA1 N M AY1 W EY1 T IH0 DH AH0 M IY1 T IH0 NG}|I'm on my way to the meeting.
+1051_WSI_FEA_XX|1051|{W IH1 L S T AA1 P IH0 N AH0 K AH1 P AH0 L AH0 V M IH1 N AH0 T S}|We'll stop in a couple of minutes.
+1090_IEO_FEA_MD|1090|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1072_ITS_SAD_XX|1072|{AY1 TH IH1 NG K AY1 V S IY1 N DH IH1 S B IH0 F AO1 R}|I think I've seen this before.
+1083_WSI_ANG_XX|1083|{W IH1 L S T AA1 P IH0 N AH0 K AH1 P AH0 L AH0 V M IH1 N AH0 T S}|We'll stop in a couple of minutes.
+1028_IWW_SAD_XX|1028|{AY1 W AH1 N D ER0 W AH1 T DH IH1 S IH0 Z AH0 B AW1 T}|I wonder what this is about.
+1008_DFA_FEA_XX|1008|{D OW1 N T F ER0 G EH1 T AH0 JH AE1 K AH0 T}|Don't forget a jacket.
+1018_MTI_DIS_XX|1018|{M EY1 B IY0 T AH0 M AA1 R OW2 IH0 T W AH0 L B IY0 K OW1 L D}|Maybe tomorrow it will be cold.
+1050_IOM_FEA_XX|1050|{AY1 M AA1 N M AY1 W EY1 T AH0 DH AH0 M IY1 T IH0 NG}|I'm on my way to the meeting.
+1020_TSI_FEA_XX|1020|{DH AH0 S ER1 F AH0 S IH0 Z S L IH1 K}|The surface is slick.
+1063_TIE_SAD_XX|1063|{DH AE1 T IH0 Z IH0 G Z AE1 K T L IY0 HH W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1047_TIE_FEA_XX|1047|{DH AE1 T IH1 Z IH0 G Z AE1 K T L IY0 W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1056_ITH_DIS_XX|1056|{AY1 TH IH1 NG K AY1 HH AE1 V AH0 D AA1 K T ER0 Z AH0 P OY1 N T M AH0 N T}|I think I have a doctor's appointment.
+1087_IWL_NEU_XX|1087|{AY1 W UH1 D L AY1 K EY1 N UW1 AH0 L AA1 R M K L AA1 K}|I would like a new alarm clock.
+1005_IWL_NEU_XX|1005|{AY1 W UH1 D L AY1 K AH0 N UW1 AH0 L AA1 R M K L AA1 K}|I would like a new alarm clock.
+1041_IWL_SAD_XX|1041|{AY1 W UH1 D L AY1 K AH0 N Y UW1 AH0 L AA1 R M K L AA1 K}|I would like a new alarm clock.
+1080_IWL_FEA_XX|1080|{AY1 W UH1 D L AY1 K AH0 N UW1 AH0 L AA1 R M K L AA1 K}|I would like a new alarm clock.
+1024_MTI_FEA_XX|1024|{M EY1 B IY0 T AH0 M AA1 R OW2 IH1 T W AH0 L B IY0 K OW1 L D}|Maybe tomorrow it will be cold.
+1037_IEO_ANG_LO|1037|{IH1 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1001_IWW_ANG_XX|1001|{AY1 W AH1 N D ER0 W AH1 T DH IH1 S IH0 Z AH0 B AW1 T}|I wonder what this is about.
+1050_ITS_HAP_XX|1050|{AY1 TH IH1 NG K AY1 V S IY1 N DH IH1 S B IH0 F AO1 R}|I think I've seen this before.
+1077_ITH_DIS_XX|1077|{AY1 TH IH1 NG K AY1 HH AE1 V AH0 D AA1 K T ER0 Z AH0 P OY1 N T M AH0 N T}|I think I have a doctor's appointment.
+1088_IWL_NEU_XX|1088|{AY1 W UH1 D L AY1 K AH0 N Y UW1 AH0 L AA1 R M K L AA1 K}|I would like a new alarm clock.
+1091_IOM_HAP_XX|1091|{AY1 M AA1 N M AY1 W EY1 T IH0 DH AH0 M IY1 T IH0 NG}|I'm on my way to the meeting.
+1004_TSI_HAP_XX|1004|{DH AH0 S ER1 F AH0 S IH1 Z S L IH1 K}|The surface is slick.
+1041_MTI_FEA_XX|1041|{M EY1 B IY0 T AH0 M AA1 R OW2 IH0 T W AH0 L B IY0 K OW1 L D}|Maybe tomorrow it will be cold.
+1075_MTI_FEA_XX|1075|{M EY1 B IY0 T AH0 M AA1 R OW2 IH0 T W AH0 L B IY0 K OW1 L D}|Maybe tomorrow it will be cold.
+1081_IEO_NEU_XX|1081|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1058_MTI_HAP_XX|1058|{M EY1 B IY0 T AH0 M AA1 R OW2 IH0 T W AH0 L B IY0 K OW1 L D}|Maybe tomorrow it will be cold.
+1002_MTI_FEA_XX|1002|{M EY1 B IY0 T AH0 M AA1 R OW2 IH0 T W AH0 L B IY0 K OW1 L D}|Maybe tomorrow it will be cold.
+1085_WSI_FEA_XX|1085|{W IH1 L S T AA1 P IH0 N AH0 K AH1 P AH0 L AH0 V M IH1 N AH0 T S}|We'll stop in a couple of minutes.
+1016_WSI_FEA_XX|1016|{W IH1 L S T AA1 P IH0 N AH0 K AH1 P AH0 L AH0 V M IH1 N AH0 T S}|We'll stop in a couple of minutes.
+1087_IOM_NEU_XX|1087|{AY1 M AA1 N M AY1 W EY1 T AH0 DH AH0 M IY1 T IH0 NG}|I'm on my way to the meeting.
+1075_ITH_SAD_XX|1075|{AY1 TH IH1 NG K AY1 HH AE1 V AH0 D AA1 K T ER0 Z AH0 P OY1 N T M AH0 N T}|I think I have a doctor's appointment.
+1044_TAI_HAP_XX|1044|{DH IY0 EH1 R P L EY2 N IH0 Z AA1 L M OW2 S T F UH1 L}|The airplane is almost full.
+1058_IOM_HAP_XX|1058|{AY1 M AA1 N M AY1 W EY1 T IH0 DH AH0 M IY1 T IH0 NG}|I'm on my way to the meeting.
+1056_ITH_HAP_XX|1056|{AY1 TH IH1 NG K AY1 HH AE1 V AH0 D AA1 K T ER0 Z AH0 P OY1 N T M AH0 N T}|I think I have a doctor's appointment.
+1089_TAI_HAP_XX|1089|{DH IY0 EH1 R P L EY2 N IH1 Z AA1 L M OW2 S T F UH1 L}|The airplane is almost full.
+1044_IWW_HAP_XX|1044|{AY1 W AH1 N D ER0 W AH1 T DH IH1 S IH0 Z AH0 B AW1 T}|I wonder what this is about.
+1033_TSI_HAP_XX|1033|{DH AH0 S ER1 F AH0 S IH0 Z S L IH1 K}|The surface is slick.
+1063_TIE_NEU_XX|1063|{DH AE1 T IH1 Z IH0 G Z AE1 K T L IY0 W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1084_DFA_FEA_XX|1084|{D OW1 N T F ER0 G EH1 T AH0 JH AE1 K AH0 T}|Don't forget a jacket.
+1064_ITH_SAD_XX|1064|{AY1 TH IH1 NG K AY1 HH AE1 V AH0 D AA1 K T ER0 Z AH0 P OY1 N T M AH0 N T}|I think I have a doctor's appointment.
+1063_TIE_FEA_XX|1063|{DH AE1 T IH1 Z IH0 G Z AE1 K T L IY0 W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1052_MTI_DIS_XX|1052|{M EY1 B IY0 T AH0 M AA1 R OW2 IH1 T W AH0 L B IY0 K OW1 L D}|Maybe tomorrow it will be cold.
+1074_TIE_NEU_XX|1074|{DH AE1 T IH0 Z IH0 G Z AE1 K T L IY0 W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1008_IEO_FEA_MD|1008|{IH1 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1045_IWW_ANG_XX|1045|{AY1 W AH1 N D ER0 W AH1 T DH IH1 S IH0 Z AH0 B AW1 T}|I wonder what this is about.
+1045_MTI_SAD_XX|1045|{M EY1 B IY0 T AH0 M AA1 R OW2 IH0 T W AH0 L B IY0 K OW1 L D}|Maybe tomorrow it will be cold.
+1083_IWW_ANG_XX|1083|{AY1 W AH1 N D ER0 W AH1 T DH IH1 S IH0 Z AH0 B AW1 T}|I wonder what this is about.
+1024_TAI_HAP_XX|1024|{DH IY0 EH1 R P L EY2 N IH1 Z AA1 L M OW2 S T F UH1 L}|The airplane is almost full.
+1075_IOM_DIS_XX|1075|{AY1 M AA1 N M AY1 W EY1 T IH0 DH AH0 M IY1 T IH0 NG}|I'm on my way to the meeting.
+1055_DFA_FEA_XX|1055|{D OW1 N T F AO0 R G EH1 T AH0 JH AE1 K AH0 T}|Don't forget a jacket.
+1035_TSI_SAD_XX|1035|{DH AH0 S ER1 F AH0 S IH0 Z S L IH1 K}|The surface is slick.
+1063_IEO_DIS_HI|1063|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1081_TAI_DIS_XX|1081|{DH IY0 EH1 R P L EY2 N IH0 Z AA1 L M OW2 S T F UH1 L}|The airplane is almost full.
+1049_TIE_FEA_XX|1049|{DH AE1 T IH1 Z IH0 G Z AE1 K T L IY0 W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1038_IWW_ANG_XX|1038|{AY1 W AH1 N D ER0 W AH1 T DH IH1 S IH0 Z AH0 B AW1 T}|I wonder what this is about.
+1039_IWL_SAD_XX|1039|{AY1 W UH1 D L AY1 K AH0 N UW1 AH0 L AA1 R M K L AA1 K}|I would like a new alarm clock.
+1077_IEO_ANG_LO|1077|{IH1 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1084_TSI_NEU_XX|1084|{DH AH0 S ER1 F AH0 S IH1 Z S L IH1 K}|The surface is slick.
+1033_IOM_SAD_XX|1033|{AY1 M AA1 N M AY1 W EY1 T IH0 DH AH0 M IY1 T IH0 NG}|I'm on my way to the meeting.
+1021_TAI_ANG_XX|1021|{DH IY0 EH1 R P L EY2 N IH1 Z AO1 L M OW2 S T F UH1 L}|The airplane is almost full.
+1078_TIE_HAP_XX|1078|{DH AE1 T IH1 Z IH0 G Z AE1 K T L IY0 W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1088_TIE_FEA_XX|1088|{DH AE1 T IH1 Z IH0 G Z AE1 K T L IY0 HH W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1065_ITH_SAD_XX|1065|{AY1 TH IH1 NG K AY1 HH AE1 V AH0 D AA1 K T ER0 Z AH0 P OY1 N T M AH0 N T}|I think I have a doctor's appointment.
+1091_IWW_FEA_XX|1091|{AY1 W AH1 N D ER0 W AH1 T DH IH1 S IH0 Z AH0 B AW1 T}|I wonder what this is about.
+1021_IEO_ANG_HI|1021|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1039_IWL_FEA_XX|1039|{AY1 W UH1 L AY1 K AH0 N UW1 AH0 L AA1 R M K L AA1 K}|I would like a new alarm clock.
+1030_MTI_ANG_XX|1030|{M EY1 B IY0 T AH0 M AA1 R OW2 IH0 T W IH1 L B IY0 K OW1 L D}|Maybe tomorrow it will be cold.
+1072_DFA_DIS_XX|1072|{D OW1 N T F ER0 G EH1 T AH0 JH AE1 K IH0 T}|Don't forget a jacket.
+1031_IWL_DIS_XX|1031|{AY1 W UH1 D L AY1 K AH0 N Y UW1 AH0 L AA1 R M K L AA1 K}|I would like a new alarm clock.
+1043_IOM_ANG_XX|1043|{AY1 M AA1 N M AY1 W EY1 T AH0 DH AH0 M IY1 T IH0 NG}|I'm on my way to the meeting.
+1050_IWL_FEA_XX|1050|{AY1 W UH1 D L AY1 K AH0 N UW1 AH0 L AA1 R M K L AA1 K}|I would like a new alarm clock.
+1038_ITH_SAD_XX|1038|{AY1 TH IH1 NG K AY1 HH AE1 V AH0 D AA1 K T ER0 Z AH0 P OY1 N T M AH0 N T}|I think I have a doctor's appointment.
+1001_IWL_FEA_XX|1001|{AY1 W UH1 D L AY1 K AH0 N Y UW1 AH0 L AA1 R M K L AA1 K}|I would like a new alarm clock.
+1013_TAI_FEA_XX|1013|{DH IY0 EH1 R P L EY2 N IH1 Z AA1 L M OW2 S T F UH1 L}|The airplane is almost full.
+1079_TIE_FEA_XX|1079|{DH AE1 T IH1 Z IH0 G Z AE1 K T L IY0 W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1066_DFA_ANG_XX|1066|{D OW1 N T F ER0 G EH1 T AH0 JH AE1 K AH0 T}|Don't forget a jacket.
+1015_TAI_NEU_XX|1015|{DH IY0 EH1 R P L EY2 N IH1 Z AA1 L M OW2 S T F UH1 L}|The airplane is almost full.
+1046_ITH_NEU_XX|1046|{AY1 TH IH1 NG K AY1 HH AE1 V AH0 D AA1 K T ER0 Z AH0 P OY1 N T M AH0 N T}|I think I have a doctor's appointment.
+1033_IWL_SAD_XX|1033|{AY1 W UH1 D L AY1 K AH0 N UW1 AH0 L AA1 R M K L AA1 K}|I would like a new alarm clock.
+1054_MTI_ANG_XX|1054|{M EY1 B IY0 T AH0 M AA1 R OW2 IH0 T W AH0 L B IY0 K OW1 L D}|Maybe tomorrow it will be cold.
+1030_IWL_DIS_XX|1030|{AY1 W UH1 D L AY1 K AH0 N Y UW1 AH0 L AA1 R M K L AA1 K}|I would like a new alarm clock.
+1042_IEO_ANG_LO|1042|{IH1 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1080_TSI_HAP_XX|1080|{DH AH0 S ER1 F AH0 S IH1 Z S L IH1 K}|The surface is slick.
+1001_WSI_HAP_XX|1001|{W IH1 L S T AA1 P IH0 N AH0 K AH1 P AH0 L AH0 V M IH1 N AH0 T S}|We'll stop in a couple of minutes.
+1081_IEO_ANG_HI|1081|{IH1 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1072_DFA_ANG_XX|1072|{D OW1 N T F ER0 G EH1 T AH0 JH AE1 K AH0 T}|Don't forget a jacket.
+1006_ITH_HAP_XX|1006|{AY1 TH IH1 NG K AY1 HH AE1 V AH0 D AA1 K T ER0 Z AH0 P OY1 N T M AH0 N T}|I think I have a doctor's appointment.
+1069_IEO_ANG_MD|1069|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1038_TIE_DIS_XX|1038|{DH AE1 T IH1 Z IH0 G Z AE1 K T L IY0 W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1071_TIE_FEA_XX|1071|{DH AE1 T IH1 Z IH0 G Z AE1 K T L IY0 W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1025_TIE_NEU_XX|1025|{DH AE1 T IH1 Z IH0 G Z AE1 K T L IY0 W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1005_ITH_NEU_XX|1005|{AY1 TH IH1 NG K AY1 HH AE1 V AH0 D AA1 K T ER0 Z AH0 P OY1 N T M AH0 N T}|I think I have a doctor's appointment.
+1018_IEO_ANG_LO|1018|{IH1 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1081_IWW_FEA_XX|1081|{AY1 W AH1 N D ER0 W AH1 T DH IH1 S IH0 Z AH0 B AW1 T}|I wonder what this is about.
+1020_TIE_FEA_XX|1020|{DH AE1 T IH0 Z IH0 G Z AE1 K T L IY0 HH W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1029_IWW_SAD_XX|1029|{AY1 W AH1 N D ER0 W AH1 T DH IH1 S IH0 Z AH0 B AW1 T}|I wonder what this is about.
+1011_TAI_FEA_XX|1011|{DH IY0 EH1 R P L EY2 N IH0 Z AA1 L M OW2 S T F UH1 L}|The airplane is almost full.
+1025_DFA_FEA_XX|1025|{D OW1 N T F ER0 G EH1 T AH0 JH AE1 K AH0 T}|Don't forget a jacket.
+1062_TIE_DIS_XX|1062|{DH AE1 T IH1 Z IH0 G Z AE1 K T L IY0 HH W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1035_IEO_ANG_HI|1035|{IH1 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1034_IOM_DIS_XX|1034|{AH0 M AA1 N M AY1 W EY1 T AH0 DH AH0 M IY1 T IH0 NG}|I'm on my way to the meeting.
+1084_TAI_ANG_XX|1084|{DH IY0 EH1 R P L EY2 N IH1 Z AO1 L M OW2 S T F UH1 L}|The airplane is almost full.
+1052_IEO_DIS_LO|1052|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1083_TIE_NEU_XX|1083|{DH AE1 T IH0 Z IH0 G Z AE1 K T L IY0 W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1074_MTI_HAP_XX|1074|{M EY1 B IY0 T AH0 M AA1 R OW2 IH0 T W AH0 L B IY0 K OW1 L D}|Maybe tomorrow it will be cold.
+1090_WSI_HAP_XX|1090|{W IH1 L S T AA1 P IH0 N AH0 K AH1 P AH0 L AH0 V M IH1 N AH0 T S}|We'll stop in a couple of minutes.
+1073_TAI_DIS_XX|1073|{DH AH0 EH1 R P L EY2 N IH1 Z AA1 L M OW2 S T F UH1 L}|The airplane is almost full.
+1013_DFA_HAP_XX|1013|{D OW1 N T F ER0 G EH1 T AH0 JH AE1 K AH0 T}|Don't forget a jacket.
+1040_IEO_HAP_LO|1040|{IH1 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1017_IWL_SAD_XX|1017|{AY1 W UH1 D L AY1 K AH0 N UW1 AH0 L AA1 R M K L AA1 K}|I would like a new alarm clock.
+1066_MTI_ANG_XX|1066|{M EY1 B IY0 T AH0 M AA1 R OW2 IH0 T W AH0 L B IY0 K OW1 L D}|Maybe tomorrow it will be cold.
+1027_TIE_NEU_XX|1027|{DH AE1 T IH0 Z IH0 G Z AE1 K T L IY0 W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1073_IWL_SAD_XX|1073|{AY1 W UH1 D L AY1 K AH0 N Y UW1 AH0 L AA1 R M K L AA1 K}|I would like a new alarm clock.
+1082_MTI_FEA_XX|1082|{M EY1 B IY0 T AH0 M AA1 R OW2 IH1 T W AH0 L B IY0 K OW1 L D}|Maybe tomorrow it will be cold.
+1010_MTI_SAD_XX|1010|{M EY1 B IY0 T AH0 M AA1 R OW2 IH1 T W AH0 L B IY0 K OW1 L D}|Maybe tomorrow it will be cold.
+1011_WSI_NEU_XX|1011|{W IH1 L S T AA1 P IH0 N AH0 K AH1 P AH0 L AH0 V M IH1 N AH0 T S}|We'll stop in a couple of minutes.
+1008_IEO_NEU_XX|1008|{IH1 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1079_ITS_ANG_XX|1079|{AY1 TH IH1 NG K AY1 V S IY1 N DH IH1 S B IH0 F AO1 R}|I think I've seen this before.
+1025_IOM_SAD_XX|1025|{AY1 M AA1 N M AY1 W EY1 T AH0 DH AH0 M IY1 T IH0 NG}|I'm on my way to the meeting.
+1064_IWW_ANG_XX|1064|{AY1 W AH1 N D ER0 W AH1 T DH IH1 S IH0 Z AH0 B AW1 T}|I wonder what this is about.
+1038_IEO_HAP_HI|1038|{IH1 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1074_TIE_HAP_XX|1074|{DH AE1 T IH1 Z IH0 G Z AE1 K T L IY0 W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1054_TIE_FEA_XX|1054|{DH AE1 T IH1 Z IH0 G Z AE1 K T L IY0 W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1026_IOM_FEA_XX|1026|{AH0 M AA1 N M AY1 W EY1 T AH0 DH AH0 M IY1 T IH0 NG}|I'm on my way to the meeting.
+1032_ITH_ANG_XX|1032|{AY1 TH IH1 NG K AY1 HH AE1 V AH0 D AA1 K T ER0 Z AH0 P OY1 N T M AH0 N T}|I think I have a doctor's appointment.
+1051_IOM_SAD_XX|1051|{AH0 M AA1 N M AY1 W EY1 T IH0 DH AH0 M IY1 T IH0 NG}|I'm on my way to the meeting.
+1050_WSI_HAP_XX|1050|{W IH1 L S T AA1 P IH0 N AH0 K AH1 P AH0 L AH0 V M IH1 N AH0 T S}|We'll stop in a couple of minutes.
+1024_IEO_HAP_MD|1024|{IH1 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1058_DFA_DIS_XX|1058|{D OW1 N T F ER0 G EH1 T AH0 JH AE1 K IH0 T}|Don't forget a jacket.
+1024_MTI_DIS_XX|1024|{M EY1 B IY0 T AH0 M AA1 R OW2 IH0 T W AH0 L B IY0 K OW1 L D}|Maybe tomorrow it will be cold.
+1051_TAI_FEA_XX|1051|{DH IY0 EH1 R P L EY2 N IH1 Z AA1 L M OW2 S T F UH1 L}|The airplane is almost full.
+1017_ITH_NEU_XX|1017|{AY1 TH IH1 NG K AY1 HH AE1 V AH0 D AA1 K T ER0 Z AH0 P OY1 N T M AH0 N T}|I think I have a doctor's appointment.
+1010_TIE_SAD_XX|1010|{DH AE1 T IH0 Z IH0 G Z AE1 K T L IY0 HH W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1074_ITS_SAD_XX|1074|{AY1 TH IH1 NG K AY1 V S IY1 N DH IH1 S B IH0 F AO1 R}|I think I've seen this before.
+1004_IWW_DIS_XX|1004|{AY1 W AH1 N D ER0 W AH1 T DH IH1 S IH0 Z AH0 B AW1 T}|I wonder what this is about.
+1015_IEO_HAP_MD|1015|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1077_IEO_SAD_MD|1077|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1021_IOM_DIS_XX|1021|{AY1 M AA1 N M AY1 W EY1 T AH0 DH AH0 M IY1 T IH0 NG}|I'm on my way to the meeting.
+1043_TSI_ANG_XX|1043|{DH AH0 S ER1 F AH0 S IH1 Z S L IH1 K}|The surface is slick.
+1056_WSI_SAD_XX|1056|{W IH1 L S T AA1 P IH0 N AH0 K AH1 P AH0 L AH0 V M IH1 N AH0 T S}|We'll stop in a couple of minutes.
+1022_IWL_SAD_XX|1022|{AY1 W UH1 D L AY1 K AH0 N Y UW1 AH0 L AA1 R M K L AA1 K}|I would like a new alarm clock.
+1061_TAI_FEA_XX|1061|{DH IY0 EH1 R P L EY2 N IH1 Z AA1 L M OW2 S T F UH1 L}|The airplane is almost full.
+1055_IWL_DIS_XX|1055|{AY1 W UH1 D L AY1 K AH0 N Y UW1 AH0 L AA1 R M K L AA1 K}|I would like a new alarm clock.
+1001_TIE_HAP_XX|1001|{DH AE1 T IH1 Z IH0 G Z AE1 K T L IY0 W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1087_MTI_NEU_XX|1087|{M EY1 B IY0 T AH0 M AA1 R OW2 IH0 T W AH0 L B IY0 K OW1 L D}|Maybe tomorrow it will be cold.
+1090_ITH_DIS_XX|1090|{AY1 TH IH1 NG K AY1 HH AE1 V AH0 D AA1 K T ER0 Z AH0 P OY1 N T M AH0 N T}|I think I have a doctor's appointment.
+1035_TIE_ANG_XX|1035|{DH AE1 T IH1 Z IH0 G Z AE1 K T L IY0 W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1027_IWL_HAP_XX|1027|{AY1 W UH1 D L AY1 K AH0 N UW1 AH0 L AA1 R M K L AA1 K}|I would like a new alarm clock.
+1041_IEO_ANG_HI|1041|{IH1 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1067_IEO_ANG_MD|1067|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1069_IEO_SAD_LO|1069|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1030_IEO_HAP_HI|1030|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1082_IWL_HAP_XX|1082|{AY1 W UH1 D L AY1 K AH0 N Y UW1 AH0 L AA1 R M K L AA1 K}|I would like a new alarm clock.
+1013_IEO_DIS_MD|1013|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1043_ITS_HAP_XX|1043|{AY1 TH IH1 NG K AY1 V S IY1 N DH IH1 S B IH0 F AO1 R}|I think I've seen this before.
+1046_MTI_HAP_XX|1046|{M EY1 B IY0 T AH0 M AA1 R OW2 IH0 W AH0 L B IY0 K OW1 L D}|Maybe tomorrow it will be cold.
+1091_IEO_SAD_LO|1091|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1046_IEO_DIS_MD|1046|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1023_IEO_NEU_XX|1023|{IH1 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1064_TAI_ANG_XX|1064|{DH IY0 EH1 R P L EY2 N IH1 Z AO1 L M OW2 S T F UH1 L}|The airplane is almost full.
+1018_TSI_ANG_XX|1018|{DH AH0 S ER1 F AH0 S IH0 Z S L IH1 K}|The surface is slick.
+1024_ITH_SAD_XX|1024|{AY1 TH IH1 NG K AY1 HH AE1 V AH0 D AA1 K T ER0 Z AH0 P OY1 N T M AH0 N T}|I think I have a doctor's appointment.
+1073_ITS_ANG_XX|1073|{AY1 TH IH1 NG K AY1 V S IY1 N DH IH1 S B IH0 F AO1 R}|I think I've seen this before.
+1045_ITS_NEU_XX|1045|{AY1 TH IH1 NG K AY1 V S IY1 N DH IH0 S B IH0 F AO1 R}|I think I've seen this before.
+1021_ITS_ANG_XX|1021|{AY1 TH IH1 NG K AY1 V S IY1 N DH IH1 S B IH0 F AO1 R}|I think I've seen this before.
+1061_WSI_NEU_XX|1061|{W IH1 L S T AA1 P IH0 N AH0 K AH1 P AH0 L AH0 V M IH1 N AH0 T S}|We'll stop in a couple of minutes.
+1032_ITH_SAD_XX|1032|{AY1 TH IH1 NG K AY1 HH AE1 V AH0 D AA1 K T ER0 Z AH0 P OY1 N T M AH0 N T}|I think I have a doctor's appointment.
+1007_MTI_DIS_XX|1007|{M EY1 B IY0 T AH0 M AA1 R OW2 IH0 T W AH0 L B IY0 K OW1 L D}|Maybe tomorrow it will be cold.
+1027_TSI_HAP_XX|1027|{DH AH0 S ER1 F AH0 S IH0 Z S L IH1 K}|The surface is slick.
+1017_TAI_ANG_XX|1017|{DH IY0 EH1 R P L EY2 N IH1 Z AA1 L M OW2 S T F UH1 L}|The airplane is almost full.
+1054_IWW_DIS_XX|1054|{AY1 W AH1 N D ER0 W AH1 T DH IH1 S IH0 Z AH0 B AW1 T}|I wonder what this is about.
+1018_ITS_NEU_XX|1018|{AY1 TH IH1 NG K AY1 V S IY1 N DH IH1 S B IH0 F AO1 R}|I think I've seen this before.
+1005_DFA_FEA_XX|1005|{D OW1 N T F ER0 G EH1 T AH0 JH AE1 K AH0 T}|Don't forget a jacket.
+1043_IEO_ANG_LO|1043|{IH1 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1081_ITS_DIS_XX|1081|{AY1 TH IH1 NG K AY1 V S IY1 N DH IH0 S B IH0 F AO1 R}|I think I've seen this before.
+1005_WSI_FEA_XX|1005|{W IH1 L S T AA1 P IH0 N AH0 K AH1 P AH0 L AH0 V M IH1 N AH0 T S}|We'll stop in a couple of minutes.
+1025_IEO_DIS_LO|1025|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1008_TSI_NEU_XX|1008|{DH AH0 S ER1 F AH0 S IH1 Z S L IH1 K}|The surface is slick.
+1051_TAI_ANG_XX|1051|{DH IY0 EH1 R P L EY2 N IH1 Z AO1 L M OW2 S T F UH1 L}|The airplane is almost full.
+1075_WSI_FEA_XX|1075|{W IH1 L S T AA1 P IH0 N AH0 K AH1 P AH0 L AH0 V M IH1 N AH0 T S}|We'll stop in a couple of minutes.
+1028_IEO_FEA_HI|1028|{IH1 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1041_WSI_FEA_XX|1041|{W IH1 L S T AA1 P IH0 N AH0 K AH1 P AH0 L AH0 V M IH1 N AH0 T S}|We'll stop in a couple of minutes.
+1058_IOM_NEU_XX|1058|{AY1 M AA1 N M AY1 W EY1 T AH0 DH AH0 M IY1 T IH0 NG}|I'm on my way to the meeting.
+1001_WSI_ANG_XX|1001|{W IH1 L S T AA1 P IH0 N AH0 K AH1 P AH0 L AH0 V M IH1 N AH0 T S}|We'll stop in a couple of minutes.
+1080_TIE_HAP_XX|1080|{DH AE1 T IH1 Z IH0 G Z AE1 K T L IY0 W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1015_TSI_ANG_XX|1015|{DH AH0 S ER1 F AH0 S IH1 Z S L IH1 K}|The surface is slick.
+1012_IWL_FEA_XX|1012|{AY1 W UH1 D L AY1 K AH0 N Y UW1 AH0 L AA1 R M K L AA1 K}|I would like a new alarm clock.
+1031_MTI_DIS_XX|1031|{M EY1 B IY0 T AH0 M AA1 R OW2 IH0 W AH0 L B IY0 K OW1 L D}|Maybe tomorrow it will be cold.
+1027_IEO_DIS_MD|1027|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1025_DFA_HAP_XX|1025|{D OW1 N T F ER0 G EH1 T AH0 JH AE1 K AH0 T}|Don't forget a jacket.
+1027_ITS_NEU_XX|1027|{AY1 TH IH1 NG K AY1 V S IY1 N DH IH1 S B IH0 F AO1 R}|I think I've seen this before.
+1088_IWW_DIS_XX|1088|{AY1 W AH1 N D ER0 W AH1 T DH IH1 S IH0 Z AH0 B AW1 T}|I wonder what this is about.
+1078_TSI_NEU_XX|1078|{DH AH0 S ER1 F AH0 S IH1 Z S L IH1 K}|The surface is slick.
+1007_IOM_SAD_XX|1007|{AY1 M AA1 N M AY1 W EY1 T IH0 DH AH0 M IY1 T IH0 NG}|I'm on my way to the meeting.
+1052_IEO_FEA_LO|1052|{IH1 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1013_IWL_HAP_XX|1013|{AY1 W UH1 D L AY1 K AH0 N Y UW1 AH0 L AA1 R M K L AA1 K}|I would like a new alarm clock.
+1056_IEO_FEA_HI|1056|{IH1 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1024_MTI_ANG_XX|1024|{M EY1 B IY0 T AH0 M AA1 R OW2 IH0 T W AH0 L B IY0 K OW1 L D}|Maybe tomorrow it will be cold.
+1037_DFA_HAP_XX|1037|{D OW1 N T F ER0 G EH1 T AH0 JH AE1 K AH0 T}|Don't forget a jacket.
+1069_IOM_SAD_XX|1069|{AH0 M AA1 N M AY1 W EY1 T AH0 DH AH0 M IY1 T IH0 NG}|I'm on my way to the meeting.
+1070_ITH_SAD_XX|1070|{AY1 TH IH1 NG K AY1 HH AE1 V AH0 D AA1 K T ER0 Z AH0 P OY1 N T M AH0 N T}|I think I have a doctor's appointment.
+1074_IEO_SAD_MD|1074|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1077_DFA_HAP_XX|1077|{D OW1 N T F ER0 G EH1 T AH0 JH AE1 K AH0 T}|Don't forget a jacket.
+1040_IEO_DIS_MD|1040|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1042_MTI_HAP_XX|1042|{M EY1 B IY0 T AH0 M AA1 R OW2 IH0 T W AH0 L B IY0 K OW1 L D}|Maybe tomorrow it will be cold.
+1078_DFA_DIS_XX|1078|{D OW1 N T F ER0 G EH1 T AH0 JH AE1 K AH0 T}|Don't forget a jacket.
+1069_TIE_ANG_XX|1069|{DH AE1 T IH1 Z IH0 G Z AE1 K T L IY0 W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1053_TSI_SAD_XX|1053|{DH AH0 S ER1 F AH0 S IH0 Z S L IH1 K}|The surface is slick.
+1012_ITH_HAP_XX|1012|{AY1 TH IH1 NG K AY1 HH AE1 V AH0 D AA1 K T ER0 Z AH0 P OY1 N T M AH0 N T}|I think I have a doctor's appointment.
+1058_TAI_HAP_XX|1058|{DH IY0 EH1 R P L EY2 N IH1 Z AA1 L M OW2 S T F UH1 L}|The airplane is almost full.
+1026_IOM_SAD_XX|1026|{AY1 M AA1 N M AY1 W EY1 T AH0 DH AH0 M IY1 T IH0 NG}|I'm on my way to the meeting.
+1001_TAI_ANG_XX|1001|{DH IY0 EH1 R P L EY2 N IH1 Z AA1 L M OW2 S T F UH1 L}|The airplane is almost full.
+1008_IEO_ANG_LO|1008|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1014_IEO_SAD_HI|1014|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1001_DFA_FEA_XX|1001|{D OW1 N F ER0 G EH1 T AH0 JH AE1 K AH0 T}|Don't forget a jacket.
+1085_DFA_ANG_XX|1085|{D OW1 N T F ER0 G EH1 T AH0 JH AE1 K AH0 T}|Don't forget a jacket.
+1047_IWW_ANG_XX|1047|{AY1 W AH1 N D ER0 W AH1 T DH IH1 S IH0 Z AH0 B AW1 T}|I wonder what this is about.
+1023_IWW_DIS_XX|1023|{AY1 W AH1 N D ER0 W AH1 T DH IH1 S IH0 Z AH0 B AW1 T}|I wonder what this is about.
+1041_ITH_NEU_XX|1041|{AY1 TH IH1 NG K AY1 HH AE1 V AH0 D AA1 K T ER0 Z AH0 P OY1 N T M AH0 N T}|I think I have a doctor's appointment.
+1014_TSI_NEU_XX|1014|{DH AH0 S ER1 F AH0 S IH1 Z S L IH1 K}|The surface is slick.
+1006_IEO_ANG_LO|1006|{IH1 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1068_ITH_SAD_XX|1068|{AY1 TH IH1 NG K AY1 HH AE1 V AH0 D AA1 K T ER0 Z AH0 P OY1 N T M AH0 N T}|I think I have a doctor's appointment.
+1072_IEO_NEU_XX|1072|{IH1 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1042_DFA_FEA_XX|1042|{D OW1 N T F ER0 G EH1 T AH0 JH AE1 K AH0 T}|Don't forget a jacket.
+1035_IEO_HAP_LO|1035|{IH1 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1026_MTI_SAD_XX|1026|{M EY1 B IY0 T AH0 M AA1 R OW2 IH0 T W AH0 L B IY0 K OW1 L D}|Maybe tomorrow it will be cold.
+1078_IWL_SAD_XX|1078|{AY1 W UH1 D L AY1 K AH0 N Y UW1 AH0 L AA1 R M K L AA1 K}|I would like a new alarm clock.
+1032_TIE_ANG_XX|1032|{DH AE1 T IH1 Z IH0 G Z AE1 K T L IY0 W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1032_ITS_NEU_XX|1032|{AY1 TH IH1 NG K AY1 V S IY1 N DH IH1 S B IY2 F AO1 R}|I think I've seen this before.
+1029_TAI_ANG_XX|1029|{DH IY0 EH1 R P L EY2 N IH1 Z AA1 L M OW2 S T F UH1 L}|The airplane is almost full.
+1075_IEO_HAP_HI|1075|{IH1 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1040_DFA_NEU_XX|1040|{D OW1 N T F ER0 G EH1 T AH0 JH AE1 K AH0 T}|Don't forget a jacket.
+1058_WSI_FEA_XX|1058|{W IH1 L S T AA1 P IH0 N AH0 K AH1 P AH0 L AH0 V M IH1 N AH0 T S}|We'll stop in a couple of minutes.
+1072_IWL_SAD_XX|1072|{AY1 W UH1 D L AY1 K AH0 N Y UW1 AH0 L AA1 R M K L AA1 K}|I would like a new alarm clock.
+1066_IEO_SAD_LO|1066|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1007_IEO_ANG_MD|1007|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1060_IOM_DIS_XX|1060|{AH0 M AA1 N M AY1 W EY1 T AH0 DH AH0 M IY1 T IH0 NG}|I'm on my way to the meeting.
+1044_IEO_SAD_MD|1044|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1088_IOM_DIS_XX|1088|{AY1 M AA1 N M AY1 W EY1 T AH0 DH AH0 M IY1 T IH0 NG}|I'm on my way to the meeting.
+1050_ITH_SAD_XX|1050|{AY1 TH IH1 NG K AY1 HH AE1 V AH0 D AA1 K T ER0 Z AH0 P OY1 N T M AH0 N T}|I think I have a doctor's appointment.
+1060_IWL_SAD_XX|1060|{AY1 W UH1 D L AY1 K AH0 N Y UW1 AH0 L AA1 R M K L AA1 K}|I would like a new alarm clock.
+1083_IWW_NEU_XX|1083|{AY1 W AH1 N D ER0 W AH1 T DH IH1 S IH0 Z AH0 B AW1 T}|I wonder what this is about.
+1088_IWW_HAP_XX|1088|{AY1 W AH1 N D ER0 W AH1 T DH IH1 S IH0 Z AH0 B AW1 T}|I wonder what this is about.
+1004_TAI_ANG_XX|1004|{DH IY0 EH1 R P L EY2 N IH1 Z AA1 L M OW2 S T F UH1 L}|The airplane is almost full.
+1025_IWW_DIS_XX|1025|{AY1 W AH1 N D ER0 W AH1 T DH IH1 S IH0 Z AH0 B AW1 T}|I wonder what this is about.
+1089_DFA_HAP_XX|1089|{D OW1 N T F ER0 G EH1 T AH0 JH AE1 K AH0 T}|Don't forget a jacket.
+1014_DFA_FEA_XX|1014|{D OW1 N T F ER0 G EH1 T AH0 JH AE1 K AH0 T}|Don't forget a jacket.
+1040_WSI_SAD_XX|1040|{W IH1 L S T AA1 P IH0 N AH0 K AH1 P AH0 L AH0 V M IH1 N AH0 T S}|We'll stop in a couple of minutes.
+1038_MTI_DIS_XX|1038|{M EY1 B IY0 T AH0 M AA1 R OW2 IH1 T W IH1 L B IY1 K OW1 L D}|Maybe tomorrow it will be cold.
+1036_TAI_DIS_XX|1036|{DH AH0 EH1 R P L EY2 N IH0 Z AA1 L M OW2 S T F UH1 L}|The airplane is almost full.
+1075_TAI_FEA_XX|1075|{DH IY0 EH1 R P L EY2 N IH0 Z AA1 L M OW2 S T F UH1 L}|The airplane is almost full.
+1058_IEO_DIS_MD|1058|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1079_IWL_DIS_XX|1079|{AY1 W UH1 D L AY1 K AH0 N Y UW1 AH0 L AA1 R M K L AA1 K}|I would like a new alarm clock.
+1089_MTI_SAD_XX|1089|{M EY1 B IY0 T AH0 M AA1 R OW2 IH0 T W AH0 L B IY0 K OW1 L D}|Maybe tomorrow it will be cold.
+1022_TIE_FEA_XX|1022|{DH AE1 T IH1 Z IH0 G Z AE1 K T L IY0 W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1053_TAI_DIS_XX|1053|{DH IY0 EH1 R P L EY2 N IH1 Z AO1 L M OW2 S T F UH1 L}|The airplane is almost full.
+1016_IWW_FEA_XX|1016|{AY1 W AH1 N D ER0 HH W AH1 T DH IH1 S IH0 Z AH0 B AW1 T}|I wonder what this is about.
+1008_IOM_NEU_XX|1008|{AY1 M AA1 N M AY1 W EY1 T AH0 DH AH0 M IY1 T IH0 NG}|I'm on my way to the meeting.
+1011_ITH_FEA_XX|1011|{AY1 TH IH1 NG K AY1 HH AE1 V AH0 D AA1 K T ER0 Z AH0 P OY1 N T M AH0 N T}|I think I have a doctor's appointment.
+1036_DFA_SAD_XX|1036|{D OW1 N T F ER0 G EH1 T AH0 JH AE1 K AH0 T}|Don't forget a jacket.
+1018_IEO_FEA_MD|1018|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1049_IWL_ANG_XX|1049|{AY1 W UH1 D L AY1 K AH0 N UW1 AH0 L AA1 R M K L AA1 K}|I would like a new alarm clock.
+1036_MTI_FEA_XX|1036|{M EY1 B IY0 T AH0 M AA1 R OW2 IH0 W IH1 L B IY0 K OW1 L D}|Maybe tomorrow it will be cold.
+1086_WSI_HAP_XX|1086|{W IH1 L S T AA1 P IH0 N AH0 K AH1 P AH0 L AH0 V M IH1 N AH0 T S}|We'll stop in a couple of minutes.
+1062_IOM_DIS_XX|1062|{AY1 M AA1 N M AY1 W EY1 T AH0 DH AH0 M IY1 T IH0 NG}|I'm on my way to the meeting.
+1018_IWL_FEA_XX|1018|{AY1 W UH1 D L AY1 K AH0 N UW1 AH0 L AA1 R M K L AA1 K}|I would like a new alarm clock.
+1044_MTI_ANG_XX|1044|{M EY1 B IY0 T AH0 M AA1 R OW2 IH1 T W AH0 L B IY0 K OW1 L D}|Maybe tomorrow it will be cold.
+1057_TAI_DIS_XX|1057|{DH IY0 EH1 R P L EY2 N IH1 Z AA1 L M OW2 S T F UH1 L}|The airplane is almost full.
+1084_IEO_HAP_HI|1084|{IH1 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1052_DFA_HAP_XX|1052|{D OW1 N T F ER0 G EH1 T AH0 JH AE1 K AH0 T}|Don't forget a jacket.
+1045_WSI_FEA_XX|1045|{W IH1 L S T AA1 P IH0 N AH0 K AH1 P AH0 L AH0 V M IH1 N AH0 T S}|We'll stop in a couple of minutes.
+1081_IEO_DIS_HI|1081|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1037_ITS_FEA_XX|1037|{AY1 TH IH1 NG K AY1 V S IY1 N DH IH1 S B IY2 F AO1 R}|I think I've seen this before.
+1007_IEO_DIS_LO|1007|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1049_IWW_DIS_XX|1049|{AY1 W AH1 N D ER0 W AH1 T DH IH1 S IH1 Z AH0 B AW1 T}|I wonder what this is about.
+1026_IEO_HAP_HI|1026|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1072_IWW_NEU_XX|1072|{AY1 W AH1 N D ER0 W AH1 T DH IH1 S IH0 Z AH0 B AW1 T}|I wonder what this is about.
+1044_TIE_SAD_XX|1044|{DH AE1 T IH0 Z IH0 G Z AE1 K T L IY0 W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1011_ITS_SAD_XX|1011|{AY1 TH IH1 NG K AY1 V S IY1 N DH IH0 S B IH0 F AO1 R}|I think I've seen this before.
+1053_IWW_NEU_XX|1053|{AY1 W AH1 N D ER0 W AH1 T DH IH1 S IH0 Z AH0 B AW1 T}|I wonder what this is about.
+1058_IOM_DIS_XX|1058|{AY1 M AA1 N M AY1 W EY1 T AH0 DH AH0 M IY1 T IH0 NG}|I'm on my way to the meeting.
+1011_IEO_SAD_LO|1011|{IH0 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1090_WSI_FEA_XX|1090|{W IH1 L S T AA1 P IH0 N AH0 K AH1 P AH0 L AH0 V M IH1 N AH0 T S}|We'll stop in a couple of minutes.
+1065_MTI_DIS_XX|1065|{M EY1 B IY0 T AH0 M AA1 R OW2 IH0 T W AH0 L B IY0 K OW1 L D}|Maybe tomorrow it will be cold.
+1005_TSI_FEA_XX|1005|{DH AH0 S ER1 F AH0 S IH0 Z S L IH1 K}|The surface is slick.
+1046_ITS_SAD_XX|1046|{AY1 TH IH1 NG K AY1 V S IY1 N DH IH1 S B IH0 F AO1 R}|I think I've seen this before.
+1014_IWW_HAP_XX|1014|{AY1 W AH1 N D ER0 W AH1 T DH IH1 S IH0 Z AH0 B AW1 T}|I wonder what this is about.
+1071_IOM_NEU_XX|1071|{AY1 M AA1 N M AY1 W EY1 T AH0 DH AH0 M IY1 T IH0 NG}|I'm on my way to the meeting.
+1085_IWL_ANG_XX|1085|{AY1 W UH1 D L AY1 K AH0 N Y UW1 AH0 L AA1 R M K L AA1 K}|I would like a new alarm clock.
+1015_TIE_HAP_XX|1015|{DH AE1 T IH1 Z IH0 G Z AE1 K T L IY0 W AH1 T HH AE1 P AH0 N D}|That is exactly what happened.
+1049_TAI_SAD_XX|1049|{DH IY0 EH1 R P L EY2 N IH0 Z AA1 L M OW2 S T F UH1 L}|The airplane is almost full.
+1063_IEO_NEU_XX|1063|{IH1 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1047_ITS_DIS_XX|1047|{AY1 TH IH1 NG K AY1 V S IY1 N DH IH1 S B IH0 F AO1 R}|I think I've seen this before.
+1046_IEO_NEU_XX|1046|{IH1 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1017_IEO_FEA_MD|1017|{IH1 T S IH0 L EH1 V AH0 N AH0 K L AA1 K}|It's eleven o'clock.
+1035_MTI_HAP_XX|1035|{M EY1 B IY0 T AH0 M AA1 R OW2 IH0 W AH0 L B IY0 K OW1 L D}|Maybe tomorrow it will be cold.
+1073_ITS_FEA_XX|1073|{AY1 TH IH1 NG K AY1 V S IY1 N DH IH1 S B IH0 F AO1 R}|I think I've seen this before.
+1082_TAI_FEA_XX|1082|{DH IY0 EH1 R P L EY2 N IH1 Z AA1 L M OW2 S T F UH1 L}|The airplane is almost full.
+1038_IWL_SAD_XX|1038|{AY1 W UH1 D L AY1 K AH0 N Y UW1 AH0 L AA1 R M K L AA1 K}|I would like a new alarm clock.
+1084_IOM_SAD_XX|1084|{AY1 M AA1 N M AY1 W EY1 T IH0 DH AH0 M IY1 T IH0 NG}|I'm on my way to the meeting.
