@@ -44,7 +44,7 @@ class AVDDataset(Dataset):
         waveform, sr = torchaudio.load(wav_path)
         if sr != 16000:
             waveform = torchaudio.transforms.Resample(sr, 16000)(waveform)
-        # inputs = self.processor(waveform.squeeze(), sampling_rate=16000, return_tensors="pt", padding="longest")
+        avd = [(v - 1) / 7 for v in avd]  # MSP-Podcast 原始为 [1, 7]
         return waveform.squeeze(), torch.tensor(avd, dtype=torch.float)
     
     @staticmethod
