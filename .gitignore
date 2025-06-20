@@ -118,5 +118,5 @@ TextGrid/
 hifigan/*.pth.tar
 .cursor
 run_py_in_background.sh
-batch_synthesize*
+batch_synt*
 config/
