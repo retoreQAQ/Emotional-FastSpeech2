@@ -7,6 +7,7 @@ import torch.nn.functional as F
 
 from transformer import Encoder, Decoder, PostNet
 from .modules import VarianceAdaptor
+from .sphericalEmotionEncoder import SphericalEmotionEncoder
 from utils.tools import get_mask_from_lengths
 
 
@@ -16,8 +17,8 @@ class FastSpeech2(nn.Module):
     def __init__(self, preprocess_config, model_config):
         super(FastSpeech2, self).__init__()
         self.model_config = model_config
-
         self.encoder = Encoder(model_config)
+        self.spherical_emotion_encoder = SphericalEmotionEncoder(preprocess_config, model_config)
         self.variance_adaptor = VarianceAdaptor(preprocess_config, model_config)
         self.decoder = Decoder(model_config)
         self.mel_linear = nn.Linear(
@@ -39,85 +40,6 @@ class FastSpeech2(nn.Module):
                 n_speaker,
                 model_config["transformer"]["encoder_hidden"],
             )
-        
-        self.emotion_emb = None
-        self.use_va = model_config.get("use_va", True)
-        self.use_emo = model_config.get("use_emo", True)
-        self.va_continuous = model_config.get("va_continuous", True)
-        if model_config["multi_emotion"]:
-            with open(
-                os.path.join(
-                    preprocess_config["path"]["preprocessed_path"], "emotions.json"
-                ),
-                "r",
-            ) as f:
-                json_raw = json.load(f)
-                n_emotion = len(json_raw["emotion_dict"])
-                n_arousal = len(json_raw["arousal_dict"])
-                n_valence = len(json_raw["valence_dict"])
-            encoder_hidden = model_config["transformer"]["encoder_hidden"]
-            self.emotion_emb = nn.Embedding(
-                n_emotion,
-                encoder_hidden,
-            )
-            if self.use_va and self.use_emo:
-                if self.va_continuous:
-                    pass
-                self.emotion_emb = nn.Embedding(
-                    n_emotion,
-                    encoder_hidden//2,
-                )
-                self.arousal_emb = nn.Embedding(
-                    n_arousal,
-                    encoder_hidden//4,
-                )
-                self.valence_emb = nn.Embedding(
-                    n_valence,
-                    encoder_hidden//4,
-                )
-            elif self.use_va:
-                self.arousal_emb = nn.Embedding(
-                    n_arousal,
-                    encoder_hidden//2,
-                )
-                self.valence_emb = nn.Embedding(
-                    n_valence,
-                    encoder_hidden//2,
-                )
-            else:
-                self.arousal_emb = None
-                self.valence_emb = None
-            self.emotion_linear = nn.Sequential(
-                nn.Linear(encoder_hidden, encoder_hidden),
-                nn.ReLU()
-            )
-            self.joint_linear = nn.Sequential(
-                nn.Linear(encoder_hidden*2, encoder_hidden),
-                nn.ReLU(),
-                nn.Dropout(0.3),
-                nn.LayerNorm(encoder_hidden)
-            )
-        
-            self.use_emo_classifier = model_config.get("use_emo_classifier", False)
-            if self.use_emo_classifier:
-                self.emo_classifier = nn.Sequential(
-                    nn.Conv1d(model_config["transformer"]["decoder_hidden"], 64, kernel_size=3, padding=1),
-                    nn.BatchNorm1d(64),
-                    nn.ReLU(),
-                    nn.MaxPool1d(2),
-
-                    nn.Conv1d(64, 128, kernel_size=3, padding=2, dilation=2),
-                    nn.BatchNorm1d(128),
-                    nn.ReLU(),
-                    nn.AdaptiveAvgPool1d(1),  # 变长支持关键
-
-                    nn.Flatten(),  # [B, 128, 1] → [B, 128]
-                    nn.Linear(128, 64),
-                    nn.Dropout(0.5),
-                    nn.Linear(64, n_emotion),
-                )
-            else:
-                self.emo_classifier = None
 
     def forward(
         self,
@@ -125,6 +47,10 @@ class FastSpeech2(nn.Module):
         emotions,
         arousals,
         valences,
+        dominances,
+        r_norms,
+        thetas,
+        phis,
         texts,
         src_lens,
         max_src_len,
@@ -152,25 +78,9 @@ class FastSpeech2(nn.Module):
             output = output + self.speaker_emb(speakers).unsqueeze(1).expand(
                 -1, max_src_len, -1
             )
+            
+        output = output + self.spherical_emotion_encoder(r_norms, thetas, phis, emotions).unsqueeze(1).expand(-1, max_src_len, -1)
 
-        # clean2
-        # if self.emotion_emb is not None:
-        #     emb = torch.cat((self.emotion_emb(emotions), self.arousal_emb(arousals), self.valence_emb(valences)), dim=-1) 
-        #     output = output + self.emotion_linear(emb).unsqueeze(1).expand(
-        #         -1, max_src_len, -1
-        #     )
-
-        # MSP_finetune_keepall_clean_only_emotion_dbPitch_front_combine
-        # if self.speaker_emb is not None and self.emotion_emb is not None:
-        #     if self.use_va and self.use_emo:
-        #         emb = torch.cat((self.emotion_emb(emotions), self.arousal_emb(arousals), self.valence_emb(valences)), dim=-1)
-        #     elif self.use_va:
-        #         emb = torch.cat((self.arousal_emb(arousals), self.valence_emb(valences)), dim=-1)
-        #     else:
-        #         emb = self.emotion_emb(emotions)
-
-        #     output = output + (self.speaker_emb(speakers) + self.emotion_linear(emb)).unsqueeze(1).expand(-1, max_src_len, -1)
-            # output = output + self.emotion_linear(emb).unsqueeze(1).expand(-1, max_src_len, -1)
         # new_combine
         # output = output + self.joint_linear(torch.cat([self.speaker_emb(speakers), self.emotion_emb(emotions)], dim=-1)).unsqueeze(1).expand(-1, max_src_len, -1)
 
@@ -195,28 +105,11 @@ class FastSpeech2(nn.Module):
             d_control,
         )
 
-        # if self.emotion_emb is not None:
-        #     if max_mel_len is None:
-        #         max_mel_len = max(mel_lens)
-        #     if self.use_va and self.use_emo:
-        #         emb = torch.cat((self.emotion_emb(emotions), self.arousal_emb(arousals), self.valence_emb(valences)), dim=-1)
-        #     elif self.use_va:
-        #         emb = torch.cat((self.arousal_emb(arousals), self.valence_emb(valences)), dim=-1)
-        #     else:
-        #         emb = self.emotion_emb(emotions)
-        #     output = output + self.emotion_linear(emb).unsqueeze(1).expand(
-        #         -1, max_mel_len, -1
-        #     )
-
         output, mel_masks = self.decoder(output, mel_masks) # [B, T, hidden(256)]
-
-        if self.emo_classifier is not None:
-            emo_pred = self.emo_classifier(output.transpose(1, 2))   # [B, n_emo]
-        else:
-            emo_pred = None
-
         output = self.mel_linear(output) # [B, T, mel_dim(80)]
         postnet_output = self.postnet(output) + output # [B, T, mel_dim(80)]
+
+        emo_pred = None
 
         return (
             output,

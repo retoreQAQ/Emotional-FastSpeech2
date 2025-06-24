@@ -16,11 +16,18 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
 def to_device(data, device):
-    if len(data) == 15:
+    if len(data) == 19:
         (
             ids,
             raw_texts,
             speakers,
+            emotions,
+            arousals,
+            valences,
+            dominances,
+            r_norms,
+            thetas,
+            phis,
             texts,
             src_lens,
             max_src_len,
@@ -30,12 +37,16 @@ def to_device(data, device):
             pitches,
             energies,
             durations,
-            emotions,
-            arousals,
-            valences,
         ) = data
 
         speakers = torch.from_numpy(speakers).long().to(device)
+        emotions = torch.from_numpy(emotions).int().to(device)
+        arousals = torch.from_numpy(arousals).float().to(device)
+        valences = torch.from_numpy(valences).float().to(device)
+        dominances = torch.from_numpy(dominances).float().to(device)
+        r_norms = torch.from_numpy(r_norms).float().to(device)
+        thetas = torch.from_numpy(thetas).float().to(device)
+        phis = torch.from_numpy(phis).float().to(device)
         texts = torch.from_numpy(texts).long().to(device)
         src_lens = torch.from_numpy(src_lens).to(device)
         mels = torch.from_numpy(mels).float().to(device)
@@ -43,14 +54,19 @@ def to_device(data, device):
         pitches = torch.from_numpy(pitches).float().to(device)
         energies = torch.from_numpy(energies).to(device)
         durations = torch.from_numpy(durations).long().to(device)
-        emotions = torch.from_numpy(emotions).long().to(device)
-        arousals = torch.from_numpy(arousals).long().to(device)
-        valences = torch.from_numpy(valences).long().to(device)
+
 
         return (
             ids,
             raw_texts,
             speakers,
+            emotions,
+            arousals,
+            valences,
+            dominances,
+            r_norms,
+            thetas,
+            phis,
             texts,
             src_lens,
             max_src_len,
@@ -60,22 +76,23 @@ def to_device(data, device):
             pitches,
             energies,
             durations,
-            emotions,
-            arousals,
-            valences,
         )
 
-    if len(data) == 9:
-        (ids, raw_texts, speakers, texts, src_lens, max_src_len, emotions, arousals, valences) = data
+    if len(data) == 13:
+        (ids, raw_texts, speakers, emotions, arousals, valences, dominances, r_norms, thetas, phis, texts, src_lens, max_src_len) = data
 
         speakers = torch.from_numpy(speakers).long().to(device)
-        emotions = torch.from_numpy(emotions).long().to(device)
-        arousals = torch.from_numpy(arousals).long().to(device)
-        valences = torch.from_numpy(valences).long().to(device)
+        emotions = torch.from_numpy(emotions).int().to(device)
+        arousals = torch.from_numpy(arousals).float().to(device)
+        valences = torch.from_numpy(valences).float().to(device)
+        dominances = torch.from_numpy(dominances).float().to(device)
+        r_norms = torch.from_numpy(r_norms).float().to(device)
+        thetas = torch.from_numpy(thetas).float().to(device)
+        phis = torch.from_numpy(phis).float().to(device)
         texts = torch.from_numpy(texts).long().to(device)
         src_lens = torch.from_numpy(src_lens).to(device)
 
-        return (ids, raw_texts, speakers, emotions, arousals, valences, texts, src_lens, max_src_len)
+        return (ids, raw_texts, speakers, emotions, arousals, valences, dominances, r_norms, thetas, phis, texts, src_lens, max_src_len)
 
 
 def log(
@@ -85,11 +102,11 @@ def log(
         logger.add_scalar("Loss/total_loss", losses[0], step)
         logger.add_scalar("Loss/mel_loss", losses[1], step)
         logger.add_scalar("Loss/mel_postnet_loss", losses[2], step)
-        logger.add_scalar("Loss/delta_loss", losses[3], step)
-        logger.add_scalar("Loss/pitch_loss", losses[4], step)
-        logger.add_scalar("Loss/energy_loss", losses[5], step)
-        logger.add_scalar("Loss/duration_loss", losses[6], step)
-        logger.add_scalar("Loss/emotion_loss", losses[7], step)
+        logger.add_scalar("Loss/pitch_loss", losses[3], step)
+        logger.add_scalar("Loss/energy_loss", losses[4], step)
+        logger.add_scalar("Loss/duration_loss", losses[5], step)
+        logger.add_scalar("Loss/emotion_loss", losses[6], step)
+        logger.add_scalar("Loss/delta_loss", losses[7], step)
 
     if fig is not None:
         logger.add_figure(tag, fig)
@@ -124,19 +141,19 @@ def synth_one_sample(targets, predictions, vocoder, model_config, preprocess_con
     basename = targets[0][0]
     src_len = predictions[8][0].item()
     mel_len = predictions[9][0].item()
-    mel_target = targets[6][0, :mel_len].detach().transpose(0, 1)
+    mel_target = targets[13][0, :mel_len].detach().transpose(0, 1)
     mel_prediction = predictions[1][0, :mel_len].detach().transpose(0, 1)
-    duration = targets[11][0, :src_len].detach().cpu().numpy()
+    duration = targets[18][0, :src_len].detach().cpu().numpy()
     if preprocess_config["preprocessing"]["pitch"]["feature"] == "phoneme_level":
-        pitch = targets[9][0, :src_len].detach().cpu().numpy()
+        pitch = targets[16][0, :src_len].detach().cpu().numpy()
         pitch = expand(pitch, duration)
     else:
-        pitch = targets[9][0, :mel_len].detach().cpu().numpy()
+        pitch = targets[16][0, :mel_len].detach().cpu().numpy()
     if preprocess_config["preprocessing"]["energy"]["feature"] == "phoneme_level":
-        energy = targets[10][0, :src_len].detach().cpu().numpy()
+        energy = targets[17][0, :src_len].detach().cpu().numpy()
         energy = expand(energy, duration)
     else:
-        energy = targets[10][0, :mel_len].detach().cpu().numpy()
+        energy = targets[17][0, :mel_len].detach().cpu().numpy()
 
     with open(
         os.path.join(preprocess_config["path"]["preprocessed_path"], "stats.json")
@@ -176,21 +193,8 @@ def synth_one_sample(targets, predictions, vocoder, model_config, preprocess_con
 
 def synth_samples(targets, predictions, vocoder, model_config, preprocess_config, path):
     basenames = targets[0]
-    emotions = targets[3]
-    arousals = targets[4]
-    valences = targets[5]
-    # 加载情感映射文件
-    with open(
-        os.path.join(preprocess_config["path"]["preprocessed_path"], "emotions.json")
-    ) as f:
-        mapping = json.load(f)
-        
-    # 通过字典推导式反转映射关系
-    emotion_inv = {v:k for k,v in mapping["emotion_dict"].items()}
-    arousal_inv = {v:k for k,v in mapping["arousal_dict"].items()}
-    valence_inv = {v:k for k,v in mapping["valence_dict"].items()}
     for i in range(len(basenames)):
-        basenames[i] = f"{emotion_inv[emotions[i].item()]}_{valence_inv[valences[i].item()]}_{arousal_inv[arousals[i].item()]}_{basenames[i]}" if len(basenames[i].split("_")) == 1 else basenames[i]
+        basenames[i] = f"{basenames[i]}"
     
     for i in range(len(predictions[0])):
         basename = basenames[i]

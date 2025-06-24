@@ -175,28 +175,6 @@ def freeze_modules(model, freeze_encoder=True, freeze_decoder=True, freeze_varia
         print("说话人嵌入解冻: 说话人嵌入参数可训练")
     else:
         print("说话人嵌入冻结: 说话人嵌入参数不可训练")
-        
-    # 情感相关参数
-    if not freeze_emotion:
-        if model.emotion_emb is not None:
-            for p in model.emotion_emb.parameters():
-                p.requires_grad = True
-            trainable_params += sum(p.numel() for p in model.emotion_emb.parameters())
-            print("情感嵌入解冻: 情感嵌入参数可训练")
-            
-        if model.arousal_emb is not None:
-            for p in model.arousal_emb.parameters():
-                p.requires_grad = True
-            trainable_params += sum(p.numel() for p in model.arousal_emb.parameters())
-            print("唤醒度嵌入解冻: 唤醒度嵌入参数可训练")
-            
-        if model.valence_emb is not None:
-            for p in model.valence_emb.parameters():
-                p.requires_grad = True
-            trainable_params += sum(p.numel() for p in model.valence_emb.parameters())
-            print("效价嵌入解冻: 效价嵌入参数可训练")
-    else:
-        print("情感相关参数冻结: 情感、唤醒度、效价嵌入参数不可训练")
     
     # 后处理网络
     if not freeze_postnet:

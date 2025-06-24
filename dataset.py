@@ -18,16 +18,15 @@ class Dataset(Dataset):
         self.cleaners = preprocess_config["preprocessing"]["text"]["text_cleaners"]
         self.batch_size = train_config["optimizer"]["batch_size"]
 
-        self.basename, self.speaker, self.text, self.raw_text, self.emotion, self.arousal, self.valence = self.process_meta(
+        self.basename, self.speaker, self.text, self.raw_text, self.emotion, self.arousal, self.valence, self.dominance, self.r_norm, self.theta, self.phi = self.process_meta(
             filename
         )
         with open(os.path.join(self.preprocessed_path, "speakers.json")) as f:
             self.speaker_map = json.load(f)
         with open(os.path.join(self.preprocessed_path, "emotions.json")) as f:
-            json_raw = json.load(f)
-            self.emotion_map = json_raw["emotion_dict"]
-            self.arousal_map = json_raw["arousal_dict"]
-            self.valence_map = json_raw["valence_dict"]
+            self.emotion_map = json.load(f)
+            # self.arousal_map = json_raw["arousal_dict"]
+            # self.valence_map = json_raw["valence_dict"]
         self.sort = sort
         self.drop_last = drop_last
 
@@ -44,11 +43,13 @@ class Dataset(Dataset):
         speaker_id = self.speaker_map[speaker]
         raw_text = self.raw_text[idx]
         emotion = self.emotion[idx]
+        emotion_id = self.emotion_map[emotion]
         arousal = self.arousal[idx]
         valence = self.valence[idx]
-        emotion_id = self.emotion_map[emotion]
-        arousal_id = self.arousal_map[arousal]
-        valence_id = self.valence_map[valence]
+        dominance = self.dominance[idx]
+        r_norm = self.r_norm[idx]
+        theta = self.theta[idx]
+        phi = self.phi[idx]
         phone = np.array(text_to_sequence(self.text[idx], self.cleaners))
         mel_path = os.path.join(
             self.preprocessed_path,
@@ -79,8 +80,12 @@ class Dataset(Dataset):
             "id": basename,
             "speaker": speaker_id,
             "emotion": emotion_id,
-            "arousal": arousal_id,
-            "valence": valence_id,
+            "arousal": arousal,
+            "valence": valence,
+            "dominance": dominance,
+            "r_norm": r_norm,
+            "theta": theta,
+            "phi": phi,
             "text": phone,
             "raw_text": raw_text,
             "mel": mel,
@@ -101,16 +106,24 @@ class Dataset(Dataset):
             emotion = []
             arousal = []
             valence = []
+            dominance = []
+            r_norm = []
+            theta = []
+            phi = []
             for line in f.readlines():
-                n, s, t, r, e, a, v = line.strip("\n").split("|")
+                n, s, t, r, e, a, v, d, r_n, th, ph = line.strip("\n").split("|")
                 name.append(n)
                 speaker.append(s)
                 text.append(t)
                 raw_text.append(r)
                 emotion.append(e)
-                arousal.append(a)
-                valence.append(v)
-            return name, speaker, text, raw_text, emotion, arousal, valence
+                arousal.append(float(a))
+                valence.append(float(v))
+                dominance.append(float(d))
+                r_norm.append(float(r_n))
+                theta.append(float(th))
+                phi.append(float(ph))
+            return name, speaker, text, raw_text, emotion, arousal, valence, dominance, r_norm, theta, phi
 
     def reprocess(self, data, idxs):
         ids = [data[idx]["id"] for idx in idxs]
@@ -124,6 +137,10 @@ class Dataset(Dataset):
         emotions = [data[idx]["emotion"] for idx in idxs]
         arousals = [data[idx]["arousal"] for idx in idxs]
         valences = [data[idx]["valence"] for idx in idxs]
+        dominances = [data[idx]["dominance"] for idx in idxs]
+        r_norms = [data[idx]["r_norm"] for idx in idxs]
+        thetas = [data[idx]["theta"] for idx in idxs]
+        phis = [data[idx]["phi"] for idx in idxs]
 
         text_lens = np.array([text.shape[0] for text in texts])
         mel_lens = np.array([mel.shape[0] for mel in mels])
@@ -137,11 +154,22 @@ class Dataset(Dataset):
         emotions = np.array(emotions)
         arousals = np.array(arousals)
         valences = np.array(valences)
+        dominances = np.array(dominances)
+        r_norms = np.array(r_norms)
+        thetas = np.array(thetas)
+        phis = np.array(phis)
 
         return (
             ids,
             raw_texts,
             speakers,
+            emotions,
+            arousals,
+            valences,
+            dominances,
+            r_norms,
+            thetas,
+            phis,
             texts,
             text_lens,
             max(text_lens),
@@ -151,9 +179,6 @@ class Dataset(Dataset):
             pitches,
             energies,
             durations,
-            emotions,
-            arousals,
-            valences,
         )
 
     def collate_fn(self, data):
@@ -182,7 +207,7 @@ class TextDataset(Dataset):
     def __init__(self, filepath, preprocess_config):
         self.cleaners = preprocess_config["preprocessing"]["text"]["text_cleaners"]
 
-        self.basename, self.speaker, self.text, self.raw_text, self.emotion, self.arousal, self.valence = self.process_meta(
+        self.basename, self.speaker, self.text, self.raw_text, self.emotion, self.arousal, self.valence, self.dominance, self.r_norm, self.theta, self.phi = self.process_meta(
             filepath
         )
         with open(
@@ -192,12 +217,8 @@ class TextDataset(Dataset):
         ) as f:
             self.speaker_map = json.load(f)
         with open(os.path.join(preprocess_config["path"]["preprocessed_path"], "emotions.json")) as f:
-            json_raw = json.load(f)
-            self.emotion_map = json_raw["emotion_dict"]
-            self.arousal_map = json_raw["arousal_dict"]
-            self.valence_map = json_raw["valence_dict"]
+            self.emotion_map = json.load(f)
             
-
     def __len__(self):
         return len(self.text)
 
@@ -209,12 +230,14 @@ class TextDataset(Dataset):
         emotion = self.emotion[idx]
         emotion_id = self.emotion_map[emotion]
         arousal = self.arousal[idx]
-        arousal_id = self.arousal_map[arousal]
         valence = self.valence[idx]
-        valence_id = self.valence_map[valence]
+        dominance = self.dominance[idx]
+        r_norm = self.r_norm[idx]
+        theta = self.theta[idx]
+        phi = self.phi[idx]
         phone = np.array(text_to_sequence(self.text[idx], self.cleaners))
 
-        return (basename, speaker_id, phone, raw_text, emotion_id, arousal_id, valence_id)
+        return (basename, speaker_id, phone, raw_text, emotion_id, arousal, valence, dominance, r_norm, theta, phi)
 
     def process_meta(self, filename):
         with open(filename, "r", encoding="utf-8") as f:
@@ -225,16 +248,24 @@ class TextDataset(Dataset):
             emotion = []
             arousal = []
             valence = []
+            dominance = []
+            r_norm = []
+            theta = []
+            phi = []
             for line in f.readlines():
-                n, s, t, r, e, a, v = line.strip("\n").split("|")
+                n, s, t, r, e, a, v, d, r_n, th, ph = line.strip("\n").split("|")
                 name.append(n)
                 speaker.append(s)
                 text.append(t)
                 raw_text.append(r)
                 emotion.append(e)
-                arousal.append(a)
-                valence.append(v)
-            return name, speaker, text, raw_text, emotion, arousal, valence
+                arousal.append(float(a))
+                valence.append(float(v))
+                dominance.append(float(d))
+                r_norm.append(float(r_n))
+                theta.append(float(th))
+                phi.append(float(ph))
+            return name, speaker, text, raw_text, emotion, arousal, valence, dominance, r_norm, theta, phi
 
     def collate_fn(self, data):
         ids = [d[0] for d in data]
@@ -244,11 +275,15 @@ class TextDataset(Dataset):
         emotions = np.array([d[4] for d in data])
         arousals = np.array([d[5] for d in data])
         valences = np.array([d[6] for d in data])
+        dominances = np.array([d[7] for d in data])
+        r_norms = np.array([d[8] for d in data])
+        thetas = np.array([d[9] for d in data])
+        phis = np.array([d[10] for d in data])
         text_lens = np.array([text.shape[0] for text in texts])
 
         texts = pad_1D(texts)
 
-        return ids, raw_texts, speakers, texts, text_lens, max(text_lens), emotions, arousals, valences
+        return ids, raw_texts, speakers, emotions, arousals, valences, dominances, r_norms, thetas, phis, texts, text_lens, max(text_lens)
 
 
 if __name__ == "__main__":
