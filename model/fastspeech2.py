@@ -26,6 +26,12 @@ class FastSpeech2(nn.Module):
             preprocess_config["preprocessing"]["mel"]["n_mel_channels"],
         )
         self.postnet = PostNet()
+        self.joint_linear = nn.Sequential(
+                nn.Linear(model_config["transformer"]["encoder_hidden"]*2, model_config["transformer"]["encoder_hidden"]),
+                nn.ReLU(),
+                nn.Dropout(0.3),
+                nn.LayerNorm(model_config["transformer"]["encoder_hidden"])
+            )
 
         self.speaker_emb = None
         if model_config["multi_speaker"]:
@@ -74,15 +80,15 @@ class FastSpeech2(nn.Module):
         output = self.encoder(texts, src_masks)
         
         # 原版
-        if self.speaker_emb is not None:
-            output = output + self.speaker_emb(speakers).unsqueeze(1).expand(
-                -1, max_src_len, -1
-            )
+        # if self.speaker_emb is not None:
+        #     output = output + self.speaker_emb(speakers).unsqueeze(1).expand(
+        #         -1, max_src_len, -1
+        #     )
             
-        output = output + self.spherical_emotion_encoder(r_norms, thetas, phis, emotions).unsqueeze(1).expand(-1, max_src_len, -1)
+        # output = output + self.spherical_emotion_encoder(r_norms, thetas, phis, emotions).unsqueeze(1).expand(-1, max_src_len, -1)
 
         # new_combine
-        # output = output + self.joint_linear(torch.cat([self.speaker_emb(speakers), self.emotion_emb(emotions)], dim=-1)).unsqueeze(1).expand(-1, max_src_len, -1)
+        output = output + self.joint_linear(torch.cat([self.speaker_emb(speakers), self.spherical_emotion_encoder(r_norms, thetas, phis, emotions)], dim=-1)).unsqueeze(1).expand(-1, max_src_len, -1)
 
         (
             output,

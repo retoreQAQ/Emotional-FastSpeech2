@@ -11,7 +11,7 @@ class SphericalEmotionEncoder(nn.Module):
         with open(os.path.join(preprocess_config["path"]["preprocessed_path"], "emotions.json"), "r") as f:
             n_emotion = len(json.load(f))
 
-        self.style_proj = nn.Linear(2, hidden_dim)           # 输入 [θ_norm, φ_norm]
+        self.style_proj = nn.Linear(4, hidden_dim)           # 输入 [θ_norm, φ_norm]
         self.intensity_proj = nn.Linear(1, hidden_dim * 2)       # 输入 r
         self.class_embed = nn.Embedding(n_emotion, hidden_dim)
         self.class_proj = nn.Linear(hidden_dim, hidden_dim)
@@ -29,10 +29,10 @@ class SphericalEmotionEncoder(nn.Module):
         """
 
         # 角度归一化 θ ∈ [0, π] → [–1, 1], φ ∈ [–π, π] → [–1, 1]
-        theta_norm = (theta / math.pi) * 2 - 1     # [–1, 1]
-        phi_norm = phi / math.pi                   # [–1, 1]
+        # theta_norm = (theta / math.pi) * 2 - 1     # [–1, 1]
+        # phi_norm = phi / math.pi                   # [–1, 1]
 
-        style_input = torch.stack([theta_norm, phi_norm], dim=-1)  # [B, 2]
+        style_input = torch.stack([torch.sin(theta), torch.cos(theta), torch.sin(phi), torch.cos(phi)], dim=-1)  # [B, 4]
         h_sty = self.style_proj(style_input)       # [B, D]
 
         r_input = r.unsqueeze(-1)                  # [B, 1]
