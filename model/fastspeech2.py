@@ -32,6 +32,7 @@ class FastSpeech2(nn.Module):
                 nn.Dropout(0.3),
                 nn.LayerNorm(model_config["transformer"]["encoder_hidden"])
             )
+        self.LM_linear = nn.Linear(model_config["transformer"]["encoder_hidden"], preprocess_config["preprocessing"]["mel"]["n_mel_channels"] * 3 * 5)
 
         self.speaker_emb = None
         if model_config["multi_speaker"]:
@@ -112,8 +113,27 @@ class FastSpeech2(nn.Module):
         )
 
         output, mel_masks = self.decoder(output, mel_masks) # [B, T, hidden(256)]
-        output = self.mel_linear(output) # [B, T, mel_dim(80)]
-        postnet_output = self.postnet(output) + output # [B, T, mel_dim(80)]
+        # output = self.mel_linear(output) # [B, T, mel_dim(80)]
+        output = self.LM_linear(output) # [B, T, mel_dim(80)*3*5]
+        # reshape to [B, T, 80, 3 * 5] → [B, T, 80, 15]
+        B, T, _ = output.shape
+        mel_dim = 80
+        K = 5
+        output = output.view(B, T, mel_dim, 3 * K)
+
+        # split mixture parameters
+        mu, log_b, logit_pi = torch.chunk(output, 3, dim=-1)  # [B, T, 80, K]
+
+        # softmax over pi
+        pi = F.softmax(logit_pi, dim=-1)                      # [B, T, 80, K]
+
+        # argmax to get k* (index of max weight)
+        k_star = torch.argmax(pi, dim=-1, keepdim=True)       # [B, T, 80, 1]
+
+        # get mu_{k*} → this is our mel prediction
+        mel_base = torch.gather(mu, dim=-1, index=k_star).squeeze(-1)  # [B, T, 80]
+        postnet_output = self.postnet(mel_base) + mel_base # [B, T, mel_dim(80)]
+
 
         emo_pred = None
 

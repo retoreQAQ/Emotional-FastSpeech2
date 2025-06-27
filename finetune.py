@@ -18,7 +18,7 @@ from model import FastSpeech2Loss
 from dataset import Dataset
 from evaluate import evaluate
 
-@send_error_email
+# @send_error_email
 def main(args, configs):
     
     disable_tqdm = os.environ.get("DISABLE_TQDM", "false").lower() == "true"
@@ -126,15 +126,12 @@ def main(args, configs):
                         "optimizer": optimizer._optimizer.state_dict(),
                     }, ckpt_path)
 
-                if step >= total_step or step == 1200000:
-                    if step == 1200000:
-                        body = "模型训练达到1200000步"
-                    else:
-                        body = "模型训练已经完成，请查收结果。"
+                if step >= total_step:
                     print("Finetuning complete.")
                     end_time = time.time()
                     total_time = (end_time - start_time) / 3600
                     print(f"Total training time: {total_time:.2f} hours")
+                    body = f"模型训练已经完成，请查收结果。\n训练步数：{step}\n训练时间：{total_time:.2f}小时"
                     send_email_gmail(
                         subject="FastSpeech2 训练完成",
                         body=body,
