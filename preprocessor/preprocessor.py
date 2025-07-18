@@ -353,6 +353,6 @@ class Preprocessor:
 
 import yaml
 if __name__ == "__main__":
-    config = yaml.load(open('/home/you/workspace/son/FastSpeech2/config/MSP/preprocess.yaml', "r"), Loader=yaml.FullLoader)
+    config = yaml.load(open('/home/you/workspace/son/FastSpeech2/config/ESD/preprocess.yaml', "r"), Loader=yaml.FullLoader)
     preprocessor = Preprocessor(config)
     preprocessor.build_from_path()

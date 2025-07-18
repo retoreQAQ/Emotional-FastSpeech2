@@ -7,7 +7,7 @@ import torch.nn.functional as F
 
 from transformer import Encoder, Decoder, PostNet
 from .modules import VarianceAdaptor
-from .sphericalEmotionEncoder import SphericalEmotionEncoder
+from .sphericalEmotionEncoder import SphericalEmotionEncoder, SphericalEmotionEncoder_old
 from utils.tools import get_mask_from_lengths
 
 
@@ -32,7 +32,6 @@ class FastSpeech2(nn.Module):
                 nn.Dropout(0.3),
                 nn.LayerNorm(model_config["transformer"]["encoder_hidden"])
             )
-        self.LM_linear = nn.Linear(model_config["transformer"]["encoder_hidden"], preprocess_config["preprocessing"]["mel"]["n_mel_channels"] * 3 * 5)
 
         self.speaker_emb = None
         if model_config["multi_speaker"]:
@@ -45,6 +44,20 @@ class FastSpeech2(nn.Module):
                 n_speaker = len(json.load(f))
             self.speaker_emb = nn.Embedding(
                 n_speaker,
+                model_config["transformer"]["encoder_hidden"],
+            )
+        
+        self.emotion_emb = None
+        if model_config["multi_speaker"]:
+            with open(
+                os.path.join(
+                    preprocess_config["path"]["preprocessed_path"], "emotions.json"
+                ),
+                "r",
+            ) as f:
+                n_emotion = len(json.load(f))
+            self.emotion_emb = nn.Embedding(
+                n_emotion,
                 model_config["transformer"]["encoder_hidden"],
             )
 
@@ -80,9 +93,15 @@ class FastSpeech2(nn.Module):
 
         output = self.encoder(texts, src_masks)
         
-        # 原版
+        # # 原版
         # if self.speaker_emb is not None:
         #     output = output + self.speaker_emb(speakers).unsqueeze(1).expand(
+        #         -1, max_src_len, -1
+        #     )
+        
+        # # 仅emo
+        # if self.emotion_emb is not None:
+        #     output = output + self.emotion_emb(emotions).unsqueeze(1).expand(
         #         -1, max_src_len, -1
         #     )
             
@@ -111,30 +130,23 @@ class FastSpeech2(nn.Module):
             e_control,
             d_control,
         )
-
+        def plot_mel_tensor(mel, title="Mel", save_path=None):
+            import matplotlib.pyplot as plt
+            plt.figure(figsize=(8, 4))
+            plt.imshow(mel.detach().cpu().T, aspect="auto", origin="lower", interpolation="none")
+            plt.colorbar()
+            plt.title(title)
+            plt.tight_layout()
+            if save_path:
+                plt.savefig(save_path)
+                print(f"Saved plot to {save_path}")
+            else:
+                plt.show()
         output, mel_masks = self.decoder(output, mel_masks) # [B, T, hidden(256)]
-        # output = self.mel_linear(output) # [B, T, mel_dim(80)]
-        output = self.LM_linear(output) # [B, T, mel_dim(80)*3*5]
-        # reshape to [B, T, 80, 3 * 5] → [B, T, 80, 15]
-        B, T, _ = output.shape
-        mel_dim = 80
-        K = 5
-        output = output.view(B, T, mel_dim, 3 * K)
-
-        # split mixture parameters
-        mu, log_b, logit_pi = torch.chunk(output, 3, dim=-1)  # [B, T, 80, K]
-
-        # softmax over pi
-        pi = F.softmax(logit_pi, dim=-1)                      # [B, T, 80, K]
-
-        # argmax to get k* (index of max weight)
-        k_star = torch.argmax(pi, dim=-1, keepdim=True)       # [B, T, 80, 1]
-
-        # get mu_{k*} → this is our mel prediction
-        mel_base = torch.gather(mu, dim=-1, index=k_star).squeeze(-1)  # [B, T, 80]
-        postnet_output = self.postnet(mel_base) + mel_base # [B, T, mel_dim(80)]
-
-
+        output = self.mel_linear(output) # [B, T, mel_dim(80)]
+        # plot_mel_tensor(mel_base[0], "mel_base", save_path="mel_base.png")
+        postnet_output = self.postnet(output) + output # [B, T, mel_dim(80)]
+        # plot_mel_tensor(postnet_output[0], "mel_post", save_path="mel_post.png")
         emo_pred = None
 
         return (

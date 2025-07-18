@@ -167,6 +167,30 @@ if __name__ == "__main__":
         help="valence level (1-7, from negative to positive)",
     )
     parser.add_argument(
+        "--dominance",
+        type=str,
+        default='0',
+        help="dominance level (1-7, from low to high)",
+    )
+    parser.add_argument(
+        "--r_norm",
+        type=str,
+        default='0',
+        help="r_norm level (0-1, from low to high)",
+    )
+    parser.add_argument(
+        "--theta",
+        type=str,
+        default='0',
+        help="theta",
+    )
+    parser.add_argument(
+        "--phi",
+        type=str,
+        default='0',
+        help="phi",
+    )
+    parser.add_argument(
         "-p",
         "--preprocess_config",
         type=str,
@@ -243,7 +267,7 @@ if __name__ == "__main__":
             os.path.join(preprocess_config["path"]["preprocessed_path"], "emotions.json")
         ) as f:
             mapping = json.load(f)
-        emotions = np.array([mapping["emotion_dict"][args.emotion]])
+        emotions = np.array([mapping[args.emotion]])
         arousals = np.array([mapping["arousal_dict"][args.arousal]])
         valences = np.array([mapping["valence_dict"][args.valence]])
         if preprocess_config["preprocessing"]["text"]["language"] == "en":

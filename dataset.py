@@ -256,6 +256,8 @@ class TextDataset(Dataset):
                 n, s, t, r, e, a, v, d, r_n, th, ph = line.strip("\n").split("|")
                 name.append(n)
                 speaker.append(s)
+                if t is "":
+                    t = np.array([preprocess_english(args.text, preprocess_config)])
                 text.append(t)
                 raw_text.append(r)
                 emotion.append(e)

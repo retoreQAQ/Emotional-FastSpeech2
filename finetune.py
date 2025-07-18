@@ -18,7 +18,7 @@ from model import FastSpeech2Loss
 from dataset import Dataset
 from evaluate import evaluate
 
-# @send_error_email
+@send_error_email
 def main(args, configs):
     
     disable_tqdm = os.environ.get("DISABLE_TQDM", "false").lower() == "true"

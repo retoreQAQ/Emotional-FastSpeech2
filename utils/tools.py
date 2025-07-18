@@ -193,11 +193,18 @@ def synth_one_sample(targets, predictions, vocoder, model_config, preprocess_con
 
 def synth_samples(targets, predictions, vocoder, model_config, preprocess_config, path):
     basenames = targets[0]
-    for i in range(len(basenames)):
-        basenames[i] = f"{basenames[i]}"
+    speakers = targets[2]
+    with open(
+        os.path.join(preprocess_config["path"]["preprocessed_path"], "speakers.json")
+    ) as f:
+        speaker_mapping = json.load(f)
+    speaker_inv = {v:k for k,v in speaker_mapping.items()}
     
     for i in range(len(predictions[0])):
         basename = basenames[i]
+        speaker = speaker_inv[speakers[i].item()]
+        save_path = path + "/{}".format(speaker)
+        os.makedirs(save_path, exist_ok=True)
         src_len = predictions[8][i].item()
         mel_len = predictions[9][i].item()
         mel_prediction = predictions[1][i, :mel_len].detach().transpose(0, 1)
@@ -224,7 +231,7 @@ def synth_samples(targets, predictions, vocoder, model_config, preprocess_config
             stats,
             ["Synthetized Spectrogram"],
         )
-        plt.savefig(os.path.join(path, "{}.png".format(basename)))
+        plt.savefig(os.path.join(save_path, "{}.png".format(basename)))
         plt.close()
 
     from .model import vocoder_infer
@@ -237,7 +244,7 @@ def synth_samples(targets, predictions, vocoder, model_config, preprocess_config
 
     sampling_rate = preprocess_config["preprocessing"]["audio"]["sampling_rate"]
     for wav, basename in zip(wav_predictions, basenames):
-        wavfile.write(os.path.join(path, "{}.wav".format(basename)), sampling_rate, wav)
+        wavfile.write(os.path.join(save_path, "{}.wav".format(basename)), sampling_rate, wav)
 
 
 def plot_mel(data, stats, titles):

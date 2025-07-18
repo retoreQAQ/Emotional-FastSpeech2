@@ -5,37 +5,6 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-class LaplaceMixtureLoss(nn.Module):
-    def __init__(self, num_components=5, eps=1e-6):
-        super().__init__()
-        self.K = num_components
-        self.eps = eps
-
-    def forward(self, y_pred, target):
-        """
-        y_pred: [B, T, F, 3*K] -> output from decoder
-            The last dim represents (mu, log_b, logit_pi) for each mixture component
-        target: [B, T, F] -> ground truth mel
-        """
-        B, T, D, _ = y_pred.shape
-        K = self.K
-
-        y = target.unsqueeze(-1)  # [B, T, F, 1]
-
-        mu, log_b, logit_pi = torch.chunk(y_pred, 3, dim=-1)  # each is [B, T, F, K]
-        b = torch.exp(log_b).clamp(min=self.eps)
-        pi = F.softmax(logit_pi, dim=-1)  # mixture weights
-
-        # Compute the log prob of each mixture component
-        log_prob = -torch.abs(y - mu) / b - torch.log(2 * b + self.eps)  # [B, T, F, K]
-        log_prob_weighted = log_prob + torch.log(pi + self.eps)          # log(pi * P(y))
-        log_sum = torch.logsumexp(log_prob_weighted, dim=-1)             # sum over K
-
-        # Negative log-likelihood
-        loss = -log_sum.mean()
-        return loss
-
-
 class FastSpeech2Loss(nn.Module):
     """ FastSpeech2 Loss """
 
@@ -49,7 +18,6 @@ class FastSpeech2Loss(nn.Module):
         ]
         self.mse_loss = nn.MSELoss()
         self.mae_loss = nn.L1Loss()
-        self.lm_loss = LaplaceMixtureLoss()
         self.pitch_loss_weight = model_config["loss"]["pitch_loss_weight"]
 
         self.use_emo_classifier = model_config.get("use_emo_classifier", False)
@@ -143,8 +111,7 @@ class FastSpeech2Loss(nn.Module):
             delta_loss += 0.5 * self.mae_loss(delta2_pred, delta2_tgt)
         else:
         # 原loss
-            # mel_loss = self.mae_loss(mel_predictions, mel_targets)
-            mel_loss = self.lm_loss(mel_predictions, mel_targets)
+            mel_loss = self.mae_loss(mel_predictions, mel_targets)
             postnet_mel_loss = self.mae_loss(postnet_mel_predictions, mel_targets)
             delta_loss = torch.tensor(0.0).to(mel_targets.device)
 
